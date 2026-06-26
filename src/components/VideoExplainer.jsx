@@ -1,181 +1,277 @@
-import { useState, useEffect } from 'react'
-import { X, Play, ChevronLeft, ChevronRight, Video } from 'lucide-react'
+import { useState, useEffect, useCallback } from 'react'
+import { createPortal } from 'react-dom'
+import { X, ChevronLeft, ChevronRight, Video, Pause, Play } from 'lucide-react'
 
-const explanations = {
+const SLIDES = {
   readiness: {
-    title: 'What is your Business Readiness Score?',
+    title:   'What is your Business Readiness Score?',
     titleAr: 'ما هو مؤشر جاهزية عملك؟',
+    color: '#f59e0b',
     slides: [
-      { emoji:'📊', text:'Your Business Readiness Score tells you how prepared you are to start right now — based on your idea, budget, location, and experience.', textAr:'مؤشر الجاهزية يخبرك كم أنت مستعد للبدء الآن — بناءً على فكرتك وميزانيتك وموقعك وخبرتك.' },
-      { emoji:'🟢', text:'A score above 70 means you have strong foundations. You are ready to take your first action this week.', textAr:'نتيجة فوق 70 تعني أن لديك أسساً قوية. أنت جاهز لاتخاذ خطوتك الأولى هذا الأسبوع.' },
-      { emoji:'🟡', text:'A score between 50–70 means you can start, but you should validate your idea first before spending money.', textAr:'نتيجة بين 50-70 تعني أنك تستطيع البدء، لكن يجب التحقق من فكرتك أولاً قبل إنفاق المال.' },
-      { emoji:'💡', text:'To increase your score: define your customers clearly, keep your budget realistic, and take one action at a time.', textAr:'لرفع نتيجتك: حدد عملاءك بوضوح، واجعل ميزانيتك واقعية، واتخذ خطوة واحدة في كل مرة.' },
-    ]
+      { emoji:'📊', en:'Your Business Readiness Score shows how prepared you are to start — based on your idea, budget, location, and experience.', ar:'مؤشر الجاهزية يخبرك كم أنت مستعد للبدء — بناءً على فكرتك وميزانيتك وموقعك وخبرتك.' },
+      { emoji:'🟢', en:'A score above 70 means strong foundations. You are ready to take your first action this week.', ar:'نتيجة فوق 70 تعني أسساً قوية. أنت جاهز لاتخاذ خطوتك الأولى هذا الأسبوع.' },
+      { emoji:'🟡', en:'A score between 50–70 means you can start, but validate your idea before spending money.', ar:'نتيجة 50-70 تعني أنك تستطيع البدء، لكن تحقق من فكرتك قبل إنفاق المال.' },
+      { emoji:'💡', en:'To increase your score: define your customers, keep costs realistic, and take one step at a time.', ar:'لرفع نتيجتك: حدد عملاءك، وابقِ التكاليف واقعية، واتخذ خطوة واحدة في كل مرة.' },
+    ],
   },
   firstAction: {
-    title: 'Why is this your First Action?',
+    title:   'Why is this your First Action?',
     titleAr: 'لماذا هذه هي خطوتك الأولى؟',
+    color: '#fbbf24',
     slides: [
-      { emoji:'🎯', text:'Your First Action is the single most important thing you can do right now. It was chosen because it costs almost nothing and gives you the most information.', textAr:'خطوتك الأولى هي أهم شيء يمكنك فعله الآن. تم اختيارها لأنها لا تكلف شيئاً تقريباً وتعطيك أكثر المعلومات.' },
-      { emoji:'🧪', text:'Before spending any money, you need to know if real people will actually buy your product. This action tests demand without financial risk.', textAr:'قبل إنفاق أي أموال، تحتاج إلى معرفة ما إذا كان الناس سيشترون منتجك فعلاً. هذه الخطوة تختبر الطلب بدون خطر مالي.' },
-      { emoji:'💬', text:'Talk to 10 real people. Ask: "Would you buy this? How much would you pay?" Their answers are worth more than any business plan.', textAr:'تحدث مع 10 أشخاص حقيقيين. اسأل: "هل ستشتري هذا؟ كم ستدفع؟" إجاباتهم تساوي أكثر من أي خطة عمل.' },
-      { emoji:'🚀', text:'If 7 out of 10 people say YES — that is your green light to move forward with confidence.', textAr:'إذا قال 7 من أصل 10 أشخاص نعم — هذا هو ضوءك الأخضر للمضي قدماً بثقة.' },
-    ]
+      { emoji:'🎯', en:'Your First Action was chosen because it costs almost nothing and gives you the most useful information before spending.', ar:'تم اختيار خطوتك الأولى لأنها لا تكلف تقريباً شيئاً وتعطيك أكثر المعلومات قبل الإنفاق.' },
+      { emoji:'🧪', en:'Before spending money, you need to know if real people will actually buy. This action tests demand with zero financial risk.', ar:'قبل الإنفاق، تحتاج معرفة ما إذا كان الناس سيشترون فعلاً. هذه الخطوة تختبر الطلب بلا خطر مالي.' },
+      { emoji:'💬', en:'Talk to 10 real people. Ask: "Would you buy this? How much would you pay?" Their answers are worth more than any business plan.', ar:'تحدث مع 10 أشخاص. اسأل: "هل ستشتري هذا؟ كم ستدفع؟" إجاباتهم تساوي أكثر من أي خطة عمل.' },
+      { emoji:'🚀', en:'If 7 out of 10 say YES — that is your green light to move forward with confidence.', ar:'إذا قال 7 من أصل 10 نعم — هذا هو ضوءك الأخضر للمضي قدماً بثقة.' },
+    ],
   },
   riskScore: {
-    title: 'What is your Risk Score?',
+    title:   'What is your Risk Score?',
     titleAr: 'ما هو مؤشر المخاطر؟',
+    color: '#fb923c',
     slides: [
-      { emoji:'🛡️', text:'Your Risk Score measures how risky your current situation is. A lower score means lower risk — which is better at the start.', textAr:'مؤشر المخاطر يقيس مدى خطورة وضعك الحالي. النتيجة الأقل تعني مخاطر أقل — وهذا أفضل في البداية.' },
-      { emoji:'⚠️', text:'High risk does NOT mean you should stop. It means you should be careful — test before spending, validate before registering.', textAr:'المخاطر العالية لا تعني أنك يجب أن تتوقف. تعني أنك يجب أن تكون حذراً — اختبر قبل الإنفاق، تحقق قبل التسجيل.' },
-      { emoji:'📉', text:'You can reduce your risk by: validating with real customers, keeping costs low, and taking small steps.', textAr:'يمكنك تقليل مخاطرك بـ: التحقق مع عملاء حقيقيين، وإبقاء التكاليف منخفضة، واتخاذ خطوات صغيرة.' },
-      { emoji:'✅', text:'Most successful businesses started in high-risk situations. The difference is they tested and adapted quickly.', textAr:'معظم الأعمال الناجحة بدأت في ظروف عالية المخاطر. الفرق أنهم اختبروا وتكيفوا بسرعة.' },
-    ]
-  },
-  license: {
-    title: 'How do I register a business in the UAE?',
-    titleAr: 'كيف أسجل عملاً تجارياً في الإمارات؟',
-    slides: [
-      { emoji:'📋', text:'Step 1: Validate your idea first. Do NOT register before you have paying customers. Registration costs money — validate first, register second.', textAr:'الخطوة 1: تحقق من فكرتك أولاً. لا تسجل قبل أن يكون لديك عملاء يدفعون. التسجيل يكلف مالاً — تحقق أولاً، سجل ثانياً.' },
-      { emoji:'🏛️', text:'Step 2: Choose your licence type. For home businesses in Abu Dhabi, apply for a Home-Based Business licence from ADDED (Abu Dhabi Department of Economic Development).', textAr:'الخطوة 2: اختر نوع الرخصة. للأعمال المنزلية في أبوظبي، تقدم بطلب رخصة عمل منزلي من دائرة التنمية الاقتصادية.' },
-      { emoji:'🍽️', text:'Step 3: For food businesses — get your Food Safety Certificate from ADAFSA first. This is required before selling any food publicly.', textAr:'الخطوة 3: لأعمال الطعام — احصل على شهادة سلامة الغذاء من أدافسا أولاً. هذا مطلوب قبل بيع أي طعام للعامة.' },
-      { emoji:'💵', text:'Cost: A basic trade licence in Abu Dhabi typically costs AED 1,000–3,000. Wait until your business is making money before spending on registration.', textAr:'التكلفة: رخصة تجارية أساسية في أبوظبي تكلف عادةً 1,000-3,000 درهم. انتظر حتى يكسب عملك المال قبل الإنفاق على التسجيل.' },
-    ]
-  },
-  funding: {
-    title: 'How can I apply for funding?',
-    titleAr: 'كيف أتقدم للحصول على تمويل؟',
-    slides: [
-      { emoji:'💰', text:'The best time to apply for funding is AFTER you have validated your idea and made your first sales. Funders want proof, not just ideas.', textAr:'أفضل وقت للتقدم للتمويل هو بعد التحقق من فكرتك وتحقيق مبيعاتك الأولى. الممولون يريدون دليلاً، وليس مجرد أفكار.' },
-      { emoji:'🏆', text:'Khalifa Fund for Enterprise Development — supports UAE nationals with small business funding. Apply at khalifafund.ae after your first 10 customers.', textAr:'صندوق خليفة لتطوير المشاريع — يدعم المواطنين الإماراتيين بتمويل الأعمال الصغيرة. تقدم بطلبك بعد أول 10 عملاء.' },
-      { emoji:'📄', text:'What you need: A simple business summary, 3 months of sales records, your Emirates ID, and a clear plan for how you will use the money.', textAr:'ما تحتاجه: ملخص عمل بسيط، وسجلات مبيعات لمدة 3 أشهر، وهويتك الإماراتية، وخطة واضحة لكيفية استخدام المال.' },
-      { emoji:'🌟', text:'Tip: Start with the Rural Business Grant from Al Ain — it has less competition and is designed for communities like Al Qua\'a.', textAr:'نصيحة: ابدأ بمنحة الأعمال الريفية من العين — المنافسة فيها أقل وهي مصممة لمجتمعات مثل الدحدار.' },
-    ]
+      { emoji:'🛡️', en:'Your Risk Score measures how risky your current situation is. A lower score means lower risk — better at the start.', ar:'مؤشر المخاطر يقيس مدى خطورة وضعك الحالي. النتيجة الأقل تعني مخاطر أقل — أفضل في البداية.' },
+      { emoji:'⚠️', en:'High risk does NOT mean stop. It means be careful — test before spending, validate before registering.', ar:'المخاطر العالية لا تعني التوقف. تعني الحذر — اختبر قبل الإنفاق، وتحقق قبل التسجيل.' },
+      { emoji:'📉', en:'You can reduce risk by: testing with real customers, keeping costs low, and taking small steps.', ar:'يمكنك تقليل مخاطرك بـ: الاختبار مع عملاء حقيقيين، وإبقاء التكاليف منخفضة، واتخاذ خطوات صغيرة.' },
+      { emoji:'✅', en:'Most successful businesses started in high-risk situations. They tested quickly and adapted fast.', ar:'معظم الأعمال الناجحة بدأت في ظروف عالية المخاطر. اختبروا بسرعة وتكيفوا بسرعة.' },
+    ],
   },
   communityFit: {
-    title: 'What is Community Fit?',
+    title:   'What is Community Fit?',
     titleAr: 'ما هو مدى ملاءمة المجتمع؟',
+    color: '#a78bfa',
     slides: [
-      { emoji:'🏘️', text:'Community Fit measures how well your idea matches the needs and culture of people in Al Qua\'a and the surrounding area.', textAr:'مدى ملاءمة المجتمع يقيس مدى توافق فكرتك مع احتياجات وثقافة الناس في الدحدار والمنطقة المحيطة.' },
-      { emoji:'🐪', text:'Al Qua\'a has unique assets: camel farming, dark skies, desert landscapes, strong family networks, and agricultural traditions. A high Community Fit means your idea uses these strengths.', textAr:'الدحدار لديها مزايا فريدة: مزارع الإبل، والسماء المظلمة، والمناظر الصحراوية، وشبكات الأسرة القوية، والتقاليد الزراعية.' },
-      { emoji:'🤝', text:'In Al Qua\'a, trust is everything. People buy from people they know. A business with high Community Fit uses this trust as its biggest advantage.', textAr:'في الدحدار، الثقة هي كل شيء. الناس يشترون من أشخاص يعرفونهم. عمل بملاءمة مجتمعية عالية يستخدم هذه الثقة كأكبر ميزة له.' },
-      { emoji:'📈', text:'To increase your Community Fit: offer something local people actually need, use local ingredients or skills, and serve in Arabic.', textAr:'لزيادة ملاءمتك للمجتمع: قدم شيئاً يحتاجه السكان المحليون فعلاً، واستخدم مكونات أو مهارات محلية، وقدم الخدمة باللغة العربية.' },
-    ]
+      { emoji:'🏘️', en:"Community Fit measures how well your idea matches the needs and culture of people in Al Qua'a.", ar:'مدى ملاءمة المجتمع يقيس كيف تتوافق فكرتك مع احتياجات وثقافة الناس في الدحدار.' },
+      { emoji:'🐪', en:"Al Qua'a has unique assets: camel farming, dark skies, desert landscapes, and strong family networks. High Community Fit uses these.", ar:'الدحدار لديها مزايا فريدة: مزارع الإبل، والسماء المظلمة، والمناظر الصحراوية، وشبكات الأسرة القوية.' },
+      { emoji:'🤝', en:'In Al Qua\'a, people buy from people they know. Community trust is your biggest competitive advantage.', ar:'في الدحدار، الناس يشترون من أشخاص يعرفونهم. الثقة المجتمعية هي أكبر ميزة تنافسية لديك.' },
+      { emoji:'📈', en:'To increase Community Fit: offer what locals need, use local ingredients or skills, and serve in Arabic.', ar:'لزيادة ملاءمتك: قدم ما يحتاجه السكان المحليون، واستخدم مكونات محلية، وقدم الخدمة بالعربية.' },
+    ],
+  },
+  license: {
+    title:   'How do I register a business in the UAE?',
+    titleAr: 'كيف أسجل عملاً تجارياً في الإمارات؟',
+    color: '#34d399',
+    slides: [
+      { emoji:'📋', en:'Step 1: Validate your idea first. Do NOT register before you have paying customers. Registration costs money — validate first.', ar:'الخطوة 1: تحقق من فكرتك أولاً. لا تسجل قبل أن يكون لديك عملاء يدفعون. التسجيل يكلف مالاً.' },
+      { emoji:'🏛️', en:'Step 2: Choose your licence type. For home businesses in Abu Dhabi, apply for a Home-Based Business licence from ADDED.', ar:'الخطوة 2: اختر نوع الرخصة. للأعمال المنزلية في أبوظبي، تقدم بطلب رخصة عمل منزلي من دائرة التنمية الاقتصادية.' },
+      { emoji:'🍽️', en:'Step 3: For food businesses — get your Food Safety Certificate from ADAFSA before selling publicly.', ar:'الخطوة 3: لأعمال الطعام — احصل على شهادة سلامة الغذاء من أدافسا قبل البيع للعامة.' },
+      { emoji:'💵', en:'Cost: A basic trade licence in Abu Dhabi costs AED 1,000–3,000. Wait until your business earns money first.', ar:'التكلفة: رخصة تجارية أساسية في أبوظبي تكلف 1,000-3,000 درهم. انتظر حتى يكسب عملك المال أولاً.' },
+    ],
+  },
+  funding: {
+    title:   'How can I apply for funding?',
+    titleAr: 'كيف أتقدم للحصول على تمويل؟',
+    color: '#f59e0b',
+    slides: [
+      { emoji:'💰', en:'The best time to apply for funding is AFTER you have validated your idea and made your first sales. Funders want proof.', ar:'أفضل وقت للتقدم للتمويل هو بعد التحقق من فكرتك وتحقيق مبيعاتك الأولى. الممولون يريدون دليلاً.' },
+      { emoji:'🏆', en:'Khalifa Fund for Enterprise Development — supports UAE nationals with small business funding. Apply after your first 10 customers.', ar:'صندوق خليفة لتطوير المشاريع — يدعم المواطنين الإماراتيين. تقدم بطلبك بعد أول 10 عملاء.' },
+      { emoji:'📄', en:'What you need: A simple business summary, 3 months of sales records, your Emirates ID, and a plan for using the funds.', ar:'ما تحتاجه: ملخص عمل بسيط، وسجلات مبيعات لمدة 3 أشهر، وهويتك الإماراتية، وخطة لاستخدام المال.' },
+      { emoji:'🌟', en:"Tip: Start with the Rural Business Grant from Al Ain — less competition, designed for communities like Al Qua'a.", ar:'نصيحة: ابدأ بمنحة الأعمال الريفية من العين — المنافسة فيها أقل وهي مصممة لمجتمعات مثل الدحدار.' },
+    ],
   },
 }
 
-export default function VideoExplainer({ topic, children, color = '#f59e0b' }) {
-  const [open, setOpen] = useState(false)
-  const [slide, setSlide] = useState(0)
-  const [arabic, setArabic] = useState(false)
-  const [playing, setPlaying] = useState(false)
-  const ex = explanations[topic]
-  if (!ex) return children || null
+// ── Modal rendered via portal directly into document.body ──────────────────
+function Modal({ ex, onClose }) {
+  const [slide,   setSlide]   = useState(0)
+  const [arabic,  setArabic]  = useState(false)
+  const [playing, setPlaying] = useState(true)
+  const [visible, setVisible] = useState(false)
 
-  const openModal = () => { setOpen(true); setSlide(0); setPlaying(true) }
-  const close     = () => { setOpen(false); setSlide(0); setPlaying(false) }
-  const next = () => setSlide(s => Math.min(s + 1, ex.slides.length - 1))
-  const prev = () => setSlide(s => Math.max(s - 1, 0))
+  // Mount animation
+  useEffect(() => { requestAnimationFrame(() => setVisible(true)) }, [])
 
   // Auto-advance
   useEffect(() => {
-    if (!open || !playing) return
+    if (!playing) return
     if (slide >= ex.slides.length - 1) { setPlaying(false); return }
-    const t = setTimeout(next, 3500)
+    const t = setTimeout(() => setSlide(s => s + 1), 3800)
     return () => clearTimeout(t)
-  }, [open, playing, slide])
+  }, [slide, playing, ex.slides.length])
 
-  const current = ex.slides[slide]
+  // Close on Escape
+  useEffect(() => {
+    const fn = (e) => { if (e.key === 'Escape') handleClose() }
+    window.addEventListener('keydown', fn)
+    return () => window.removeEventListener('keydown', fn)
+  }, [])
+
+  // Prevent body scroll while open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [])
+
+  const handleClose = useCallback(() => {
+    setVisible(false)
+    setTimeout(onClose, 280)
+  }, [onClose])
+
+  const next = () => { setSlide(s => Math.min(s + 1, ex.slides.length - 1)); setPlaying(false) }
+  const prev = () => { setSlide(s => Math.max(s - 1, 0)); setPlaying(false) }
+  const cur  = ex.slides[slide]
+
+  return (
+    <div
+      onClick={e => { if (e.target === e.currentTarget) handleClose() }}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 99999,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: '20px',
+        background: visible ? 'rgba(0,0,0,0.82)' : 'rgba(0,0,0,0)',
+        backdropFilter: visible ? 'blur(10px)' : 'blur(0px)',
+        transition: 'background 0.28s ease, backdrop-filter 0.28s ease',
+      }}
+    >
+      <div style={{
+        width: '100%', maxWidth: 500,
+        borderRadius: 24, overflow: 'hidden',
+        background: 'rgba(6,2,24,0.98)',
+        border: `1px solid ${ex.color}40`,
+        boxShadow: `0 0 80px ${ex.color}20, 0 32px 64px rgba(0,0,0,0.6)`,
+        transform: visible ? 'translateY(0) scale(1)' : 'translateY(24px) scale(0.96)',
+        opacity: visible ? 1 : 0,
+        transition: 'transform 0.3s cubic-bezier(0.34,1.2,0.64,1), opacity 0.28s ease',
+      }}>
+
+        {/* Header */}
+        <div style={{ padding:'18px 20px 16px', borderBottom:`1px solid ${ex.color}18`, display:'flex', alignItems:'flex-start', justifyContent:'space-between', gap:12 }}>
+          <div>
+            <div style={{ display:'flex', alignItems:'center', gap:6, marginBottom:5 }}>
+              <Video size={13} style={{ color: ex.color }} />
+              <span style={{ color:`${ex.color}99`, fontSize:10, fontWeight:700, textTransform:'uppercase', letterSpacing:'0.09em' }}>
+                Bedaya AI Explains
+              </span>
+            </div>
+            <h3 style={{ color:'#fef9ee', fontSize:14, fontWeight:800, lineHeight:1.35, margin:0 }}>
+              {arabic ? ex.titleAr : ex.title}
+            </h3>
+          </div>
+          <div style={{ display:'flex', gap:8, flexShrink:0 }}>
+            <button onClick={() => setArabic(a => !a)} style={{
+              padding:'5px 10px', borderRadius:8, fontSize:11, fontWeight:700,
+              cursor:'pointer', border:`1px solid ${ex.color}25`,
+              background:`${ex.color}12`, color: ex.color,
+            }}>
+              {arabic ? '🇬🇧 EN' : '🇦🇪 AR'}
+            </button>
+            <button onClick={handleClose} style={{
+              width:30, height:30, borderRadius:9,
+              display:'flex', alignItems:'center', justifyContent:'center',
+              cursor:'pointer', border:'1px solid rgba(255,255,255,0.08)',
+              background:'rgba(255,255,255,0.05)', color:'#94a3b8',
+            }}>
+              <X size={14} />
+            </button>
+          </div>
+        </div>
+
+        {/* Slide */}
+        <div style={{ padding:'36px 28px 28px', textAlign:'center', minHeight:220 }}>
+          <div key={`emoji-${slide}`} style={{ fontSize:68, marginBottom:22, display:'inline-block',
+            animation:'floatY 2.5s ease-in-out infinite' }}>
+            {cur.emoji}
+          </div>
+          <p key={`text-${slide}`} style={{
+            color:'#f1ece0', fontSize:15, lineHeight:1.85, margin:0,
+            direction: arabic ? 'rtl' : 'ltr',
+            animation:'fadeUp 0.35s ease both',
+          }}>
+            {arabic ? cur.ar : cur.en}
+          </p>
+        </div>
+
+        {/* Progress dots */}
+        <div style={{ display:'flex', justifyContent:'center', gap:7, paddingBottom:4 }}>
+          {ex.slides.map((_, i) => (
+            <button key={i} onClick={() => { setSlide(i); setPlaying(false) }} style={{
+              width: i === slide ? 22 : 7, height: 7, borderRadius: 99,
+              border: 'none', cursor: 'pointer', transition: 'all 0.3s',
+              background: i === slide ? ex.color : 'rgba(255,255,255,0.15)',
+            }} />
+          ))}
+        </div>
+
+        {/* Slide counter */}
+        <p style={{ textAlign:'center', color:'rgba(255,255,255,0.2)', fontSize:11, marginTop:6 }}>
+          {slide + 1} / {ex.slides.length}
+        </p>
+
+        {/* Controls */}
+        <div style={{ padding:'12px 20px 20px', display:'flex', gap:10, alignItems:'center' }}>
+          <button onClick={prev} disabled={slide === 0} style={{
+            width:40, height:40, borderRadius:12, flexShrink:0,
+            display:'flex', alignItems:'center', justifyContent:'center',
+            cursor: slide === 0 ? 'not-allowed' : 'pointer',
+            border:`1px solid ${slide === 0 ? 'rgba(255,255,255,0.06)' : ex.color+'30'}`,
+            background:`${ex.color}0a`,
+            color: slide === 0 ? 'rgba(255,255,255,0.15)' : ex.color,
+            transition:'all 0.2s',
+          }}>
+            <ChevronLeft size={18} />
+          </button>
+
+          <button onClick={() => setPlaying(p => !p)} style={{
+            flex:1, padding:'11px', borderRadius:12, cursor:'pointer',
+            border:'none', fontWeight:700, fontSize:13, transition:'all 0.2s',
+            background: playing ? `${ex.color}18` : `linear-gradient(135deg,${ex.color}cc,${ex.color})`,
+            color: playing ? ex.color : '#1a0a00',
+            border: `1px solid ${ex.color}30`,
+            display:'flex', alignItems:'center', justifyContent:'center', gap:6,
+          }}>
+            {playing ? <><Pause size={14} /> Pause</> : <><Play size={14} /> Play</>}
+          </button>
+
+          <button
+            onClick={slide === ex.slides.length - 1 ? handleClose : next}
+            style={{
+              width:40, height:40, borderRadius:12, flexShrink:0,
+              display:'flex', alignItems:'center', justifyContent:'center',
+              cursor:'pointer', border:'none', transition:'all 0.2s',
+              background: slide === ex.slides.length - 1
+                ? `linear-gradient(135deg,${ex.color}cc,${ex.color})`
+                : `${ex.color}18`,
+              color: slide === ex.slides.length - 1 ? '#1a0a00' : ex.color,
+              border:`1px solid ${ex.color}30`,
+            }}>
+            {slide === ex.slides.length - 1 ? <X size={15} /> : <ChevronRight size={18} />}
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ── Trigger button ─────────────────────────────────────────────────────────
+export default function VideoExplainer({ topic, color }) {
+  const [open, setOpen] = useState(false)
+  const ex = SLIDES[topic]
+  if (!ex) return null
+
+  const btnColor = color || ex.color
 
   return (
     <>
-      {/* Trigger button */}
-      <button onClick={openModal}
-        style={{ display:'inline-flex', alignItems:'center', gap:6, padding:'5px 12px', borderRadius:99, fontSize:11, fontWeight:700, cursor:'pointer', border:'none', transition:'all 0.2s',
-          background:`${color}15`, color, border:`1px solid ${color}25` }}
-        title="Watch explanation">
-        <Video size={12} />
+      <button
+        onClick={() => setOpen(true)}
+        style={{
+          display:'inline-flex', alignItems:'center', gap:5,
+          padding:'4px 11px', borderRadius:99, fontSize:11, fontWeight:700,
+          cursor:'pointer', transition:'all 0.2s',
+          background:`${btnColor}12`, color: btnColor,
+          border:`1px solid ${btnColor}28`,
+        }}
+        title={`Watch: ${ex.title}`}
+      >
+        <Video size={11} />
         Watch Explanation 🎥
       </button>
 
-      {/* Modal overlay */}
-      {open && (
-        <div style={{ position:'fixed', inset:0, zIndex:1000, display:'flex', alignItems:'center', justifyContent:'center', padding:20, background:'rgba(0,0,0,0.85)', backdropFilter:'blur(8px)' }}
-          onClick={e => { if (e.target === e.currentTarget) close() }}>
-
-          <div style={{ width:'100%', maxWidth:520, borderRadius:24, overflow:'hidden', background:'rgba(6,2,24,0.97)', border:'1px solid rgba(245,158,11,0.3)', boxShadow:`0 0 60px rgba(245,158,11,0.15)` }}
-            className="animate-scale-in">
-
-            {/* Header */}
-            <div style={{ padding:'18px 22px', borderBottom:'1px solid rgba(255,210,80,0.1)', display:'flex', alignItems:'center', justifyContent:'space-between', gap:12 }}>
-              <div>
-                <div style={{ display:'flex', alignItems:'center', gap:6, marginBottom:4 }}>
-                  <Video size={13} style={{ color:'#f59e0b' }} />
-                  <span style={{ color:'rgba(253,230,138,0.5)', fontSize:10, fontWeight:700, textTransform:'uppercase', letterSpacing:'0.08em' }}>Bedaya AI Explains</span>
-                </div>
-                <h3 style={{ color:'#fef9ee', fontSize:14, fontWeight:800, lineHeight:1.3 }}>
-                  {arabic ? ex.titleAr : ex.title}
-                </h3>
-              </div>
-              <div style={{ display:'flex', gap:8, flexShrink:0 }}>
-                {/* Lang toggle */}
-                <button onClick={() => setArabic(!arabic)}
-                  style={{ padding:'5px 10px', borderRadius:8, fontSize:11, fontWeight:700, cursor:'pointer', border:'1px solid rgba(255,210,80,0.2)', background:'rgba(245,158,11,0.1)', color:'#fde68a' }}>
-                  {arabic ? '🇬🇧 EN' : '🇦🇪 AR'}
-                </button>
-                <button onClick={close}
-                  style={{ width:32, height:32, borderRadius:10, display:'flex', alignItems:'center', justifyContent:'center', cursor:'pointer', border:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.05)', color:'#94a3b8' }}>
-                  <X size={15} />
-                </button>
-              </div>
-            </div>
-
-            {/* Slide content */}
-            <div style={{ padding:'32px 28px', minHeight:220, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', textAlign:'center' }}>
-              <div style={{ fontSize:64, marginBottom:20, animation:'floatY 2s ease-in-out infinite', display:'inline-block' }}
-                key={slide}>
-                {current.emoji}
-              </div>
-              <p style={{ color:'#f1ece0', fontSize:15, lineHeight:1.85, maxWidth:400, direction: arabic ? 'rtl' : 'ltr' }}
-                key={`text-${slide}`}
-                className="animate-fade-up">
-                {arabic ? current.textAr : current.text}
-              </p>
-            </div>
-
-            {/* Progress dots */}
-            <div style={{ display:'flex', justifyContent:'center', gap:8, paddingBottom:8 }}>
-              {ex.slides.map((_,i) => (
-                <button key={i} onClick={() => { setSlide(i); setPlaying(false) }}
-                  style={{ width: i===slide ? 24 : 8, height:8, borderRadius:99, border:'none', cursor:'pointer', transition:'all 0.3s',
-                    background: i===slide ? '#f59e0b' : 'rgba(255,255,255,0.15)' }} />
-              ))}
-            </div>
-
-            {/* Controls */}
-            <div style={{ padding:'12px 22px 20px', display:'flex', alignItems:'center', justifyContent:'space-between', gap:12 }}>
-              <button onClick={prev} disabled={slide===0}
-                style={{ width:40, height:40, borderRadius:12, display:'flex', alignItems:'center', justifyContent:'center', cursor:slide===0?'not-allowed':'pointer', border:'1px solid rgba(255,210,80,0.15)', background:'rgba(255,255,255,0.04)', color: slide===0?'rgba(255,255,255,0.2)':'#fde68a' }}>
-                <ChevronLeft size={18} />
-              </button>
-
-              <button onClick={() => setPlaying(p => !p)}
-                style={{ flex:1, padding:'10px', borderRadius:12, cursor:'pointer', border:'none', fontWeight:700, fontSize:13, transition:'all 0.2s',
-                  background: playing ? 'rgba(239,68,68,0.15)' : 'linear-gradient(135deg,#c47010,#f59e0b)',
-                  color: playing ? '#f87171' : '#1a0a00',
-                  border: playing ? '1px solid rgba(239,68,68,0.25)' : 'none' }}>
-                {playing ? '⏸ Pause' : '▶ Play'}
-              </button>
-
-              <button onClick={slide===ex.slides.length-1 ? close : next}
-                style={{ width:40, height:40, borderRadius:12, display:'flex', alignItems:'center', justifyContent:'center', cursor:'pointer', border:'none', transition:'all 0.2s',
-                  background: slide===ex.slides.length-1 ? 'linear-gradient(135deg,#c47010,#f59e0b)' : 'rgba(255,255,255,0.06)',
-                  color: slide===ex.slides.length-1 ? '#1a0a00' : '#fde68a' }}>
-                {slide===ex.slides.length-1 ? <X size={16}/> : <ChevronRight size={18}/>}
-              </button>
-            </div>
-          </div>
-        </div>
+      {/* Portal renders the modal directly into document.body —
+          escapes any backdrop-filter stacking context */}
+      {open && createPortal(
+        <Modal ex={ex} onClose={() => setOpen(false)} />,
+        document.body
       )}
     </>
   )
