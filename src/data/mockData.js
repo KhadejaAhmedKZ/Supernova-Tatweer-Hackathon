@@ -147,7 +147,7 @@ export const firstActionExamples = {
       'Count your yeses, note the price range people mentioned, and come back to Bedaya AI.',
     ],
     afterAction:
-      'If 7+ people say yes, you have a validated product. Your next step will be making your first real sale — and Bedaya AI's Finance Agent will help you price it right.',
+      "If 7+ people say yes, you have a validated product. Your next step will be making your first real sale — and Bedaya AI's Finance Agent will help you price it right.",
   },
   camelMilk: {
     founderSummary:
