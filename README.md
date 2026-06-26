@@ -24,6 +24,11 @@
 - [Features & Pages](#features--pages)
 - [Market Discovery AI](#11-️-market-discovery-ai----market-discovery)
 
+**⭐ 3 Memorable Features**
+- [Voice-First AI](#-voice-first-ai)
+- [AI Video Explainer](#-ai-video-explainer)
+- [Market Discovery AI](#️-market-discovery-ai----market-discovery)
+
 **System Diagrams**
 - [System Diagrams](#-system-diagrams)
 
@@ -79,6 +84,9 @@ Bedaya AI gives every founder:
 - **Failure prevention** — risk analysis before making any decision
 - **A virtual board meeting** where all AI agents debate a decision together
 - **Curated opportunities** — grants, funding, training, and government support in the UAE
+- **🎤 Voice-First AI** — speak in Arabic or English, Bedaya AI listens and responds
+- **🎥 AI Video Explainer** — 30-second bilingual explanations for every key concept
+- **🗺️ Market Discovery AI** — competitive analysis and untapped opportunities in Al Qua'a
 
 ---
 
@@ -375,6 +383,94 @@ Individual agent conversation pages with:
 Filterable by: Funding · Certification · Training · Mentorship · Event · Government
 
 Includes: Khalifa Fund · Rural Business Grant · Food Safety Certificate (ADAFSA) · Stargazing Tourism Workshop · SME Mentorship · Al Ain SME Expo · ADCCI Business Starter Programme · Tamm Government Services
+
+**"How can I apply for funding?"** Watch Explanation button → bilingual video explainer
+
+---
+
+## ⭐ 3 Memorable Features
+
+These three features were built specifically to remove the real barriers that first-time founders in Al Qua'a face. They transform Bedaya AI from a generic tool into something built for this community.
+
+| Feature | Barrier Removed | Where Used |
+|---------|----------------|------------|
+| 🎤 Voice-First AI | Language and typing barriers | Onboarding · Risk Check · Board Meeting |
+| 🎥 AI Video Explainer | Lack of business knowledge | Results · Opportunities |
+| 🗺️ Market Discovery AI | Lack of local market awareness | After first action results |
+
+---
+
+### 🎤 Voice-First AI
+
+**Problem:** Many users in Al Qua'a are more comfortable speaking Arabic than typing. Older adults and those with limited digital literacy find text forms difficult.
+
+**How it works:**
+1. Tap the 🎤 microphone button
+2. Choose language: 🇦🇪 Arabic or 🇬🇧 English
+3. Speak naturally — Bedaya AI shows a live transcript
+4. Text is automatically inserted into the form field
+
+**Example:**
+> 🎤 *"عندي فكرة أبيع حليب الإبل"* → Bedaya AI starts your business analysis immediately.
+
+**Technical implementation:** Uses the browser's built-in Web Speech API (`window.SpeechRecognition`) — no backend or API key required.
+
+**Available on:** Onboarding idea field · Failure Prevention input · Board Meeting pitch
+
+---
+
+### 🎥 AI Video Explainer
+
+**Problem:** Many first-time entrepreneurs don't understand business terms like *market validation*, *risk score*, or *business licence*. This creates confusion and loss of confidence.
+
+**How it works:**
+- Every important section has a **"Watch Explanation 🎥"** button
+- Clicking opens a 4-slide animated explainer (30–60 second equivalent)
+- Each slide has both **Arabic and English** text with a language toggle
+- Auto-plays with pause/play control and dot navigation
+
+**Topics covered:**
+
+| Button Location | Topic |
+|----------------|-------|
+| Results — Readiness Score | What is your Business Readiness Score? |
+| Results — Risk Score | What is your Risk Score? |
+| Results — Community Fit | What is Community Fit? |
+| Results — Today's Mission | Why is this your First Action? |
+| Opportunities page | How can I apply for funding? |
+| (via agent) | How do I register a business in the UAE? |
+
+---
+
+### 🗺️ Market Discovery AI — `/market-discovery`
+
+**Problem:** People often don't know if anyone else is already doing their idea nearby, or what opportunities exist in their specific community.
+
+**How it works:**
+1. User clicks **"Explore My Market"** on the Results page
+2. Enters: idea · category · location · search radius (5/10/25 km)
+3. 5-step animated analysis runs
+4. Full competitive dashboard appears
+
+**Results dashboard:**
+
+| Section | What It Shows |
+|---------|--------------|
+| 📊 Market Overview | Business count, avg rating, competition level |
+| 📈 Opportunity Scores | Demand / Competition / Innovation / Location / Overall |
+| 📍 Nearby Businesses | Expandable cards: strengths ✓, weaknesses ✗, what to learn |
+| ⚡ Competitive Gaps | 3 specific market gaps with opportunity descriptions |
+| 🌟 Untapped Opportunities | Al Qua'a-specific insights |
+| 💜 How to Stand Out | 6 differentiator suggestions |
+| 🤖 AI Recommendation | YES / MODIFY / CONSIDER DIFFERENT NICHE with reasoning |
+
+**Al Qua'a mock businesses included:**
+- 🐪 Al Dhafra Camel Farm
+- 🌙 Desert Stars Stargazing
+- ☕ Oasis Coffee Truck
+- 🏺 Bedouin Handmade Gallery
+- 🌿 Al Qua'a Organic Farm
+- 📸 Desert Photography Studio
 
 ---
 
