@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { AppProvider } from './context/AppContext'
 import Layout from './components/Layout'
 import Landing from './pages/Landing'
 import Dashboard from './pages/Dashboard'
@@ -10,6 +11,7 @@ import Opportunities from './pages/Opportunities'
 
 export default function App() {
   return (
+    <AppProvider>
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route element={<Layout />}>
@@ -21,5 +23,6 @@ export default function App() {
         <Route path="/opportunities" element={<Opportunities />} />
       </Route>
     </Routes>
+    </AppProvider>
   )
 }
