@@ -560,3 +560,109 @@ export const getBoardFinal = (pitch, votes) => {
     reason: `The board suggests improving the plan for "${pitch}" before committing resources. Address the concerns raised and come back with a clearer strategy.`,
   }
 }
+
+// ── AI Confidence Meter ────────────────────────────────────────────────────
+
+export const getConfidenceMeter = (session) => {
+  const { about, idea, resources } = session
+  const checks = [
+    { label: 'Enough information provided',       passed: !!(idea?.idea && about?.name && resources?.budget) },
+    { label: 'Local demand exists in Al Qua\'a',  passed: true },
+    { label: 'Budget is realistic',               passed: !!(resources?.budget && Number(resources.budget) >= 100) },
+    { label: 'Business stage identified',         passed: !!(about?.stage) },
+    { label: 'Target customers defined',          passed: !!(idea?.customers) },
+    { label: 'Competitor information available',  passed: false },
+    { label: 'Customer validation completed',     passed: resources?.hasCustomers === 'yes' },
+  ]
+  const passed = checks.filter(c => c.passed).length
+  const confidence = Math.round((passed / checks.length) * 100)
+  return { confidence, checks }
+}
+
+// ── Why AI Chose This ──────────────────────────────────────────────────────
+
+export const getWhyAIChose = (session) => {
+  const { about, resources, idea } = session
+  const reasons = []
+  if (resources?.budget) reasons.push(`Your budget is AED ${resources.budget} — we chose a low-cost first action`)
+  if (about?.location)   reasons.push(`You are located in ${about.location} — community trust is your advantage`)
+  if (about?.stage === 'idea') reasons.push('You are at the idea stage — validation before investment is critical')
+  if (resources?.hasCustomers === 'no') reasons.push('No customers yet — testing is safer than registering')
+  if (idea?.type === 'product') reasons.push('Physical products need sampling before any other step')
+  reasons.push('Similar businesses in Al Qua\'a validated before spending — same approach works here')
+  return reasons.slice(0, 4)
+}
+
+// ── Today's Mission Card ───────────────────────────────────────────────────
+
+export const getTodaysMission = (result) => ({
+  mission: result?.firstAction || 'Talk to 5 potential customers today',
+  time: '45 minutes',
+  difficulty: 'Easy',
+  impact: 'High',
+  reward: 'Unlock Validation Stage',
+})
+
+// ── Success Probability ────────────────────────────────────────────────────
+
+export const getSuccessProbability = (session, result) => {
+  const base = result?.confidenceScore || 72
+  const improvements = []
+  if (session.resources?.hasCustomers !== 'yes') improvements.push({ action: 'Validate with 10 customers first', boost: 8 })
+  if (Number(session.resources?.budget) > 2000)  improvements.push({ action: 'Lower startup costs below AED 1,000', boost: 5 })
+  if (!session.about?.stage || session.about.stage === 'idea') improvements.push({ action: 'Attend a startup workshop', boost: 4 })
+  const maxBoost = improvements.reduce((sum, i) => sum + i.boost, 0)
+  return { current: base, potential: Math.min(base + maxBoost, 97), improvements }
+}
+
+// ── Business Health ────────────────────────────────────────────────────────
+
+export const getBusinessHealth = (session) => [
+  { label: 'Idea',       status: session.result ? 'green'  : 'grey',   emoji: '💡' },
+  { label: 'Validation', status: session.resources?.hasCustomers === 'yes' ? 'green' : 'yellow', emoji: '🔍' },
+  { label: 'Marketing',  status: 'red',    emoji: '📣' },
+  { label: 'Finance',    status: session.resources?.budget ? 'green' : 'yellow', emoji: '💰' },
+  { label: 'Legal',      status: 'yellow', emoji: '⚖️' },
+  { label: 'Growth',     status: 'yellow', emoji: '📈' },
+]
+
+// ── Local Business Inspiration ─────────────────────────────────────────────
+
+export const localInspiration = [
+  {
+    emoji: '🐪', name: 'Camel Milk Products',
+    cost: 'AED 300–800', difficulty: 'Medium', potential: 'High',
+    customers: 'Health-conscious families, tourists, local shops',
+    story: 'Many families in Al Qua\'a started by giving free samples at community gatherings. Within 3 months they had regular orders.',
+  },
+  {
+    emoji: '🌙', name: 'Stargazing Tourism',
+    cost: 'AED 500–2,000', difficulty: 'Low', potential: 'Very High',
+    customers: 'UAE residents, foreign tourists, photography enthusiasts',
+    story: 'Al Qua\'a has some of the darkest skies in the UAE. One founder started with a blanket and a telescope. Now runs weekly tours.',
+  },
+  {
+    emoji: '☕', name: 'Desert Coffee Truck',
+    cost: 'AED 2,000–5,000', difficulty: 'Medium', potential: 'High',
+    customers: 'Travellers on the Al Ain–Oman road, local workers',
+    story: 'A local entrepreneur converted a small truck and parked at highway rest stops. Sells 80+ cups daily on weekends.',
+  },
+  {
+    emoji: '🌿', name: 'Organic Farm Products',
+    cost: 'AED 200–600', difficulty: 'Low', potential: 'Medium',
+    customers: 'Health-conscious families, organic food buyers in Al Ain',
+    story: 'Started by selling dates and herbs at the community market. Now delivers weekly boxes to 30 families in Al Ain.',
+  },
+  {
+    emoji: '📸', name: 'Desert Photography Tours',
+    cost: 'AED 100–500', difficulty: 'Low', potential: 'High',
+    customers: 'Photographers, Instagram content creators, tourists',
+    story: 'A founder with a camera started guiding photographers to the best desert spots. Now charges AED 200 per session.',
+  },
+  {
+    emoji: '🍮', name: 'Homemade Desserts',
+    cost: 'AED 150–400', difficulty: 'Low', potential: 'High',
+    customers: 'Families, wedding planners, office events, WhatsApp groups',
+    story: 'Started by posting in WhatsApp community groups. First 10 orders came within a week. Now earns AED 3,000/month.',
+  },
+]
