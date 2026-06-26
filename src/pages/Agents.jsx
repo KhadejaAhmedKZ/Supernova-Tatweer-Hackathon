@@ -42,7 +42,7 @@ export default function Agents() {
       <div className="glass p-5 flex items-start gap-3">
         <Users size={16} className="text-slate-500 mt-0.5 flex-shrink-0" />
         <p className="text-xs text-slate-500 leading-relaxed">
-          All AI agent responses are mock examples designed to demonstrate how Supernova would guide real founders.
+          All AI agent responses are mock examples designed to demonstrate how Bedaya AI would guide real founders.
           In a production version, these would connect to live AI models trained on UAE business regulations,
           community data, and founder support resources.
         </p>

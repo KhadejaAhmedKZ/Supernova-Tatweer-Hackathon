@@ -118,10 +118,10 @@ export const firstActionExamples = {
       'Ask: "Would you buy this? How much would you pay? What would make it better?"',
       'Write down every answer in a notebook or voice note.',
       'Count how many said yes and how much they would pay.',
-      'Return to Supernova and enter what you learned.',
+      'Return to Bedaya AI and enter what you learned.',
     ],
     afterAction:
-      'Once 7 or more people say yes and agree on a price, you are ready to make your first real sale. Supernova will unlock your AI Startup Team to help you take the next step.',
+      'Once 7 or more people say yes and agree on a price, you are ready to make your first real sale. Bedaya AI will unlock your AI Startup Team to help you take the next step.',
   },
   desserts: {
     founderSummary:
@@ -144,10 +144,10 @@ export const firstActionExamples = {
       'Give each person a sample with a simple note: "I am testing a new homemade dessert. Please try it and tell me honestly — would you pay for this?"',
       'Ask three questions: Would you buy it? How much would you pay? What would make it better?',
       'Record every answer — even the critical ones. Especially the critical ones.',
-      'Count your yeses, note the price range people mentioned, and come back to Supernova.',
+      'Count your yeses, note the price range people mentioned, and come back to Bedaya AI.',
     ],
     afterAction:
-      'If 7+ people say yes, you have a validated product. Your next step will be making your first real sale — and Supernova\'s Finance Agent will help you price it right.',
+      'If 7+ people say yes, you have a validated product. Your next step will be making your first real sale — and Bedaya AI's Finance Agent will help you price it right.',
   },
   camelMilk: {
     founderSummary:
@@ -170,7 +170,7 @@ export const firstActionExamples = {
       'Ask each tester: taste, texture, price they would pay, and where they would buy it.',
       'Pay special attention to feedback from the shop owners — they are your first B2B channel.',
       'Note the most-requested improvements and the highest price people accepted.',
-      'Return to Supernova with your feedback to unlock your next step.',
+      'Return to Bedaya AI with your feedback to unlock your next step.',
     ],
     afterAction:
       'With positive taste-test results and a clear price point, you are ready to produce your first small batch for sale. The Finance Agent will help you price it to cover costs and earn a profit.',

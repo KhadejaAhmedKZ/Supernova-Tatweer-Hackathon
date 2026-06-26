@@ -182,7 +182,7 @@ export default function FirstAction() {
               borderColor: 'rgba(255,255,255,0.08)',
             }}
           >
-            <span className="text-white font-semibold">Supernova: </span>
+            <span className="text-white font-semibold">Bedaya AI: </span>
             {variants[decision].message}
             {decision === 'continue' && (
               <button onClick={() => navigate('/agents')} className="btn-primary text-sm mt-3">
@@ -200,7 +200,7 @@ export default function FirstAction() {
       <SectionHeader
         tag="Idea Engine"
         title="From Idea to First Action"
-        subtitle="Answer a few questions and Supernova will give you one clear, low-risk first step."
+        subtitle="Answer a few questions and Bedaya AI will give you one clear, low-risk first step."
       />
 
       {/* Example ideas */}

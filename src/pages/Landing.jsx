@@ -26,7 +26,7 @@ const features = [
     color: '#ef4444',
     colorLight: 'rgba(239,68,68,0.12)',
     title: 'Failure Prevention AI',
-    desc: 'Describe your next decision. Supernova tells you the risk and a safer alternative before you spend.',
+    desc: 'Describe your next decision. Bedaya AI tells you the risk and a safer alternative before you spend.',
   },
   {
     icon: Users,
@@ -108,7 +108,7 @@ export default function Landing() {
               You have an idea. You have a skill. But you do not know the first step.
             </p>
             <p className="text-lg text-slate-300 mb-12 max-w-xl mx-auto">
-              Supernova moves you from{' '}
+              Bedaya AI moves you from{' '}
               <span className="text-white font-semibold">"I have an idea"</span>
               {' '}to{' '}
               <span className="gradient-text font-semibold">"I know my first action."</span>
@@ -183,7 +183,7 @@ export default function Landing() {
               One clear step. Not a business plan.
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Supernova does not overwhelm you. It finds the one low-risk action that moves you forward — based on your idea, your location, and your budget.
+              Bedaya AI does not overwhelm you. It finds the one low-risk action that moves you forward — based on your idea, your location, and your budget.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -216,7 +216,7 @@ export default function Landing() {
                 <span className="gradient-text">Your ideas.</span>
               </h2>
               <p className="text-slate-400 text-lg leading-relaxed mb-6">
-                Al Qua'a is one of the UAE's most unique communities — rich in culture, agricultural heritage, and natural beauty. Supernova is built to serve founders here, with examples, pricing in AED, and advice rooted in the reality of rural life.
+                Al Qua'a is one of the UAE's most unique communities — rich in culture, agricultural heritage, and natural beauty. Bedaya AI is built to serve founders here, with examples, pricing in AED, and advice rooted in the reality of rural life.
               </p>
               <ul className="space-y-3">
                 {[
@@ -297,7 +297,7 @@ export default function Landing() {
       {/* Footer */}
       <footer className="border-t border-white/6 py-8 text-center text-slate-600 text-sm">
         <div className="section-wrap">
-          🌟 Supernova – Your AI Co-Founder · Built for Al Qua'a, Al Ain, UAE · Hackathon Demo
+          🌟 Bedaya AI – Your AI Co-Founder · Built for Al Qua'a, Al Ain, UAE · Hackathon Demo
         </div>
       </footer>
     </div>

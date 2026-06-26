@@ -44,7 +44,7 @@ export default function FailurePrevention() {
       <SectionHeader
         tag="Failure Prevention AI"
         title="Check Before You Decide"
-        subtitle="Describe a business decision you are considering. Supernova will tell you the risk level and a safer alternative."
+        subtitle="Describe a business decision you are considering. Bedaya AI will tell you the risk level and a safer alternative."
       />
 
       {/* Input area */}

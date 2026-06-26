@@ -24,7 +24,7 @@ export default function Navbar() {
             <Rocket size={16} className="text-white" />
           </div>
           <span className="font-bold text-white text-lg tracking-tight">
-            Super<span className="gradient-text">nova</span>
+            Bedaya <span className="gradient-text">AI</span>
           </span>
         </NavLink>
 

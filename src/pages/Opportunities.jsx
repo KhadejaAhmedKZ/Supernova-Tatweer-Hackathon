@@ -50,7 +50,7 @@ export default function Opportunities() {
         <TrendingUp size={16} className="text-slate-500 mt-0.5 flex-shrink-0" />
         <p className="text-xs text-slate-500 leading-relaxed">
           Opportunity data is curated for demonstration purposes. Always verify programme availability,
-          deadlines, and eligibility directly with the issuing organisation. Supernova will connect
+          deadlines, and eligibility directly with the issuing organisation. Bedaya AI will connect
           to live databases in its production version.
         </p>
       </div>

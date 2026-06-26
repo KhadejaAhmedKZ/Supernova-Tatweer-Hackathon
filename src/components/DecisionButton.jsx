@@ -6,7 +6,7 @@ const variants = {
     border: 'rgba(16,185,129,0.3)',
     color: '#10b981',
     hoverBg: 'rgba(16,185,129,0.2)',
-    message: "Great. Supernova will now unlock the AI startup team. Your next step is to work with your advisors.",
+    message: "Great. Bedaya AI will now unlock the AI startup team. Your next step is to work with your advisors.",
   },
   improve: {
     label: 'Improve',

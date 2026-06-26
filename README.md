@@ -1,4 +1,4 @@
-# 🌟 Supernova – Your AI Co-Founder
+# 🌟 Bedaya AI – Your AI Co-Founder
 
 > **Helping first-time entrepreneurs in Al Qua'a, Al Ain, UAE take the right first step.**
 
@@ -42,7 +42,7 @@
 
 ## 🚀 About the Project
 
-**Supernova** is an AI-powered co-founder platform built for first-time entrepreneurs. It takes users from *"I have an idea"* to *"I know my first action"* — without overwhelming them with a full business plan.
+**Bedaya AI** is an AI-powered co-founder platform built for first-time entrepreneurs. It takes users from *"I have an idea"* to *"I know my first action"* — without overwhelming them with a full business plan.
 
 The app is specifically designed for the **Al Qua'a community in Al Ain, UAE**, with local business examples, pricing in AED, and opportunities relevant to rural founders in the region.
 
@@ -65,7 +65,7 @@ The idea stays in their head. The business never happens.
 
 ## ✅ The Solution
 
-Supernova gives every founder:
+Bedaya AI gives every founder:
 
 - **One clear, low-risk first action** based on their idea, budget, and location
 - **AI advisors** covering strategy, finance, marketing, legal, and growth
@@ -79,7 +79,7 @@ Supernova gives every founder:
 
 **Challenge 1 — Taking the First Entrepreneurial Step**
 
-Supernova directly addresses this by removing the paralysis of "where do I even begin?" and replacing it with a single, safe, achievable action tailored to the founder's reality.
+Bedaya AI directly addresses this by removing the paralysis of "where do I even begin?" and replacing it with a single, safe, achievable action tailored to the founder's reality.
 
 ---
 
@@ -96,7 +96,7 @@ A first-time founder in **Al Qua'a, Al Ain, UAE** who:
 
 ## 🔬 Methodology
 
-Supernova was developed using a user-centred, iterative design approach that combined community insights, research, and rapid prototyping. Rather than starting with technology, our team first focused on understanding the problem and identifying where AI could provide meaningful value to aspiring entrepreneurs.
+Bedaya AI was developed using a user-centred, iterative design approach that combined community insights, research, and rapid prototyping. Rather than starting with technology, our team first focused on understanding the problem and identifying where AI could provide meaningful value to aspiring entrepreneurs.
 
 ---
 
@@ -114,7 +114,7 @@ After identifying the problem, we researched the UAE's entrepreneurship ecosyste
 
 Our research showed that the UAE offers extensive support through government initiatives, startup accelerators, funding programmes, and business development services. Rather than building another platform that duplicates these services, we identified an opportunity to simplify access to them through intelligent guidance.
 
-This validation helped define the core objective of Supernova: connecting aspiring entrepreneurs with the right information, opportunities, and next steps at the right time.
+This validation helped define the core objective of Bedaya AI: connecting aspiring entrepreneurs with the right information, opportunities, and next steps at the right time.
 
 ---
 
@@ -154,13 +154,13 @@ Throughout development, each feature was evaluated against one guiding question:
 
 > *Does this help an aspiring entrepreneur feel more confident about taking the first step?*
 
-Features that added unnecessary complexity or distracted from this objective were simplified or removed. This iterative process ensured that every component of Supernova directly supported the platform's primary mission: transforming uncertainty into confident action.
+Features that added unnecessary complexity or distracted from this objective were simplified or removed. This iterative process ensured that every component of Bedaya AI directly supported the platform's primary mission: transforming uncertainty into confident action.
 
 ---
 
 ## 💬 UX Principles
 
-Supernova is designed to feel supportive, not overwhelming.
+Bedaya AI is designed to feel supportive, not overwhelming.
 
 > *"You do not need to know everything today."*
 
@@ -178,7 +178,7 @@ The app never asks a founder to write a business plan. It never shows intimidati
 
 ## 🌍 Local Context – Al Qua'a, Al Ain, UAE
 
-Supernova is built specifically for founders in **Al Qua'a**, a rural community in the Eastern Region of Abu Dhabi. The app uses:
+Bedaya AI is built specifically for founders in **Al Qua'a**, a rural community in the Eastern Region of Abu Dhabi. The app uses:
 
 - **AED** as the currency throughout
 - **Local business examples** such as camel milk chocolate, stargazing tours, desert coffee trucks, rural grocery delivery, farm equipment rental, homemade desserts, night photography services, and local handmade products
@@ -224,7 +224,7 @@ Identifies funding programmes, startup events, training certifications, mentorsh
 ### 1. 🏠 Landing Page — `/`
 - Hero section with headline, tagline, and CTA
 - Problem section — what stops first-time founders
-- Solution section — how Supernova helps
+- Solution section — how Bedaya AI helps
 - Features overview — four core tools explained
 - Built for Al Qua'a section with local business examples
 - Our Promise — encouraging principles for founders
@@ -301,7 +301,7 @@ Includes: Khalifa Fund · Rural Business Grant · Food Safety Certificate (ADAFS
 
 ## 🚀 Deployment Plan
 
-Supernova will be deployed as a cloud-based web application, accessible from any modern browser.
+Bedaya AI will be deployed as a cloud-based web application, accessible from any modern browser.
 
 **Architecture:**
 ```
@@ -327,7 +327,7 @@ Security: HTTPS, secure authentication (future), and regular backups for a safe 
 | QA & Testing Engineer | 10,000 | 1 Month | 10,000 |
 | **TOTAL DEVELOPMENT COST** | | | **190,000 AED** |
 
-> The estimated development cost (190,000 AED) represents the commercial value of building Supernova using a professional software development team in the UAE. The hackathon prototype was developed by the student team, significantly reducing the actual implementation cost while demonstrating the platform's technical feasibility and business potential.
+> The estimated development cost (190,000 AED) represents the commercial value of building Bedaya AI using a professional software development team in the UAE. The hackathon prototype was developed by the student team, significantly reducing the actual implementation cost while demonstrating the platform's technical feasibility and business potential.
 
 ### B. Monthly Operational Cost
 
@@ -374,7 +374,7 @@ Security: HTTPS, secure authentication (future), and regular backups for a safe 
 | Feature Enhancements Based on User Feedback | Quarterly |
 | System Performance & Scalability Review | Every 6 Months |
 
-Supernova will follow a proactive maintenance strategy to ensure reliability, security, and continuous improvement.
+Bedaya AI will follow a proactive maintenance strategy to ensure reliability, security, and continuous improvement.
 
 **Estimated Maintenance Cost: 1,000 – 2,000 AED per month**
 
@@ -548,4 +548,4 @@ This project was built as a hackathon prototype for demonstration purposes.
 
 ---
 
-*🌟 Supernova — Because every great business starts with one small step.*
+*🌟 Bedaya AI — Because every great business starts with one small step.*
