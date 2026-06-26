@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Users } from 'lucide-react'
+import { Users, Sparkles } from 'lucide-react'
 import { agents } from '../data/mockData'
 import AgentCard from '../components/AgentCard'
 import SectionHeader from '../components/SectionHeader'
@@ -11,40 +11,47 @@ export default function Agents() {
     <div className="space-y-8 animate-fade-up">
       <SectionHeader
         tag="AI Startup Team"
-        title="Your 5 Expert AI Advisors"
-        subtitle="Five specialists available anytime — no appointment needed. Ask any of them about your specific idea."
+        title="Your 5 Expert Advisors"
+        subtitle="Five specialists available anytime. Enter your idea below to get personalised responses from each advisor."
       />
 
-      {/* Optional idea input to personalise responses */}
-      <div className="glass p-5 flex flex-col sm:flex-row gap-3">
+      {/* Idea input */}
+      <div
+        className="flex flex-col sm:flex-row gap-3 p-5 rounded-2xl"
+        style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
+      >
+        <div className="flex items-center gap-2 text-indigo-400 flex-shrink-0">
+          <Sparkles size={15} />
+          <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Your idea</span>
+        </div>
         <input
           className="input-field flex-1"
-          placeholder="Enter your business idea to personalise responses (optional)..."
+          placeholder="Enter your business idea to personalise all agent responses..."
           value={idea}
-          onChange={(e) => setIdea(e.target.value)}
+          onChange={e => setIdea(e.target.value)}
         />
         {idea && (
-          <button
-            className="btn-ghost whitespace-nowrap"
-            onClick={() => setIdea('')}
-          >
-            Clear
-          </button>
+          <button onClick={() => setIdea('')} className="btn-ghost text-xs shrink-0">Clear</button>
         )}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {agents.map((agent) => (
+      {/* Agent grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        {agents.map(agent => (
           <AgentCard key={agent.id} agent={agent} idea={idea} />
         ))}
       </div>
 
-      <div className="glass p-5 flex items-start gap-3">
-        <Users size={16} className="text-slate-500 mt-0.5 flex-shrink-0" />
-        <p className="text-xs text-slate-500 leading-relaxed">
-          All AI agent responses are mock examples designed to demonstrate how Bedaya AI would guide real founders.
-          In a production version, these would connect to live AI models trained on UAE business regulations,
-          community data, and founder support resources.
+      {/* Disclaimer */}
+      <div
+        className="flex items-start gap-3 p-5 rounded-2xl"
+        style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}
+      >
+        <Users size={14} className="text-slate-600 mt-0.5 flex-shrink-0" />
+        <p className="text-xs text-slate-600 leading-relaxed">
+          All agent responses are mock examples demonstrating how Bedaya AI would guide real founders.
+          In production, these connect to live AI models trained on UAE business regulations, community data,
+          and founder support resources.
         </p>
       </div>
     </div>

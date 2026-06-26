@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Presentation, Send, RotateCcw, CheckCircle } from 'lucide-react'
+import { Presentation, Send, RotateCcw, CheckCircle, Gavel } from 'lucide-react'
 import { getBoardOpinions } from '../data/mockData'
 import BoardOpinionCard from '../components/BoardOpinionCard'
 import SectionHeader from '../components/SectionHeader'
@@ -12,14 +12,6 @@ const examples = [
   'I want to buy equipment worth AED 3000.',
 ]
 
-const finalRec = {
-  verdict: 'Wait',
-  verdictColor: '#f59e0b',
-  score: '7 / 10',
-  reason:
-    'This is a reasonable idea but the timing matters. Three of five advisors recommend waiting until your core product has consistent demand. One advisor says proceed now, and one says improve first. The board recommends: validate your core product for 30 more days, then revisit this decision with real sales data.',
-}
-
 export default function BoardMeeting() {
   const [pitch, setPitch] = useState('')
   const [opinions, setOpinions] = useState([])
@@ -30,40 +22,23 @@ export default function BoardMeeting() {
 
   const startMeeting = () => {
     if (!pitch.trim()) return
-    setLoading(true)
-    setSubmitted(true)
-    setOpinions([])
-    setVisibleCount(0)
-    setShowFinal(false)
-
-    setTimeout(() => {
-      setOpinions(getBoardOpinions(pitch))
-      setLoading(false)
-    }, 1000)
+    setLoading(true); setSubmitted(true)
+    setOpinions([]); setVisibleCount(0); setShowFinal(false)
+    setTimeout(() => { setOpinions(getBoardOpinions(pitch)); setLoading(false) }, 1000)
   }
 
   useEffect(() => {
-    if (opinions.length === 0) return
+    if (!opinions.length) return
     let count = 0
     const interval = setInterval(() => {
       count++
       setVisibleCount(count)
-      if (count >= opinions.length) {
-        clearInterval(interval)
-        setTimeout(() => setShowFinal(true), 600)
-      }
-    }, 900)
+      if (count >= opinions.length) { clearInterval(interval); setTimeout(() => setShowFinal(true), 600) }
+    }, 950)
     return () => clearInterval(interval)
   }, [opinions])
 
-  const reset = () => {
-    setPitch('')
-    setOpinions([])
-    setVisibleCount(0)
-    setShowFinal(false)
-    setSubmitted(false)
-    setLoading(false)
-  }
+  const reset = () => { setPitch(''); setOpinions([]); setVisibleCount(0); setShowFinal(false); setSubmitted(false); setLoading(false) }
 
   return (
     <div className="max-w-3xl mx-auto space-y-8 animate-fade-up">
@@ -85,18 +60,23 @@ export default function BoardMeeting() {
               rows={3}
               placeholder="e.g. I want to add delivery to my dessert business..."
               value={pitch}
-              onChange={(e) => setPitch(e.target.value)}
+              onChange={e => setPitch(e.target.value)}
             />
           </div>
 
           <div>
-            <p className="text-xs text-slate-500 mb-3">Example pitches:</p>
+            <p className="text-xs text-slate-600 uppercase tracking-widest font-semibold mb-3">Example pitches</p>
             <div className="flex flex-wrap gap-2">
-              {examples.map((ex) => (
+              {examples.map(ex => (
                 <button
                   key={ex}
                   onClick={() => setPitch(ex)}
-                  className="text-xs px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/8 transition-all"
+                  className="text-xs px-3 py-1.5 rounded-full transition-all"
+                  style={{
+                    background: pitch === ex ? 'rgba(99,102,241,0.15)' : 'rgba(255,255,255,0.04)',
+                    border: pitch === ex ? '1px solid rgba(99,102,241,0.3)' : '1px solid rgba(255,255,255,0.07)',
+                    color: pitch === ex ? '#a5b4fc' : '#64748b',
+                  }}
                 >
                   {ex}
                 </button>
@@ -107,11 +87,11 @@ export default function BoardMeeting() {
           <button
             onClick={startMeeting}
             disabled={!pitch.trim()}
-            className="btn-primary w-full justify-center py-4 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="btn-primary w-full justify-center py-4 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0"
           >
-            <Presentation size={18} />
+            <Presentation size={16} />
             Call the Board to Order
-            <Send size={16} />
+            <Send size={14} />
           </button>
         </div>
       )}
@@ -119,40 +99,35 @@ export default function BoardMeeting() {
       {/* Pitch recap */}
       {submitted && (
         <div
-          className="rounded-2xl p-5 border"
-          style={{ background: 'rgba(99,102,241,0.08)', borderColor: 'rgba(99,102,241,0.2)' }}
+          className="rounded-2xl p-5"
+          style={{ background: 'rgba(99,102,241,0.07)', border: '1px solid rgba(99,102,241,0.18)' }}
         >
           <p className="text-xs font-semibold uppercase tracking-wider text-indigo-400 mb-2">Your Pitch</p>
           <p className="text-white font-medium">{pitch}</p>
-          <button onClick={reset} className="btn-ghost text-xs mt-3">
-            <RotateCcw size={12} /> New pitch
+          <button onClick={reset} className="btn-ghost text-xs mt-3 text-slate-500">
+            <RotateCcw size={11} /> New pitch
           </button>
         </div>
       )}
 
-      {/* Loading state */}
+      {/* Loading */}
       {loading && (
-        <div className="flex flex-col items-center gap-4 py-10">
-          <div className="text-5xl animate-pulse-slow">🏛️</div>
-          <p className="text-slate-400">The board is convening...</p>
+        <div className="flex flex-col items-center gap-4 py-12">
+          <div className="text-5xl" style={{ animation: 'pulse 1.5s infinite' }}>🏛️</div>
+          <p className="text-slate-400 text-sm">The board is convening...</p>
         </div>
       )}
 
-      {/* Agent opinions */}
+      {/* Opinions */}
       {opinions.length > 0 && (
         <div className="space-y-4">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="h-px flex-1 bg-white/6" />
-            <p className="text-xs text-slate-500 uppercase tracking-widest">Board Opinions</p>
-            <div className="h-px flex-1 bg-white/6" />
+          <div className="flex items-center gap-3">
+            <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+            <p className="text-xs text-slate-600 uppercase tracking-widest font-semibold">Board Opinions</p>
+            <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
           </div>
           {opinions.map((item, i) => (
-            <BoardOpinionCard
-              key={item.agent.id}
-              item={item}
-              index={i}
-              visible={i < visibleCount}
-            />
+            <BoardOpinionCard key={item.agent.id} item={item} index={i} visible={i < visibleCount} />
           ))}
         </div>
       )}
@@ -160,32 +135,35 @@ export default function BoardMeeting() {
       {/* Final recommendation */}
       {showFinal && (
         <div
-          className="rounded-2xl p-6 border animate-fade-up"
+          className="rounded-2xl p-6 animate-scale-in"
           style={{
-            background: 'linear-gradient(135deg, rgba(245,158,11,0.08), rgba(245,158,11,0.04))',
-            borderColor: 'rgba(245,158,11,0.25)',
+            background: 'linear-gradient(135deg, rgba(245,158,11,0.1), rgba(245,158,11,0.05))',
+            border: '1px solid rgba(245,158,11,0.22)',
+            boxShadow: '0 0 40px rgba(245,158,11,0.08)',
           }}
         >
-          <div className="flex items-center gap-2 mb-4">
-            <CheckCircle size={18} className="text-amber-400" />
+          <div className="flex items-center gap-2.5 mb-5">
+            <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: 'rgba(245,158,11,0.2)' }}>
+              <Gavel size={15} className="text-amber-400" />
+            </div>
             <p className="text-amber-400 font-bold text-sm uppercase tracking-wider">Board's Final Recommendation</p>
           </div>
 
-          <div className="flex items-center gap-4 mb-4 flex-wrap">
+          <div className="flex items-center gap-6 mb-5 flex-wrap">
             <div>
-              <p className="text-xs text-slate-500 mb-1">Decision</p>
-              <p className="text-2xl font-black" style={{ color: finalRec.verdictColor }}>
-                {finalRec.verdict}
-              </p>
+              <p className="text-xs text-slate-600 uppercase tracking-widest font-semibold mb-1">Decision</p>
+              <p className="text-3xl font-black text-amber-400">Wait</p>
             </div>
-            <div className="h-10 w-px bg-white/10" />
+            <div className="h-10 w-px" style={{ background: 'rgba(255,255,255,0.08)' }} />
             <div>
-              <p className="text-xs text-slate-500 mb-1">Board Score</p>
-              <p className="text-2xl font-black text-white">{finalRec.score}</p>
+              <p className="text-xs text-slate-600 uppercase tracking-widest font-semibold mb-1">Board Score</p>
+              <p className="text-3xl font-black text-white">7 / 10</p>
             </div>
           </div>
 
-          <p className="text-slate-200 leading-relaxed">{finalRec.reason}</p>
+          <p className="text-slate-300 leading-relaxed text-sm">
+            This is a reasonable idea but timing matters. Three of five advisors recommend waiting until your core product has consistent demand. Validate your core product for 30 more days, then revisit this decision with real sales data.
+          </p>
         </div>
       )}
     </div>

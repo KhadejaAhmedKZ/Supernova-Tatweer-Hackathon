@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { Rocket, LayoutDashboard, Zap, Users, Shield, Presentation, TrendingUp, Menu, X } from 'lucide-react'
 
@@ -6,43 +6,65 @@ const navItems = [
   { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/first-action', label: 'Idea Engine', icon: Zap },
   { to: '/agents', label: 'AI Team', icon: Users },
-  { to: '/failure-prevention', label: 'Failure Prevention', icon: Shield },
-  { to: '/board-meeting', label: 'Board Meeting', icon: Presentation },
+  { to: '/failure-prevention', label: 'Risk Check', icon: Shield },
+  { to: '/board-meeting', label: 'Board', icon: Presentation },
   { to: '/opportunities', label: 'Opportunities', icon: TrendingUp },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const location = useLocation()
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/6 bg-navy-900/80 backdrop-blur-xl">
+    <header
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        background: scrolled
+          ? 'rgba(5,8,16,0.85)'
+          : 'rgba(5,8,16,0.6)',
+        backdropFilter: 'blur(20px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+        borderBottom: scrolled
+          ? '1px solid rgba(255,255,255,0.07)'
+          : '1px solid transparent',
+        boxShadow: scrolled ? '0 1px 40px rgba(0,0,0,0.4)' : 'none',
+      }}
+    >
       <div className="section-wrap flex items-center justify-between h-16">
         {/* Logo */}
-        <NavLink to="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-glow-sm">
-            <Rocket size={16} className="text-white" />
+        <NavLink to="/" className="flex items-center gap-2.5 group shrink-0">
+          <div
+            className="w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+            style={{
+              background: 'linear-gradient(135deg, #4f46e5, #7c3aed)',
+              boxShadow: '0 4px 14px rgba(99,102,241,0.4)',
+            }}
+          >
+            <Rocket size={15} className="text-white" />
           </div>
-          <span className="font-bold text-white text-lg tracking-tight">
-            Bedaya <span className="gradient-text">AI</span>
+          <span className="font-bold text-white text-base tracking-tight">
+            Bedaya{' '}
+            <span className="gradient-text">AI</span>
           </span>
         </NavLink>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-0.5">
           {navItems.map(({ to, label, icon: Icon }) => (
             <NavLink
               key={to}
               to={to}
               className={({ isActive }) =>
-                `flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  isActive
-                    ? 'bg-indigo-500/15 text-indigo-300 border border-indigo-500/20'
-                    : 'text-slate-400 hover:text-white hover:bg-white/5'
-                }`
+                `nav-link ${isActive ? 'active' : ''}`
               }
             >
-              <Icon size={15} />
+              <Icon size={14} />
               {label}
             </NavLink>
           ))}
@@ -51,16 +73,18 @@ export default function Navbar() {
         {/* CTA */}
         <NavLink
           to="/first-action"
-          className="hidden lg:inline-flex btn-primary text-sm py-2 px-4"
+          className="hidden lg:inline-flex btn-primary py-2 px-4 text-xs"
         >
-          <Zap size={15} />
+          <Zap size={13} />
           Start My First Step
         </NavLink>
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5"
+          className="lg:hidden p-2 rounded-xl text-slate-400 hover:text-white transition-colors"
+          style={{ background: open ? 'rgba(255,255,255,0.08)' : 'transparent' }}
           onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -68,30 +92,35 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden border-t border-white/6 bg-navy-900/95 backdrop-blur-xl px-4 py-4 space-y-1">
-          {navItems.map(({ to, label, icon: Icon }) => (
-            <NavLink
-              key={to}
-              to={to}
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
-                  isActive
-                    ? 'bg-indigo-500/15 text-indigo-300 border border-indigo-500/20'
-                    : 'text-slate-400 hover:text-white hover:bg-white/5'
-                }`
-              }
-            >
-              <Icon size={18} />
-              {label}
-            </NavLink>
-          ))}
+        <div
+          className="lg:hidden px-4 pb-4 pt-2 animate-fade-up"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
+        >
+          <div className="space-y-1">
+            {navItems.map(({ to, label, icon: Icon }) => (
+              <NavLink
+                key={to}
+                to={to}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+                    isActive
+                      ? 'bg-indigo-500/12 text-indigo-300 border border-indigo-500/20'
+                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  }`
+                }
+              >
+                <Icon size={16} />
+                {label}
+              </NavLink>
+            ))}
+          </div>
           <NavLink
             to="/first-action"
             onClick={() => setOpen(false)}
-            className="btn-primary w-full justify-center mt-2"
+            className="btn-primary w-full justify-center mt-3"
           >
-            <Zap size={16} />
+            <Zap size={15} />
             Start My First Step
           </NavLink>
         </div>
