@@ -536,8 +536,14 @@ npm run preview
 
 Built for the **Tatweer Hackathon** — Challenge 1: Taking the First Entrepreneurial Step.
 
-**Developer:** Khadeja Ahmed
-**GitHub:** [@KhadejaAhmedKZ](https://github.com/KhadejaAhmedKZ)
+| Name | GitHub | Role |
+|------|--------|------|
+| Khadeja Ahmed | [@KhadejaAhmedKZ](https://github.com/KhadejaAhmedKZ) | Team Lead & Developer |
+| Bitanya Hasabework Woldemariam | [@bitanyawoldemariam](https://github.com/bitanyawoldemariam) | Collaborator |
+| Latefa Mohamed Almazrouei | [@Latefa-Almazroei](https://github.com/Latefa-Almazroei) | Collaborator |
+| Rama Sa'ud Abdallah | [@RamaAbdallah7](https://github.com/RamaAbdallah7) | Collaborator |
+| Amtul Baseer | [@AmtulBaseer](https://github.com/AmtulBaseer) | Collaborator |
+
 **Community:** Al Qua'a, Al Ain, UAE
 
 ---
