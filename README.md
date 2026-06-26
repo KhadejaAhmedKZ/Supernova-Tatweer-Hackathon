@@ -307,7 +307,13 @@ Includes: Khalifa Fund · Rural Business Grant · Food Safety Certificate (ADAFS
 
 ## 📐 System Diagrams
 
-> Diagrams coming shortly — being added one by one with correct descriptions.
+---
+
+### 1. Use Case Diagram
+
+![Bedaya AI Use Case Diagram](docs/images/usecase-diagram.png)
+
+This use case diagram shows the interactions between the founder, the system, and external actors. The founder performs actions such as submitting inputs, viewing recommendations, making decisions, and requesting additional services from the system. The system also exchanges information with the community and external opportunity sources to obtain feedback and available opportunities. Each use case represents a function available to an actor, while the connecting lines indicate their interactions with the system. The diagram provides a high-level view of the system's functional behavior and user interactions.
 
 
 
