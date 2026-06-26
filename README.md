@@ -315,6 +315,14 @@ Includes: Khalifa Fund · Rural Business Grant · Food Safety Certificate (ADAFS
 
 This use case diagram shows the interactions between the founder, the system, and external actors. The founder performs actions such as submitting inputs, viewing recommendations, making decisions, and requesting additional services from the system. The system also exchanges information with the community and external opportunity sources to obtain feedback and available opportunities. Each use case represents a function available to an actor, while the connecting lines indicate their interactions with the system. The diagram provides a high-level view of the system's functional behavior and user interactions.
 
+---
+
+### 2. 3-Tier Architecture Diagram
+
+![Bedaya AI 3-Tier Architecture Diagram](docs/images/architecture-diagram.png)
+
+This diagram illustrates the flow of requests and responses across the presentation, application, and backend layers. All user interactions enter through the presentation layer, which forwards requests to the application layer for processing. The application layer communicates with the backend layer to retrieve or store data, access AI services, and apply business rules before generating a response. The processed results are returned through the presentation layer to the user. The arrows represent the movement of data between layers while maintaining a clear separation of responsibilities.
+
 
 
 ---
