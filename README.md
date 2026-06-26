@@ -25,6 +25,12 @@
 - [AI Agents](#ai-agents)
 - [UX Principles](#ux-principles)
 - [Screenshots](#screenshots)
+- [Methodology](#methodology)
+- [Deployment Plan](#deployment-plan)
+- [Cost Estimation](#cost-estimation)
+- [Resources Required](#resources-required)
+- [Maintenance Plan](#maintenance-plan)
+- [Development Roadmap](#development-roadmap)
 - [Team](#team)
 
 ---
@@ -396,6 +402,204 @@ The app never asks a founder to write a business plan. It never shows intimidati
 | Icons | lucide-react |
 | Layout | Fully responsive (mobile + desktop) |
 | Animations | Fade-up on mount, pulse on loading, ring transition on scores |
+
+---
+
+## 🔬 Methodology
+
+Supernova was developed using a user-centred, iterative design approach that combined community insights, research, and rapid prototyping. Rather than starting with technology, our team first focused on understanding the problem and identifying where AI could provide meaningful value to aspiring entrepreneurs.
+
+---
+
+### Phase 1 — Problem Discovery
+
+The first stage of the project focused on identifying a real problem within the Al Qua'a community. Through discussions with a resident familiar with the area, we learned that many aspiring entrepreneurs have promising ideas but struggle to understand how to transform those ideas into practical businesses.
+
+This insight shifted our focus away from writing business plans or providing funding advice. Instead, we concentrated on the earliest stage of entrepreneurship: helping users confidently identify and take their first actionable step.
+
+---
+
+### Phase 2 — Research and Validation
+
+After identifying the problem, we researched the UAE's entrepreneurship ecosystem to understand what resources already exist for entrepreneurs.
+
+Our research showed that the UAE offers extensive support through government initiatives, startup accelerators, funding programmes, and business development services. Rather than building another platform that duplicates these services, we identified an opportunity to simplify access to them through intelligent guidance.
+
+This validation helped define the core objective of Supernova: connecting aspiring entrepreneurs with the right information, opportunities, and next steps at the right time.
+
+---
+
+### Phase 3 — Solution Design
+
+With the problem clearly defined, we mapped the complete journey of a first-time entrepreneur.
+
+Instead of overwhelming users with lengthy forms or business planning documents, we designed a workflow that guides them through a series of focused, manageable steps:
+
+1. Introducing a business idea
+2. Understanding the user's goals and available resources
+3. Analysing the idea using AI
+4. Identifying strengths, weaknesses, and potential risks
+5. Receiving advice from specialised AI experts
+6. Discovering relevant government programmes and opportunities
+7. Generating a clear, personalised next step
+
+This structured workflow reduces decision fatigue while keeping users engaged throughout the process.
+
+---
+
+### Phase 4 — Prototype Development
+
+The platform was developed as a high-fidelity frontend prototype using modern web technologies.
+
+The interface was designed with simplicity and accessibility in mind, ensuring that users with little or no entrepreneurial experience could navigate the platform comfortably.
+
+The prototype demonstrates the complete user journey, including AI-powered business analysis, expert recommendations, opportunity discovery, and collaborative decision-making.
+
+Although AI responses are currently simulated for demonstration purposes, the application architecture has been designed to support integration with production AI models and backend services in future development.
+
+---
+
+### Phase 5 — Continuous Refinement
+
+Throughout development, each feature was evaluated against one guiding question:
+
+> *Does this help an aspiring entrepreneur feel more confident about taking the first step?*
+
+Features that added unnecessary complexity or distracted from this objective were simplified or removed. This iterative process ensured that every component of Supernova directly supported the platform's primary mission: transforming uncertainty into confident action.
+
+---
+
+## 🚀 Deployment Plan
+
+Supernova will be deployed as a cloud-based web application, accessible from any modern browser. The MVP will be hosted on **Vercel** for fast, secure, and scalable deployment, while **GitHub** is used for version control. Future backend services and databases will be deployed on **Render** and **Firebase**. AI-powered features will be integrated using the **OpenAI API**.
+
+**Deployment Architecture:**
+```
+User → Vercel (Frontend) → OpenAI API (AI Services) → Render (Backend/Future) → Firebase (Database/Future) → GitHub (Version Control)
+```
+
+Security: HTTPS, secure authentication (future), and regular backups to ensure a safe and reliable experience for all users.
+
+---
+
+## 💰 Cost Estimation
+
+### A. Development Cost (Commercial MVP – 3 Months)
+
+| Role | Monthly Salary (AED) | Duration | Total Cost (AED) |
+|------|----------------------|----------|-----------------|
+| Project Manager | 18,000 | 3 Months | 54,000 |
+| Full-Stack Developer | 22,000 | 3 Months | 66,000 |
+| AI Engineer | 18,000 | 2 Months | 36,000 |
+| UI/UX Designer | 12,000 | 2 Months | 24,000 |
+| QA & Testing Engineer | 10,000 | 1 Month | 10,000 |
+| **TOTAL DEVELOPMENT COST** | | | **190,000 AED** |
+
+> The estimated development cost (190,000 AED) represents the commercial value of building Supernova using a professional software development team in the UAE. The hackathon prototype was developed by the student team, significantly reducing the actual implementation cost while demonstrating the platform's technical feasibility and business potential.
+
+### B. Monthly Operational Cost
+
+| Resource | Platform | Cost (AED/Month) |
+|----------|----------|-----------------|
+| Frontend Hosting | Vercel Pro | 75 |
+| Backend Hosting | Render | 75 |
+| Database | Firebase | 40 |
+| AI API Usage | OpenAI API | 400 – 700 |
+| Domain Name | .com Domain | 7 |
+| Monitoring & Backup | Cloud Services | 50 |
+| **ESTIMATED MONTHLY COST** | | **647 – 947 AED** |
+
+---
+
+## 🛠 Resources Required
+
+### A. Human Resources
+
+| Role | Responsibility |
+|------|---------------|
+| Project Manager | Oversees project planning, timelines, and coordination |
+| Full-Stack Developer | Develops the frontend, integrates APIs, and manages deployment |
+| AI Engineer | Designs AI prompts, develops the Multi-Agent AI system, and optimises AI responses |
+| UI/UX Designer | Designs user interfaces, wireframes, and ensures an intuitive experience |
+| QA & Testing Engineer | Performs functional testing, bug fixing, and quality assurance |
+
+### B. Technical Resources
+
+- React + Vite
+- Tailwind CSS
+- JavaScript
+- GitHub
+- Vercel
+- OpenAI API
+- Firebase (Future)
+- Figma
+- Visual Studio Code
+
+---
+
+## 🔧 Maintenance Plan
+
+| Activity | Frequency |
+|----------|-----------|
+| Bug Fixes & Performance Monitoring | Weekly |
+| Security & Dependency Updates | Weekly |
+| AI Prompt & Recommendation Improvements | Monthly |
+| Business Opportunities & Legal Content Updates | Monthly |
+| Feature Enhancements Based on User Feedback | Quarterly |
+| System Performance & Scalability Review | Every 6 Months |
+
+Supernova will follow a proactive maintenance strategy to ensure reliability, security, and continuous improvement. Weekly updates and monitoring will keep the platform secure and stable, while monthly content and AI improvements will ensure accurate and valuable guidance for users.
+
+**Estimated Maintenance Cost: 1,000 – 2,000 AED per month**
+
+---
+
+## 🗺 Development Roadmap
+
+### Phase 1 — Research & Planning *(Weeks 1–2)*
+- Analyse the challenge and community needs
+- Research the UAE entrepreneurship ecosystem
+- Define requirements and core features
+- Design wireframes, UML diagrams, and system architecture
+
+**Deliverables:** Requirements, UI/UX designs, Architecture, Project plan
+
+### Phase 2 — MVP Development *(Weeks 3–10)*
+- Develop Landing Page & Dashboard
+- Build Idea-to-First-Action Engine
+- Implement Multi-Agent AI Team
+- Develop Failure Prevention AI
+- Create AI Board Meeting
+- Build Opportunities Hub
+- Integrate mock AI responses and responsive UI
+
+**Deliverables:** Functional MVP, Interactive frontend, Complete user journey
+
+### Phase 3 — Testing & Deployment *(Weeks 11–12)*
+- Perform functional and usability testing
+- Fix bugs and optimise performance
+- Deploy the application to Vercel
+- Upload source code to GitHub
+- Prepare final documentation and demonstration
+
+**Deliverables:** Stable deployed prototype, GitHub repository, Final report, Presentation
+
+### Phase 4 — Future Enhancements *(Next 3–6 Months)*
+- Integrate production AI models
+- Add Arabic language support
+- Connect with UAE entrepreneurship resources
+- Develop mobile application
+- Introduce user accounts and personalised progress tracking
+
+**Deliverables:** Enhanced platform with real AI backend and user accounts
+
+### Phase 5 — Long-Term Vision *(6+ Months)*
+- Expand to other communities across UAE and GCC
+- Build strategic partnerships with government & incubators
+- Introduce premium features and analytics
+- Support thousands of aspiring entrepreneurs
+
+**Goal:** Become the leading AI platform for first-time entrepreneurs in the UAE and GCC
 
 ---
 
