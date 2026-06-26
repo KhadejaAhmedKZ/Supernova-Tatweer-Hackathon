@@ -311,7 +311,7 @@ Includes: Khalifa Fund · Rural Business Grant · Food Safety Certificate (ADAFS
 
 ### 1. Use Case Diagram
 
-![Bedaya AI Use Case Diagram](docs/images/usecase-diagram.png)
+![Bedaya AI Use Case Diagram](imgs/usecase.png)
 
 This use case diagram shows the interactions between the founder, the system, and external actors. The founder performs actions such as submitting inputs, viewing recommendations, making decisions, and requesting additional services from the system. The system also exchanges information with the community and external opportunity sources to obtain feedback and available opportunities. Each use case represents a function available to an actor, while the connecting lines indicate their interactions with the system. The diagram provides a high-level view of the system's functional behavior and user interactions.
 
@@ -319,7 +319,7 @@ This use case diagram shows the interactions between the founder, the system, an
 
 ### 2. 3-Tier Architecture Diagram
 
-![Bedaya AI 3-Tier Architecture Diagram](docs/images/architecture-diagram.png)
+![Bedaya AI 3-Tier Architecture Diagram](imgs/architecture.png)
 
 This diagram illustrates the flow of requests and responses across the presentation, application, and backend layers. All user interactions enter through the presentation layer, which forwards requests to the application layer for processing. The application layer communicates with the backend layer to retrieve or store data, access AI services, and apply business rules before generating a response. The processed results are returned through the presentation layer to the user. The arrows represent the movement of data between layers while maintaining a clear separation of responsibilities.
 
@@ -327,7 +327,7 @@ This diagram illustrates the flow of requests and responses across the presentat
 
 ### 3. Context Diagram
 
-![Bedaya AI Context Diagram](docs/images/context-diagram.png)
+![Bedaya AI Context Diagram](imgs/context.png)
 
 This context diagram illustrates the interactions between the system and its external entities. The founder sends business ideas, responses, feature requests, and progress updates to the system, while the system returns recommendations, first actions, risk alerts, opportunity suggestions, and next-step decisions. The system exchanges feedback requests with the community, receiving validation and customer opinions in return. It also communicates with external opportunity sources to retrieve funding, mentorship, training, and support opportunities. The arrows represent the bidirectional flow of information between the system and each external entity, while all internal processing remains within the system boundary.
 
@@ -335,7 +335,7 @@ This context diagram illustrates the interactions between the system and its ext
 
 ### 4. Deployment, Costs, Resources, Maintenance & Roadmap
 
-![Bedaya AI Deployment Costs and Roadmap](docs/images/deployment-costs-roadmap.png)
+![Bedaya AI Deployment Costs and Roadmap](imgs/deployment.png)
 
 ### Deployment Plan
 
