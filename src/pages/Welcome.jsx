@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { ArrowRight, Lightbulb, Info } from 'lucide-react'
-import StarField from '../components/StarField'
+import WorldBackground from '../components/WorldBackground'
 import Navbar from '../components/Navbar'
 
 const steps = [
@@ -13,8 +13,8 @@ export default function Welcome() {
   const navigate = useNavigate()
 
   return (
-    <div style={{ background: '#04060f', minHeight: '100vh', position: 'relative' }}>
-      <StarField />
+    <div style={{ background: '#010008', minHeight: '100vh', position: 'relative' }}>
+      <WorldBackground />
       <Navbar />
 
       {/* Ambient glow */}

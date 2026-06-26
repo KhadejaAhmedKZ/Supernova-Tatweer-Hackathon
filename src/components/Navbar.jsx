@@ -1,130 +1,103 @@
 import { useState, useEffect } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Rocket, LayoutDashboard, Zap, Users, Shield, Presentation, TrendingUp, Menu, X } from 'lucide-react'
 
 const navItems = [
-  { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { to: '/start', label: 'Idea Engine', icon: Zap },
-  { to: '/agents', label: 'AI Team', icon: Users },
-  { to: '/failure-prevention', label: 'Risk Check', icon: Shield },
-  { to: '/board-meeting', label: 'Board', icon: Presentation },
-  { to: '/opportunities', label: 'Opportunities', icon: TrendingUp },
+  { to: '/dashboard',          label: 'Dashboard',    icon: LayoutDashboard },
+  { to: '/start',              label: 'Idea Engine',  icon: Zap             },
+  { to: '/agents',             label: 'AI Team',      icon: Users           },
+  { to: '/failure-prevention', label: 'Risk Check',   icon: Shield          },
+  { to: '/board-meeting',      label: 'Board',        icon: Presentation    },
+  { to: '/opportunities',      label: 'Opportunities',icon: TrendingUp      },
 ]
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen]       = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const fn = () => setScrolled(window.scrollY > 12)
+    window.addEventListener('scroll', fn, { passive: true })
+    return () => window.removeEventListener('scroll', fn)
   }, [])
 
+  const headerStyle = {
+    position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+    backdropFilter: 'blur(24px) saturate(180%)',
+    WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+    transition: 'all 0.3s ease',
+    background: scrolled ? 'rgba(1,0,8,0.88)' : 'rgba(1,0,8,0.6)',
+    borderBottom: scrolled ? '1px solid rgba(255,180,50,0.1)' : '1px solid transparent',
+    boxShadow: scrolled ? '0 2px 40px rgba(0,0,0,0.6)' : 'none',
+  }
+
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{
-        background: scrolled
-          ? 'rgba(5,8,16,0.85)'
-          : 'rgba(5,8,16,0.6)',
-        backdropFilter: 'blur(20px) saturate(180%)',
-        WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-        borderBottom: scrolled
-          ? '1px solid rgba(255,255,255,0.07)'
-          : '1px solid transparent',
-        boxShadow: scrolled ? '0 1px 40px rgba(0,0,0,0.4)' : 'none',
-      }}
-    >
-      <div className="section-wrap flex items-center justify-between h-16">
+    <header style={headerStyle}>
+      <div className="section-wrap" style={{ display:'flex', alignItems:'center', justifyContent:'space-between', height:64 }}>
+
         {/* Logo */}
-        <NavLink to="/" className="flex items-center gap-2.5 group shrink-0">
-          <div
-            className="w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-            style={{
-              background: 'linear-gradient(135deg, #4f46e5, #7c3aed)',
-              boxShadow: '0 4px 14px rgba(99,102,241,0.4)',
-            }}
-          >
-            <Rocket size={15} className="text-white" />
+        <NavLink to="/" style={{ display:'flex', alignItems:'center', gap:10, textDecoration:'none', flexShrink:0 }}>
+          <div style={{ width:34, height:34, borderRadius:10, background:'linear-gradient(135deg,#c47010,#e8900a,#f5b030)', display:'flex', alignItems:'center', justifyContent:'center', boxShadow:'0 4px 14px rgba(200,120,10,0.45)', transition:'transform 0.3s' }}
+            onMouseEnter={e=>e.currentTarget.style.transform='scale(1.12)'}
+            onMouseLeave={e=>e.currentTarget.style.transform='scale(1)'}>
+            <span style={{ fontSize:16 }}>🌟</span>
           </div>
-          <span className="font-bold text-white text-base tracking-tight">
-            Bedaya{' '}
-            <span className="gradient-text">AI</span>
+          <span style={{ fontWeight:800, fontSize:15, letterSpacing:'-0.01em' }}>
+            <span style={{ color:'#fde68a' }}>Bedaya</span>
+            {' '}
+            <span className="gradient-text-sky">AI</span>
           </span>
         </NavLink>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-0.5">
+        <nav style={{ display:'flex', alignItems:'center', gap:2 }} className="hidden-mobile">
           {navItems.map(({ to, label, icon: Icon }) => (
-            <NavLink
-              key={to}
-              to={to}
-              className={({ isActive }) =>
-                `nav-link ${isActive ? 'active' : ''}`
-              }
-            >
-              <Icon size={14} />
+            <NavLink key={to} to={to}
+              className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
+              style={{ textDecoration:'none' }}>
+              <Icon size={13} />
               {label}
             </NavLink>
           ))}
         </nav>
 
         {/* CTA */}
-        <NavLink
-          to="/welcome"
-          className="hidden lg:inline-flex btn-primary py-2 px-4 text-xs"
-        >
+        <NavLink to="/welcome" className="btn-primary hidden-mobile" style={{ fontSize:12, padding:'9px 18px', textDecoration:'none' }}>
           <Zap size={13} />
-          Start My First Step
+          Start My Journey
         </NavLink>
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden p-2 rounded-xl text-slate-400 hover:text-white transition-colors"
-          style={{ background: open ? 'rgba(255,255,255,0.08)' : 'transparent' }}
           onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
+          style={{ display:'none', padding:8, borderRadius:10, background:open?'rgba(255,180,50,0.1)':'transparent', border:'none', cursor:'pointer', color:'#fde68a' }}
+          className="show-mobile"
+          aria-label="Toggle menu">
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile drawer */}
       {open && (
-        <div
-          className="lg:hidden px-4 pb-4 pt-2 animate-fade-up"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
-        >
-          <div className="space-y-1">
-            {navItems.map(({ to, label, icon: Icon }) => (
-              <NavLink
-                key={to}
-                to={to}
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
-                    isActive
-                      ? 'bg-indigo-500/12 text-indigo-300 border border-indigo-500/20'
-                      : 'text-slate-400 hover:text-white hover:bg-white/5'
-                  }`
-                }
-              >
-                <Icon size={16} />
-                {label}
-              </NavLink>
-            ))}
-          </div>
-          <NavLink
-            to="/welcome"
-            onClick={() => setOpen(false)}
-            className="btn-primary w-full justify-center mt-3"
-          >
-            <Zap size={15} />
-            Start My First Step
+        <div style={{ padding:'8px 16px 16px', borderTop:'1px solid rgba(255,180,50,0.08)', display:'flex', flexDirection:'column', gap:4 }}>
+          {navItems.map(({ to, label, icon: Icon }) => (
+            <NavLink key={to} to={to} onClick={() => setOpen(false)}
+              className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
+              style={{ textDecoration:'none', fontSize:14 }}>
+              <Icon size={16} />
+              {label}
+            </NavLink>
+          ))}
+          <NavLink to="/welcome" onClick={() => setOpen(false)} className="btn-primary" style={{ marginTop:8, justifyContent:'center', textDecoration:'none' }}>
+            <Zap size={15} /> Start My Journey
           </NavLink>
         </div>
       )}
+
+      <style>{`
+        @media (min-width: 1024px) { .show-mobile { display: none !important; } }
+        @media (max-width: 1023px) { .hidden-mobile { display: none !important; } .show-mobile { display: flex !important; } }
+      `}</style>
     </header>
   )
 }
