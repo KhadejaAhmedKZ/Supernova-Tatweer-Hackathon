@@ -331,6 +331,103 @@ This diagram illustrates the flow of requests and responses across the presentat
 
 This context diagram illustrates the interactions between the system and its external entities. The founder sends business ideas, responses, feature requests, and progress updates to the system, while the system returns recommendations, first actions, risk alerts, opportunity suggestions, and next-step decisions. The system exchanges feedback requests with the community, receiving validation and customer opinions in return. It also communicates with external opportunity sources to retrieve funding, mentorship, training, and support opportunities. The arrows represent the bidirectional flow of information between the system and each external entity, while all internal processing remains within the system boundary.
 
+---
+
+### 4. Deployment, Costs, Resources, Maintenance & Roadmap
+
+![Bedaya AI Deployment Costs and Roadmap](docs/images/deployment-costs-roadmap.png)
+
+### Deployment Plan
+
+Bedaya AI will be deployed as a cloud-based web application, allowing users to access the platform from any modern web browser. The MVP will be hosted on **Vercel** for fast, secure, and scalable deployment, while **GitHub** will be used for version control. Future backend services and databases will be deployed on **Render** and **Firebase**. AI-powered features will be integrated using the **OpenAI API**.
+
+**Deployment Architecture:**
+```
+User → Vercel (Frontend) → OpenAI API (AI Services) → Render (Backend/Future) → Firebase (Database/Future) → GitHub (Version Control)
+```
+
+The platform will use HTTPS, secure authentication (future), and regular backups to ensure a safe and reliable experience for all users.
+
+---
+
+### Cost Estimation
+
+#### A. Development Cost (Commercial MVP – 3 Months)
+
+| Role | Monthly Salary (AED) | Duration | Total Cost (AED) |
+|------|----------------------|----------|-----------------|
+| Project Manager | 18,000 | 3 Months | 54,000 |
+| Full-Stack Developer | 22,000 | 3 Months | 66,000 |
+| AI Engineer | 18,000 | 2 Months | 36,000 |
+| UI/UX Designer | 12,000 | 2 Months | 24,000 |
+| QA & Testing Engineer | 10,000 | 1 Month | 10,000 |
+| **TOTAL DEVELOPMENT COST** | | | **190,000 AED** |
+
+> The estimated development cost (190,000 AED) represents the commercial value of building Bedaya AI using a professional software development team in the UAE. The hackathon prototype was developed by the student team, significantly reducing the actual implementation cost while demonstrating the platform's technical feasibility and business potential.
+
+#### B. Monthly Operational Cost
+
+| Resource | Platform | Cost (AED/Month) |
+|----------|----------|-----------------|
+| Frontend Hosting | Vercel Pro | 75 |
+| Backend Hosting | Render | 75 |
+| Database | Firebase | 40 |
+| AI API Usage | OpenAI API | 400 – 700 |
+| Domain Name | .com Domain | 7 |
+| Monitoring & Backup | Cloud Services | 50 |
+| **ESTIMATED MONTHLY COST** | | **647 – 947 AED** |
+
+---
+
+### Resources Required
+
+#### A. Human Resources
+
+| Role | Responsibility |
+|------|---------------|
+| Project Manager | Oversees project planning, timelines, and coordination |
+| Full-Stack Developer | Develops the frontend, integrates APIs, and manages deployment |
+| AI Engineer | Designs AI prompts, develops the Multi-Agent AI system, and optimises AI responses |
+| UI/UX Designer | Designs user interfaces, wireframes, and ensures an intuitive experience |
+| QA & Testing Engineer | Performs functional testing, bug fixing, and quality assurance |
+
+#### B. Technical Resources
+
+- React + Vite · Tailwind CSS · JavaScript
+- GitHub · Vercel · OpenAI API
+- Firebase (Future) · Figma · Visual Studio Code
+
+---
+
+### Maintenance Plan
+
+| Activity | Frequency |
+|----------|-----------|
+| Bug Fixes & Performance Monitoring | Weekly |
+| Security & Dependency Updates | Weekly |
+| AI Prompt & Recommendation Improvements | Monthly |
+| Business Opportunities & Legal Content Updates | Monthly |
+| Feature Enhancements Based on User Feedback | Quarterly |
+| System Performance & Scalability Review | Every 6 Months |
+
+Bedaya AI will follow a proactive maintenance strategy to ensure reliability, security, and continuous improvement. Weekly updates and monitoring will keep the platform secure and stable, while monthly content and AI improvements will ensure accurate and valuable guidance for users.
+
+**Estimated Maintenance Cost: 1,000 – 2,000 AED per month**
+
+---
+
+### Development Roadmap
+
+| Phase | Timeline | Key Deliverables |
+|-------|----------|-----------------|
+| Phase 1 — Research & Planning | Weeks 1–2 | Requirements, UI/UX designs, Architecture, Project plan |
+| Phase 2 — MVP Development | Weeks 3–10 | Functional MVP, Interactive frontend, Complete user journey |
+| Phase 3 — Testing & Deployment | Weeks 11–12 | Stable deployed prototype, GitHub repository, Final report, Presentation |
+| Phase 4 — Future Enhancements | Next 3–6 Months | Real AI backend, Arabic language support, Mobile application, User accounts |
+| Phase 5 — Long-Term Vision | 6+ Months | UAE & GCC expansion, Government partnerships, Premium features, Scale to thousands of founders |
+
+**Goal:** Become the leading AI platform for first-time entrepreneurs in the UAE and GCC.
+
 
 
 ---
