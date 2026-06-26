@@ -11,12 +11,6 @@
 
 ## 📌 Table of Contents
 
-**System Diagrams**
-- [Context Diagram](#context-diagram)
-- [3-Tier Architecture Diagram](#3-tier-architecture-diagram)
-- [Use Case Diagram](#use-case-diagram)
-- [Deployment, Costs & Roadmap](#deployment-costs-resources-maintenance--roadmap)
-
 **Theory & Background**
 - [About the Project](#about-the-project)
 - [The Problem](#the-problem)
@@ -28,6 +22,9 @@
 - [Local Context – Al Qua'a](#local-context--al-quaa-al-ain-uae)
 - [AI Agents](#ai-agents)
 - [Features & Pages](#features--pages)
+
+**System Diagrams**
+- [System Diagrams](#-system-diagrams)
 
 **Planning & Business**
 - [Deployment Plan](#deployment-plan)
@@ -46,138 +43,6 @@
 - [License](#license)
 
 ---
-
----
-
-## 📊 Context Diagram
-
-![Bedaya AI Context Diagram](docs/images/context-diagram.png)
-
-This context diagram illustrates the interactions between the Bedaya AI system and its external entities.
-
-- The **First-Time Founder** sends business ideas, answers, feedback, decisions, and feature requests to the system. The system returns first actions, recommendations, risk alerts, opportunity suggestions, and next-step decisions.
-- The **Community / Potential Customers** exchange feedback with the system — providing validation and customer opinions in return for feedback requests.
-- **External Opportunity Sources** (government programmes, funding bodies, training providers, mentorship networks) supply funding information, events, certifications, and training opportunities to the system.
-
-All internal processing remains within the system boundary. The arrows represent the bidirectional flow of information between the system and each external entity.
-
----
-
-## 🏗️ 3-Tier Architecture Diagram
-
-![Bedaya AI 3-Tier Architecture](docs/images/architecture-diagram.png)
-
-This diagram illustrates the flow of requests and responses across three separated layers:
-
-**Presentation Layer** — User Interface & Interaction
-- Web Dashboard (Founder Portal)
-- AI Chat Interface
-- Action Center (First Actions & Next Steps)
-- Notifications (Alerts & Reminders)
-- Reports & Insights (Progress & Recommendations)
-- Feedback Interface
-
-**Application Layer** — Business Logic & AI Services *(not visible to actors)*
-- AI Startup Team: Business Strategist · Finance · Marketing · Legal · Growth & Opportunities
-- Failure Prevention AI — detects risks and warns early
-- AI Board Meeting — all agents discuss and provide a final recommendation
-
-**Backend Layer** — Data, Services & Infrastructure *(not visible to actors)*
-- Database (Users, Ideas, Actions, Feedback)
-- AI / LLM Service (NLP, Reasoning, Summaries, Generations)
-- Business Rules Engine (Scoring, Validation, Risk Analysis)
-- Notification Service (Email, Push, In-App)
-- Integration Service (APIs, External Data Connectors)
-- Security & Auth Service
-
-All user interactions enter through the Presentation Layer only. The system handles all processing in the Application Layer and stores or uses data in the Backend Layer. The arrows represent the movement of data between layers while maintaining a clear separation of responsibilities.
-
----
-
-## 📋 Use Case Diagram
-
-![Bedaya AI Use Case Diagram](docs/images/usecase-diagram.png)
-
-This use case diagram shows the interactions between the First-Time Founder, the AI Startup Team, and external actors.
-
-**First-Time Founder** can:
-- Enter a skill or business idea
-- Answer beginner questions
-- Analyze a business idea
-- Generate a first action
-- Choose a next decision (Continue / Improve / Pause / Stop)
-- Pitch a new feature
-- Run an AI Board Meeting
-- View opportunities
-- Detect startup risks
-- Submit community feedback
-
-**AI Startup Team** participates in: idea analysis, first action generation, pitch evaluation, board meeting decisions, and opportunity recommendations.
-
-**Community / Potential Customers** participate in: submitting community feedback and validating demand.
-
-**External Opportunity Sources** participate in: providing funding, events, training, and mentorship opportunities.
-
-Each use case represents a function available to an actor. The diagram provides a high-level view of the system's functional behaviour and user interactions.
-
----
-
-## 🚀 Deployment, Costs, Resources, Maintenance & Roadmap
-
-![Bedaya AI Deployment Costs and Roadmap](docs/images/deployment-costs-roadmap.png)
-
-### Deployment Plan
-Bedaya AI will be deployed as a cloud-based web application accessible from any modern browser. The MVP is hosted on **Vercel** for fast, secure, and scalable deployment. Future backend services and databases will be deployed on **Render** and **Firebase**. AI-powered features will be integrated using the **OpenAI API**. GitHub is used for version control throughout.
-
-**Architecture:** User → Vercel (Frontend) → OpenAI API (AI Services) → Render (Backend/Future) → Firebase (Database/Future) → GitHub (Version Control)
-
-### Development Cost (Commercial MVP — 3 Months)
-
-| Role | Monthly Salary (AED) | Duration | Total (AED) |
-|------|----------------------|----------|-------------|
-| Project Manager | 18,000 | 3 Months | 54,000 |
-| Full-Stack Developer | 22,000 | 3 Months | 66,000 |
-| AI Engineer | 18,000 | 2 Months | 36,000 |
-| UI/UX Designer | 12,000 | 2 Months | 24,000 |
-| QA & Testing Engineer | 10,000 | 1 Month | 10,000 |
-| **Total** | | | **190,000 AED** |
-
-### Monthly Operational Cost
-
-| Resource | Platform | Cost (AED/Month) |
-|----------|----------|-----------------|
-| Frontend Hosting | Vercel Pro | 75 |
-| Backend Hosting | Render | 75 |
-| Database | Firebase | 40 |
-| AI API Usage | OpenAI API | 400–700 |
-| Domain Name | .com Domain | 7 |
-| Monitoring & Backup | Cloud Services | 50 |
-| **Estimated Monthly** | | **647–947 AED** |
-
-### Maintenance Plan
-
-| Activity | Frequency |
-|----------|-----------|
-| Bug Fixes & Performance Monitoring | Weekly |
-| Security & Dependency Updates | Weekly |
-| AI Prompt & Recommendation Improvements | Monthly |
-| Business Opportunities & Legal Content Updates | Monthly |
-| Feature Enhancements Based on User Feedback | Quarterly |
-| System Performance & Scalability Review | Every 6 Months |
-
-**Estimated Maintenance Cost: 1,000–2,000 AED per month**
-
-### Development Roadmap
-
-| Phase | Timeline | Key Deliverables |
-|-------|----------|-----------------|
-| Phase 1 — Research & Planning | Weeks 1–2 | Requirements, UI/UX designs, Architecture, Project plan |
-| Phase 2 — MVP Development | Weeks 3–10 | Functional MVP, Interactive frontend, Complete user journey |
-| Phase 3 — Testing & Deployment | Weeks 11–12 | Stable deployed prototype, GitHub repository, Final report |
-| Phase 4 — Future Enhancements | Next 3–6 Months | Real AI backend, Arabic support, Mobile app, User accounts |
-| Phase 5 — Long-Term Vision | 6+ Months | UAE & GCC expansion, Partnerships, Premium features |
-
-> The estimated development cost (190,000 AED) represents the commercial value of building Bedaya AI using a professional software development team in the UAE. The hackathon prototype was developed by the student team, significantly reducing the actual implementation cost while demonstrating the platform's technical feasibility and business potential.
 
 ---
 
@@ -437,6 +302,13 @@ Founder pitches a decision → all 5 agents give individual opinions (animated r
 Filterable by: Funding · Certification · Training · Mentorship · Event · Government
 
 Includes: Khalifa Fund · Rural Business Grant · Food Safety Certificate (ADAFSA) · Stargazing Tourism Workshop · SME Mentorship · Al Ain SME Expo · ADCCI Business Starter Programme · Tamm Government Services
+
+---
+
+## 📐 System Diagrams
+
+> Diagrams coming shortly — being added one by one with correct descriptions.
+
 
 
 ---
