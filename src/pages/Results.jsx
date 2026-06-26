@@ -5,6 +5,7 @@ import { useApp } from '../context/AppContext'
 import { getStrengthsWeaknesses, getConfidenceMeter, getWhyAIChose, getTodaysMission, getSuccessProbability } from '../data/mockData'
 import ScoreCard from '../components/ScoreCard'
 import DecisionButton, { variants } from '../components/DecisionButton'
+import VideoExplainer from '../components/VideoExplainer'
 
 const stageLabel = {
   idea:'Just an idea', testing:'Testing', selling:'Selling', customers:'Has customers', registered:'Registered', growing:'Growing'
@@ -91,7 +92,14 @@ export default function Results() {
       </div>
 
       {/* ── Scores ─────────────────────────────── */}
-      <p className="score-label" style={{ marginBottom:12 }}>Startup Scores</p>
+      <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:12, flexWrap:'wrap', gap:8 }}>
+        <p className="score-label">Startup Scores</p>
+        <div style={{ display:'flex', gap:8, flexWrap:'wrap' }}>
+          <VideoExplainer topic="readiness"    color="#f59e0b" />
+          <VideoExplainer topic="riskScore"    color="#fb923c" />
+          <VideoExplainer topic="communityFit" color="#a78bfa" />
+        </div>
+      </div>
       <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(140px,1fr))', gap:12, marginBottom:20 }}>
         <ScoreCard label="Readiness"     score={result.readinessScore}    color="#f59e0b" />
         <ScoreCard label="Risk Score"    score={result.riskScore}         color="#fb923c" />
@@ -137,7 +145,10 @@ export default function Results() {
 
       {/* ── TODAY'S MISSION ──────────────────────── */}
       <div style={{ padding:24, borderRadius:20, marginBottom:16, background:'linear-gradient(135deg,rgba(245,158,11,0.15),rgba(200,112,16,0.1))', border:'2px solid rgba(245,158,11,0.35)', boxShadow:'0 0 40px rgba(245,158,11,0.1)' }}>
-        <p style={{ color:'#fbbf24', fontSize:11, fontWeight:800, textTransform:'uppercase', letterSpacing:'0.1em', marginBottom:12 }}>⚡ Today's Mission</p>
+        <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:12, flexWrap:'wrap', gap:8 }}>
+          <p style={{ color:'#fbbf24', fontSize:11, fontWeight:800, textTransform:'uppercase', letterSpacing:'0.1em' }}>⚡ Today's Mission</p>
+          <VideoExplainer topic="firstAction" color="#fbbf24" />
+        </div>
         <p style={{ color:'#fef9ee', fontSize:20, fontWeight:800, lineHeight:1.3, marginBottom:18, letterSpacing:'-0.01em' }}>{mission.mission}</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:10, marginBottom:18 }}>
           {[

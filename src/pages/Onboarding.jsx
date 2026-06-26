@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowRight, ArrowLeft, User, Lightbulb, DollarSign, CheckCircle } from 'lucide-react'
 import { useApp } from '../context/AppContext'
+import VoiceMic from '../components/VoiceMic'
 
 const TOTAL = 3
 
@@ -151,6 +152,7 @@ export default function Onboarding() {
         <div className="glass" style={{ padding:28 }}>
           <div style={{ marginBottom:20 }}>
             <label style={label}>💡 What is your business idea? <span style={{ color:'#f59e0b' }}>*</span></label>
+            <VoiceMic onTranscript={t => ui('idea', t)} placeholder="Or tap mic to speak in Arabic / English" />
             <textarea className="input-field" rows={3} style={{ resize:'none' }}
               placeholder="e.g. I want to sell homemade camel milk chocolate in Al Qua'a..."
               value={idea.idea} onChange={e=>ui('idea',e.target.value)} />

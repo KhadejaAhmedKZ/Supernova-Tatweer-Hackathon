@@ -5,6 +5,7 @@ import { getBoardOpinions, getBoardFinal } from '../data/mockData'
 import { useApp } from '../context/AppContext'
 import BoardOpinionCard from '../components/BoardOpinionCard'
 import SectionHeader from '../components/SectionHeader'
+import VoiceMic from '../components/VoiceMic'
 
 const examples = [
   'I want to add delivery to my dessert business.',
@@ -111,9 +112,10 @@ export default function BoardMeeting() {
       {/* Pitch form */}
       {!submitted && (
         <div className="glass" style={{ padding:24, marginBottom:24 }}>
-          <label style={{ display:'block', color:'#94a3b8', fontSize:13, fontWeight:600, marginBottom:12 }}>
+          <label style={{ display:'block', color:'rgba(253,230,138,0.6)', fontSize:13, fontWeight:600, marginBottom:10 }}>
             🎤 What do you want to pitch to the board?
           </label>
+          <VoiceMic onTranscript={t => setPitch(t)} placeholder="Or speak your pitch in Arabic / English" />
           <textarea className="input-field" style={{ resize:'none', marginBottom:16 }} rows={3}
             placeholder="e.g. I want to expand to Abu Dhabi..."
             value={pitch} onChange={e => setPitch(e.target.value)} />

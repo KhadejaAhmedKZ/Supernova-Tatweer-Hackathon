@@ -4,6 +4,7 @@ import { getRiskAnalysis } from '../data/mockData'
 import { useApp } from '../context/AppContext'
 import RiskAlert from '../components/RiskAlert'
 import SectionHeader from '../components/SectionHeader'
+import VoiceMic from '../components/VoiceMic'
 
 const examples = [
   'I want to spend AED 5000 on branding.',
@@ -75,6 +76,7 @@ export default function FailurePrevention() {
           <label className="block text-sm font-semibold text-slate-300 mb-2">
             🤔 What decision are you thinking about?
           </label>
+          <VoiceMic onTranscript={t => setDecision(t)} placeholder="Or speak your decision in Arabic / English" />
           <textarea className="input-field resize-none" rows={3}
             placeholder="e.g. I want to spend AED 5000 on branding before testing my idea..."
             value={decision} onChange={e => setDecision(e.target.value)}

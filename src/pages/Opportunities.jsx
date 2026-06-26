@@ -3,6 +3,7 @@ import { TrendingUp } from 'lucide-react'
 import { opportunities } from '../data/mockData'
 import OpportunityCard from '../components/OpportunityCard'
 import SectionHeader from '../components/SectionHeader'
+import VideoExplainer from '../components/VideoExplainer'
 
 const categories = ['All', 'Funding', 'Certification', 'Training', 'Mentorship', 'Event', 'Government']
 
@@ -17,6 +18,9 @@ export default function Opportunities() {
         title="Support Available for You"
         subtitle="Funding, grants, certifications, training, mentorship, and government support — curated for founders in Al Qua'a and Al Ain."
       />
+      <div style={{ marginBottom:8 }}>
+        <VideoExplainer topic="funding" color="#f59e0b" />
+      </div>
 
       {/* Filter tabs */}
       <div className="flex flex-wrap gap-2">
