@@ -423,3 +423,140 @@ export const getFirstActionResult = (formData) => {
     return firstActionExamples.camelMilk
   return firstActionExamples.default
 }
+
+// ── Strengths & Weaknesses ─────────────────────────────────────────────────
+
+export const getStrengthsWeaknesses = (session) => {
+  const { resources, idea } = session
+  const strengths = []
+  const weaknesses = []
+
+  if (resources?.experience === 'experienced') strengths.push('Existing business experience')
+  else weaknesses.push('Limited business experience — learning as you go')
+
+  if (resources?.budget >= 1000) strengths.push('Healthy starting budget')
+  else if (resources?.budget > 0) weaknesses.push('Limited budget — keep costs very low')
+
+  if (resources?.hasCustomers === 'yes') strengths.push('Already has potential customers')
+  else weaknesses.push('No validated customers yet')
+
+  if (idea?.type === 'product') strengths.push('Physical product — easy to sample and test')
+  if (idea?.type === 'service') strengths.push('Service business — low startup cost')
+
+  strengths.push('Strong local community roots in Al Qua\'a')
+  strengths.push('Low-cost market entry opportunity')
+  weaknesses.push('No formal business registration yet')
+
+  return {
+    strengths: strengths.slice(0, 4),
+    weaknesses: weaknesses.slice(0, 3),
+  }
+}
+
+// ── Per-agent detailed responses ───────────────────────────────────────────
+
+export const getAgentResponse = (agentId, question, idea, session) => {
+  const budget  = session?.resources?.budget  || '500'
+  const loc     = session?.about?.location    || "Al Qua'a"
+  const expLvl  = session?.resources?.experience || 'beginner'
+
+  const responses = {
+    strategist: {
+      default: `For "${idea}", the key strategic principle is: validate before you invest. Start with the smallest possible version of your idea and test it with 10 real people this week. Your 90-day roadmap: Week 1–2 → test with samples. Week 3–4 → refine based on feedback. Month 2 → make your first paid sale. Month 3 → decide whether to grow or pivot. Do not register, brand, or invest heavily until you have at least 3 paying customers.`,
+      model: `Your business model for "${idea}" should start as a direct-to-customer model. Sell personally — door to door, WhatsApp, local market — before thinking about shops or online platforms. This keeps costs at zero and lets you refine the product based on real feedback. Once you have 10 regular customers, you can consider wholesale to local shops.`,
+      milestone: `Your first 4 milestones: (1) 10 people test your product and give feedback this week. (2) 3 people pay you money within 30 days. (3) 10 paying customers within 60 days. (4) Enough revenue to cover your costs by month 3. Celebrate each milestone — they are evidence that your idea works.`,
+      validate: `For "${idea}" in ${loc}, validation means: 10 honest conversations with people who might buy. Ask them: Would you buy this? How much would you pay? What would stop you? Do this before spending any money. If 7 out of 10 say yes and agree on a price — you have a validated idea. That is your green light.`,
+    },
+    finance: {
+      default: `For "${idea}" with AED ${budget} budget: Keep your initial investment under 40% of your budget — that is AED ${Math.round(budget*0.4)}. Use the rest as a safety buffer. Estimated startup cost: AED ${Math.round(budget*0.3)}–${Math.round(budget*0.45)} for materials and testing. Suggested price: AED 25–45 per unit based on ${loc} purchasing power. You need 10–15 sales to break even. Do not spend on branding, packaging, or registration until you have 3 paying customers.`,
+      cost: `Startup cost breakdown for "${idea}": Materials/ingredients: AED ${Math.round(budget*0.3)}. Packaging (simple): AED ${Math.round(budget*0.08)}. Transport for testing: AED ${Math.round(budget*0.05)}. Total minimum: AED ${Math.round(budget*0.43)}. This leaves you AED ${Math.round(budget*0.57)} buffer. Never spend your full budget in month one.`,
+      price: `Pricing for "${idea}": Research what similar products cost locally. Start at the middle of the market — not the cheapest (looks low quality) and not the most expensive (no trust yet). If your cost per unit is AED 15, price it at AED 30–35. That gives you a 100% margin to cover your time and reinvest. Always test your price with 5 people before committing.`,
+      breakeven: `Break-even for "${idea}": If you invest AED ${budget} and your profit per sale is AED 20, you need ${Math.ceil(budget/20)} sales to break even. At 2 sales per week, that is ${Math.ceil(Math.ceil(budget/20)/2)} weeks. Set a goal: break even within 60 days. If you cannot see a path to break-even within 90 days, reconsider your pricing or costs.`,
+    },
+    marketing: {
+      default: `For "${idea}" in ${loc}: Your best marketing is trust, not advertising. In close-knit communities, people buy from people they know. Step 1: Tell your story to 20 people personally — not on social media. Step 2: Give samples to 5 community leaders or respected families. Step 3: Ask every happy customer to tell 3 friends. This word-of-mouth approach costs AED 0 and builds the kind of trust that Instagram ads cannot buy.`,
+      name: `Business name ideas for "${idea}": (1) Use your location — "Al Qua'a Sweets" or "Desert Hearts Chocolate". (2) Use your heritage — something that sounds local and proud. (3) Use your family name if you are known in the community — it builds instant trust. Avoid generic names like "Best Quality Products". Your name should make people think of home.`,
+      customers: `Your first customers for "${idea}" are: (1) Your extended family and their networks. (2) Neighbours and community members who already know and trust you. (3) Local shops that sell complementary products. (4) Visitors and tourists passing through ${loc}. Start with people who already trust you — they are your easiest first sale and your best word-of-mouth marketers.`,
+      launch: `Launch plan for "${idea}" with zero budget: Week 1 — prepare 10 samples and personally deliver them to 10 people. Week 2 — follow up with each person and ask for feedback and referrals. Week 3 — take your first paid order. Week 4 — post a simple WhatsApp status with a photo and price. Do not launch on Instagram until you have 10 happy customers who can comment and validate you.`,
+    },
+    legal: {
+      default: `For "${idea}" in the UAE: You do not need to register before testing your idea. In the UAE, informal testing — giving samples, collecting feedback, and small informal trades — does not require a licence. When you are ready to sell publicly, you will need a trade licence from Abu Dhabi Department of Economic Development (ADDED). For food products, you also need a food safety permit from ADAFSA. These steps come after your first 10 sales, not before.`,
+      license: `Licence requirements for "${idea}" in Abu Dhabi: (1) Trade Licence from ADDED — required before public selling. Cost: approximately AED 1,000–3,000 depending on activity type. (2) Food Safety Certificate from ADAFSA — required for food businesses. (3) For home-based businesses, Abu Dhabi has a Home-Based Business permit. Always verify current requirements directly with ADDED as regulations change.`,
+      food: `Selling food from home in Abu Dhabi: Yes, it is possible through the Home-Based Business programme. Requirements include a food safety certificate, a health inspection of your food preparation area, and specific packaging and labelling requirements. ADAFSA provides training courses. Complete these before your first public sale to avoid fines. Do NOT sell at public markets or to shops without the proper permits.`,
+      register: `When to register your business: Register after you have (1) validated your idea with real paying customers, (2) confirmed your pricing covers costs and time, and (3) committed to continuing for at least 6 months. Registering too early wastes money on a business that may pivot. Registering too late means selling without protection. For most founders in ${loc}, the right time is after your 10th paying customer.`,
+    },
+    growth: {
+      default: `For "${idea}" in ${loc}: Three growth opportunities you can access right now — (1) Khalifa Fund for Enterprise Development: supports rural UAE businesses with funding and mentorship. Apply after your first 10 customers. (2) Food Safety Certificate from ADAFSA: required to sell publicly and builds customer trust. (3) Al Ain SME Expo: connect with buyers and investors who specifically look for authentic rural products. Start with the certification — it opens doors to everything else.`,
+      funding: `Funding options for "${idea}": (1) Khalifa Fund — UAE nationals, up to AED 3 million, requires a business plan. (2) Abu Dhabi SME Hub grants — for early-stage businesses. (3) Crowdfunding via Beehive or Eureeca platforms. (4) Family and community investment — often the fastest and cheapest source for a first-time founder. For your stage, community investment and Khalifa Fund are the most realistic paths.`,
+      scale: `Scaling "${idea}" after your first 10 customers: (1) Partner with one local shop to sell your product — this multiplies your reach without more of your time. (2) Attend one local market or event per month. (3) Train a family member to help with production. (4) Apply for a small business grant to fund the next level. Scale slowly — doubling customers before doubling capacity is the rule.`,
+      events: `Events and opportunities in the Al Ain region for "${idea}": Al Ain Food Festival, Al Ain Oasis Market, Abu Dhabi Date Festival (if agricultural), Emirates Heritage Village events, Al Ain SME Expo. Attend as a visitor first — observe what sells, talk to vendors, understand what buyers want. Then apply to participate in the next cycle.`,
+    },
+  }
+
+  const agentRes = responses[agentId]
+  if (!agentRes) return agents.find(a=>a.id===agentId)?.mockResponse(idea) || 'Response unavailable.'
+
+  const lower = question.toLowerCase()
+  if (agentId === 'strategist') {
+    if (lower.includes('model') || lower.includes('business model')) return agentRes.model
+    if (lower.includes('milestone') || lower.includes('goal')) return agentRes.milestone
+    if (lower.includes('validat')) return agentRes.validate
+  }
+  if (agentId === 'finance') {
+    if (lower.includes('cost') || lower.includes('spend') || lower.includes('start')) return agentRes.cost
+    if (lower.includes('pric')) return agentRes.price
+    if (lower.includes('break') || lower.includes('even')) return agentRes.breakeven
+  }
+  if (agentId === 'marketing') {
+    if (lower.includes('name') || lower.includes('brand')) return agentRes.name
+    if (lower.includes('customer') || lower.includes('who')) return agentRes.customers
+    if (lower.includes('launch') || lower.includes('start') || lower.includes('no budget') || lower.includes('zero')) return agentRes.launch
+  }
+  if (agentId === 'legal') {
+    if (lower.includes('licen') || lower.includes('permit') || lower.includes('register')) return agentRes.license
+    if (lower.includes('food') || lower.includes('home') || lower.includes('sell')) return agentRes.food
+    if (lower.includes('when')) return agentRes.register
+  }
+  if (agentId === 'growth') {
+    if (lower.includes('fund') || lower.includes('money') || lower.includes('grant')) return agentRes.funding
+    if (lower.includes('scal') || lower.includes('grow') || lower.includes('expand') || lower.includes('after')) return agentRes.scale
+    if (lower.includes('event') || lower.includes('attend') || lower.includes('market')) return agentRes.events
+  }
+
+  return agentRes.default
+}
+
+// ── Board Meeting Final ────────────────────────────────────────────────────
+
+export const getBoardFinal = (pitch, votes) => {
+  const proceedCount = votes.filter(v => v === 'Proceed Now').length
+  const waitCount    = votes.filter(v => v === 'Wait').length
+
+  if (proceedCount >= 3) return {
+    decision: 'Proceed Now',
+    color: '#34d399',
+    score: Math.round(60 + proceedCount * 8),
+    pros: ['Strong strategic alignment', 'Affordable at current stage', 'Customers are likely to respond positively'],
+    cons: ['Requires careful execution', 'Monitor cash flow closely'],
+    riskLevel: 'Low',
+    reason: `The board majority supports moving forward with "${pitch}". Ensure you have a clear plan and measurable milestone before starting.`,
+  }
+  if (waitCount >= 3) return {
+    decision: 'Wait',
+    color: '#fbbf24',
+    score: Math.round(40 + proceedCount * 8),
+    pros: ['Concept has long-term potential', 'Market exists for this'],
+    cons: ['Timing is not right yet', 'Core product needs more validation', 'Financial risk is too high now'],
+    riskLevel: 'Medium',
+    reason: `The board recommends waiting on "${pitch}". Validate your core product for 30 more days, then revisit with real sales data.`,
+  }
+  return {
+    decision: 'Improve First',
+    color: '#818cf8',
+    score: 65,
+    pros: ['The idea has merit', 'Board sees future potential'],
+    cons: ['Execution plan needs refinement', 'Some legal considerations must be resolved first'],
+    riskLevel: 'Medium',
+    reason: `The board suggests improving the plan for "${pitch}" before committing resources. Address the concerns raised and come back with a clearer strategy.`,
+  }
+}

@@ -4,7 +4,7 @@ import { Rocket, LayoutDashboard, Zap, Users, Shield, Presentation, TrendingUp, 
 
 const navItems = [
   { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { to: '/first-action', label: 'Idea Engine', icon: Zap },
+  { to: '/start', label: 'Idea Engine', icon: Zap },
   { to: '/agents', label: 'AI Team', icon: Users },
   { to: '/failure-prevention', label: 'Risk Check', icon: Shield },
   { to: '/board-meeting', label: 'Board', icon: Presentation },
@@ -72,7 +72,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <NavLink
-          to="/first-action"
+          to="/welcome"
           className="hidden lg:inline-flex btn-primary py-2 px-4 text-xs"
         >
           <Zap size={13} />
@@ -116,7 +116,7 @@ export default function Navbar() {
             ))}
           </div>
           <NavLink
-            to="/first-action"
+            to="/welcome"
             onClick={() => setOpen(false)}
             className="btn-primary w-full justify-center mt-3"
           >

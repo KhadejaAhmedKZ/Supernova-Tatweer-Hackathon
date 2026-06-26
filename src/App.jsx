@@ -2,9 +2,13 @@ import { Routes, Route } from 'react-router-dom'
 import { AppProvider } from './context/AppContext'
 import Layout from './components/Layout'
 import Landing from './pages/Landing'
+import Welcome from './pages/Welcome'
+import Onboarding from './pages/Onboarding'
+import AnalysisLoading from './pages/AnalysisLoading'
+import Results from './pages/Results'
 import Dashboard from './pages/Dashboard'
-import FirstAction from './pages/FirstAction'
 import Agents from './pages/Agents'
+import AgentDetail from './pages/AgentDetail'
 import FailurePrevention from './pages/FailurePrevention'
 import BoardMeeting from './pages/BoardMeeting'
 import Opportunities from './pages/Opportunities'
@@ -12,17 +16,21 @@ import Opportunities from './pages/Opportunities'
 export default function App() {
   return (
     <AppProvider>
-    <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route element={<Layout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/first-action" element={<FirstAction />} />
-        <Route path="/agents" element={<Agents />} />
-        <Route path="/failure-prevention" element={<FailurePrevention />} />
-        <Route path="/board-meeting" element={<BoardMeeting />} />
-        <Route path="/opportunities" element={<Opportunities />} />
-      </Route>
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/welcome" element={<Welcome />} />
+        <Route element={<Layout />}>
+          <Route path="/start" element={<Onboarding />} />
+          <Route path="/analysis" element={<AnalysisLoading />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/agents" element={<Agents />} />
+          <Route path="/agents/:agentId" element={<AgentDetail />} />
+          <Route path="/failure-prevention" element={<FailurePrevention />} />
+          <Route path="/board-meeting" element={<BoardMeeting />} />
+          <Route path="/opportunities" element={<Opportunities />} />
+        </Route>
+      </Routes>
     </AppProvider>
   )
 }

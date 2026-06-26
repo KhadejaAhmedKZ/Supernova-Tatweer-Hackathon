@@ -14,7 +14,7 @@ const stats = [
 ]
 
 const features = [
-  { icon: Zap,          color: '#818cf8', glow: 'rgba(129,140,248,0.25)', bg: 'rgba(129,140,248,0.1)', title: 'Idea Engine',         desc: 'Get one clear, low-risk first step tailored to your idea and budget.',     to: '/first-action'       },
+  { icon: Zap,          color: '#818cf8', glow: 'rgba(129,140,248,0.25)', bg: 'rgba(129,140,248,0.1)', title: 'Idea Engine',         desc: 'Get one clear, low-risk first step tailored to your idea and budget.',     to: '/welcome'       },
   { icon: Shield,       color: '#fb923c', glow: 'rgba(251,146,60,0.25)',  bg: 'rgba(251,146,60,0.1)',  title: 'Failure Prevention',  desc: 'Know the risks before spending a single dirham.',                          to: '/failure-prevention' },
   { icon: Users,        color: '#c084fc', glow: 'rgba(192,132,252,0.25)', bg: 'rgba(192,132,252,0.1)', title: 'AI Startup Team',     desc: 'Five expert advisors — strategy, finance, marketing, legal, growth.',      to: '/agents'             },
   { icon: Presentation, color: '#34d399', glow: 'rgba(52,211,153,0.25)',  bg: 'rgba(52,211,153,0.1)',  title: 'AI Board Meeting',    desc: 'Pitch any decision. All five agents debate and give a final verdict.',    to: '/board-meeting'      },
@@ -115,7 +115,7 @@ export default function Landing() {
 
           {/* CTAs */}
           <div className="animate-fade-up delay-400" style={{ display:'flex', flexWrap:'wrap', gap:16, justifyContent:'center', marginBottom:72 }}>
-            <button onClick={() => navigate('/first-action')} className="btn-primary" style={{ fontSize:16, padding:'16px 32px', borderRadius:16 }}>
+            <button onClick={() => navigate('/welcome')} className="btn-primary" style={{ fontSize:16, padding:'16px 32px', borderRadius:16 }}>
               <Rocket size={20} />
               Start Your First Step
               <ArrowRight size={18} />
@@ -322,7 +322,7 @@ export default function Landing() {
               <p style={{ color:'#94a3b8', fontSize:16, marginBottom:36, lineHeight:1.7 }}>
                 Less than 5 minutes. No registration. No cost.<br />Just your first real move toward your dream.
               </p>
-              <button onClick={() => navigate('/first-action')} className="btn-primary"
+              <button onClick={() => navigate('/welcome')} className="btn-primary"
                 style={{ fontSize:16, padding:'18px 40px', borderRadius:16, margin:'0 auto' }}>
                 <Rocket size={20} />
                 Start Your First Step
