@@ -1,70 +1,27 @@
 import { ArrowUpRight } from 'lucide-react'
 
 export default function OpportunityCard({ opportunity }) {
-  const { emoji, color, colorLight, title, type, whyItHelps, action } = opportunity
-
+  const { emoji, color, title, type, whyItHelps, action } = opportunity
   return (
-    <div
-      className="flex flex-col gap-4 p-6 rounded-2xl group transition-all duration-300 hover:-translate-y-1"
-      style={{
-        background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(255,255,255,0.07)',
-      }}
-      onMouseEnter={e => {
-        e.currentTarget.style.borderColor = `${color}30`
-        e.currentTarget.style.boxShadow = `0 8px 32px ${color}15`
-        e.currentTarget.style.background = `linear-gradient(135deg, ${color}08, rgba(255,255,255,0.03))`
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'
-        e.currentTarget.style.boxShadow = 'none'
-        e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
-      }}
-    >
-      {/* Header */}
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex items-start gap-3">
-          <div
-            className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-            style={{
-              background: `linear-gradient(135deg, ${color}20, ${color}0a)`,
-              border: `1px solid ${color}20`,
-            }}
-          >
+    <div style={{ display:'flex', flexDirection:'column', gap:14, padding:22, borderRadius:20, transition:'all 0.25s', background:'rgba(6,2,24,0.88)', border:`1px solid rgba(255,210,80,0.15)`, backdropFilter:'blur(20px)' }}
+      onMouseEnter={e => { e.currentTarget.style.borderColor=`${color}45`; e.currentTarget.style.background='rgba(30,10,0,0.92)'; e.currentTarget.style.transform='translateY(-3px)'; e.currentTarget.style.boxShadow=`0 12px 36px ${color}18` }}
+      onMouseLeave={e => { e.currentTarget.style.borderColor='rgba(255,210,80,0.15)'; e.currentTarget.style.background='rgba(6,2,24,0.88)'; e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='none' }}>
+      <div style={{ display:'flex', alignItems:'flex-start', justifyContent:'space-between', gap:12 }}>
+        <div style={{ display:'flex', alignItems:'flex-start', gap:12 }}>
+          <div style={{ width:44, height:44, borderRadius:14, flexShrink:0, display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, background:`${color}18`, border:`1px solid ${color}25` }}>
             {emoji}
           </div>
           <div>
-            <h3 className="font-bold text-white text-sm leading-tight">{title}</h3>
-            <span
-              className="tag mt-1.5 text-xs"
-              style={{ background: `${color}14`, color, border: `1px solid ${color}20` }}
-            >
-              {type}
-            </span>
+            <h3 style={{ fontWeight:800, color:'#fef9ee', fontSize:14, lineHeight:1.3, marginBottom:6 }}>{title}</h3>
+            <span style={{ fontSize:11, fontWeight:600, padding:'3px 10px', borderRadius:99, background:`${color}15`, color, border:`1px solid ${color}22` }}>{type}</span>
           </div>
         </div>
-        <div
-          className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-1 group-hover:translate-x-0"
-          style={{ background: `${color}18`, color }}
-        >
-          <ArrowUpRight size={14} />
-        </div>
+        <ArrowUpRight size={16} style={{ color:'rgba(253,230,138,0.25)', flexShrink:0, marginTop:4 }} />
       </div>
-
-      {/* Why it helps */}
-      <p className="text-slate-400 text-sm leading-relaxed flex-1">{whyItHelps}</p>
-
-      {/* Action */}
-      <div
-        className="rounded-xl p-3.5 flex items-start gap-2.5"
-        style={{
-          background: `${color}0c`,
-          borderLeft: `3px solid ${color}`,
-        }}
-      >
-        <p className="text-sm leading-relaxed" style={{ color: `${color}dd` }}>
-          <span className="font-semibold text-white">Action: </span>
-          {action}
+      <p style={{ color:'rgba(241,236,224,0.7)', fontSize:13, lineHeight:1.75 }}>{whyItHelps}</p>
+      <div style={{ padding:'12px 16px', borderRadius:12, background:`${color}0e`, borderLeft:`3px solid ${color}` }}>
+        <p style={{ fontSize:13, lineHeight:1.7, color:'#f1ece0' }}>
+          <span style={{ fontWeight:700, color:'#fde68a' }}>Action: </span>{action}
         </p>
       </div>
     </div>
