@@ -31,6 +31,7 @@
 - [Development Roadmap](#development-roadmap)
 
 **Code & Implementation**
+- [Security Design](#security-design)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
@@ -423,6 +424,91 @@ Bedaya AI will follow a proactive maintenance strategy to ensure reliability, se
 - Support thousands of aspiring entrepreneurs
 
 **Goal:** Become the leading AI platform for first-time entrepreneurs in the UAE and GCC
+
+---
+
+## 🔒 Security Design
+
+> This is a frontend-only hackathon prototype. The security architecture below represents the full production design we planned for Bedaya AI — showing how the platform would protect real entrepreneur data if deployed with a backend.
+
+---
+
+### Why security matters for Bedaya AI
+
+Entrepreneurs share sensitive information with Bedaya AI — business ideas, financial budgets, personal goals, and community knowledge. A platform built on trust must protect that trust at every layer.
+
+---
+
+### Planned security architecture
+
+| Zone | Component | Responsibility |
+|------|-----------|----------------|
+| 1 — Entry | HTTPS / TLS | Encrypts all traffic between user and server |
+| 2 — Identity | Firebase Authentication | Verifies JWT token, rejects invalid sessions |
+| 3 — Gateway | API Gateway | Checks user role, enforces rate limiting |
+| 4 — Middleware | Security Layer | Filters prompt injection, masks PII, validates input |
+| 5 — AI Network | AI Orchestrator | Routes to agents with minimum required data only |
+| 6 — Storage | Encrypted Database | Stores business ideas and financial data encrypted |
+
+---
+
+### Security feature plan
+
+| Feature | Purpose | Production Priority |
+|---------|---------|---------------------|
+| Firebase Authentication | JWT login, email verification, Google Sign-In | Critical |
+| HTTPS / TLS | Encrypt all data in transit | Critical |
+| Role-Based Access Control | Entrepreneurs access only their own projects | Critical |
+| Private workspaces | Firestore rules prevent cross-user data access | Critical |
+| Input validation | Block XSS and SQL injection on all inputs | Critical |
+| Prompt injection detection | Filter malicious AI instructions before they reach the model | Critical |
+| PII masking | Detect and mask phone numbers, emails, IDs before sending to AI | High |
+| Rate limiting | Max 20 AI requests per minute per user | High |
+| Audit logging | Record all key events: login, idea created, board meeting called | High |
+| File upload validation | Accept only jpg, png, pdf under 5MB — reject executables | High |
+| AI hallucination disclaimer | Warn users to verify legal and financial AI advice | High |
+| Security Dashboard | Show entrepreneurs their live security score and status | Medium |
+| Two-factor authentication | SMS second factor via Firebase | Planned |
+| Field-level encryption | Encrypt sensitive Firestore fields at rest | Planned |
+| Malware scanning | Deep file scanning before AI processing | Planned |
+
+---
+
+### AI-specific security design
+
+Since Bedaya AI is AI-powered, standard web security is not enough. We designed protections specific to AI systems:
+
+| AI Threat | Planned Protection |
+|-----------|-------------------|
+| Prompt injection | Pattern detection runs on every input before reaching the model |
+| Sensitive data leakage | PII masking on all user inputs |
+| Hallucinated legal advice | Disclaimer shown below every AI response |
+| AI abuse and cost explosion | Rate limiting per user per minute |
+| Cross-agent data leakage | Each agent receives only the minimum data it needs |
+
+---
+
+### Agent isolation model
+
+The five AI agents never communicate directly with each other. All routing goes through a central AI Orchestrator using a hub-and-spoke model. Each agent only sees the data relevant to its role:
+
+| Agent | Can Access | Cannot Access |
+|-------|-----------|---------------|
+| Strategy | Business idea, user goals | Financial records, legal docs |
+| Finance | Budget, costs, revenue | Marketing prompts, legal records |
+| Legal | Regulations, licence rules | Financial history, private chats |
+| Marketing | Brand info, customer persona | Banking details, legal records |
+| Growth | Business category, location | Passwords, financial secrets |
+
+This is the **principle of least privilege** applied to AI agents.
+
+---
+
+### What we built in this prototype
+
+Since this is a frontend-only prototype, the current version uses mock AI responses and no real authentication. The security design above is our full production roadmap. For the hackathon demo, we focused on validating the core user experience — helping first-time entrepreneurs in Al Qua'a take their first step.
+
+In a real deployment, all features marked **Critical** above would be implemented before any user data is collected.
 
 ---
 
