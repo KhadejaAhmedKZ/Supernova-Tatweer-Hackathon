@@ -666,3 +666,140 @@ export const localInspiration = [
     story: 'Started by posting in WhatsApp community groups. First 10 orders came within a week. Now earns AED 3,000/month.',
   },
 ]
+
+// ── Market Discovery AI ────────────────────────────────────────────────────
+
+export const marketCategories = [
+  'Food & Beverages', 'Agriculture & Farming', 'Tourism & Experiences',
+  'Retail & Handmade', 'Photography & Media', 'Delivery & Logistics',
+  'Health & Wellness', 'Education & Training', 'Technology & Services',
+]
+
+export const alQuaaBusinesses = [
+  {
+    id:1, name:"Al Dhafra Camel Farm", category:"Agriculture & Farming", emoji:"🐪",
+    distance:"3.2 km", rating:4.6, years:8, type:"Camel milk & products",
+    strengths:["Strong local reputation","Diverse product range","Community trust","Regular customers"],
+    weaknesses:["No online presence","Limited packaging","No delivery service","Cash only"],
+    priceRange:"AED 20–80", status:"Established",
+    learning:"They built trust through consistent quality. Visit their market stall to understand pricing."
+  },
+  {
+    id:2, name:"Desert Stars Stargazing", category:"Tourism & Experiences", emoji:"🌙",
+    distance:"7.5 km", rating:4.9, years:3, type:"Night sky tours",
+    strengths:["Unique experience","Excellent reviews","Social media presence","Premium positioning"],
+    weaknesses:["Seasonal demand","Limited capacity","No Arabic content","No group packages"],
+    priceRange:"AED 150–400", status:"Growing",
+    learning:"They charge premium prices for a unique Al Qua'a experience. Authenticity is their brand."
+  },
+  {
+    id:3, name:"Oasis Coffee Truck", category:"Food & Beverages", emoji:"☕",
+    distance:"1.8 km", rating:4.3, years:2, type:"Mobile café",
+    strengths:["Great location on highway","Affordable prices","Fast service","Loyal regulars"],
+    weaknesses:["Limited menu","No seating","Weather dependent","No social media"],
+    priceRange:"AED 5–25", status:"Stable",
+    learning:"Highway location is the key. Consistent quality and speed keeps drivers coming back."
+  },
+  {
+    id:4, name:"Bedouin Handmade Gallery", category:"Retail & Handmade", emoji:"🏺",
+    distance:"5.1 km", rating:4.5, years:12, type:"Traditional crafts",
+    strengths:["Authentic products","Tourist appeal","Heritage branding","Long history"],
+    weaknesses:["No online sales","Irregular hours","High prices","Limited marketing"],
+    priceRange:"AED 30–500", status:"Established",
+    learning:"Heritage and authenticity command premium prices. Tourists pay more for 'real' local products."
+  },
+  {
+    id:5, name:"Al Qua'a Organic Farm", category:"Agriculture & Farming", emoji:"🌿",
+    distance:"9.2 km", rating:4.2, years:5, type:"Fresh produce & dates",
+    strengths:["Organic certification","WhatsApp ordering","Community delivery","Family business"],
+    weaknesses:["Limited variety","No website","Seasonal products","Small storage"],
+    priceRange:"AED 15–60", status:"Stable",
+    learning:"WhatsApp ordering made them accessible to busy families. Simple tech, big impact."
+  },
+  {
+    id:6, name:"Desert Photography Studio", category:"Photography & Media", emoji:"📸",
+    distance:"4.4 km", rating:4.7, years:1, type:"Desert photo sessions",
+    strengths:["Stunning locations","Instagram marketing","Weekend bookings full","Premium quality"],
+    weaknesses:["One person operation","No backup equipment","Limited availability","No corporate packages"],
+    priceRange:"AED 200–600", status:"Growing",
+    learning:"Instagram drove all their growth. 3 viral posts filled their bookings for 3 months."
+  },
+]
+
+const locationData = {
+  "Al Qua'a": alQuaaBusinesses,
+  "Al Ain":   alQuaaBusinesses.slice(0,4),
+  default:    alQuaaBusinesses.slice(0,3),
+}
+
+export const getMarketData = (idea, category, location, radius) => {
+  const lower = (idea || '').toLowerCase()
+  let businesses = locationData[location] || locationData.default
+
+  // filter by category relevance
+  if (category && category !== 'All') {
+    const relevant = businesses.filter(b => b.category === category)
+    businesses = relevant.length > 0 ? relevant : businesses.slice(0,3)
+  }
+
+  // filter by radius
+  businesses = businesses.filter(b => parseFloat(b.distance) <= radius)
+  if (businesses.length === 0) businesses = alQuaaBusinesses.slice(0,2)
+
+  const count = businesses.length
+  const avgRating = (businesses.reduce((s,b)=>s+b.rating,0)/count).toFixed(1)
+
+  const competitionLevel = count <= 2 ? 'Low' : count <= 4 ? 'Medium' : 'High'
+  const competitionColor = { Low:'#34d399', Medium:'#fbbf24', High:'#fb923c' }[competitionLevel]
+
+  // Opportunity gaps
+  const gaps = []
+  if (!businesses.some(b=>b.weaknesses.some(w=>w.includes('online')===false))) {
+    gaps.push({ title:'No Online Booking', opportunity:'All nearby businesses lack online booking. A simple WhatsApp catalogue or booking link would stand out immediately.' })
+  }
+  gaps.push({ title:'Delivery Gap', opportunity:`None of the ${count} nearby businesses offer home delivery. Rural families in Al Qua'a would pay a premium for this.` })
+  gaps.push({ title:'Digital Presence', opportunity:'Most local businesses have no social media. Being first on Instagram or TikTok in your niche would give you instant visibility.' })
+
+  if (lower.includes('camel') || lower.includes('milk')) {
+    gaps.push({ title:'Premium Packaging', opportunity:'12 camel farms in the area sell raw products. None offer premium gift boxes or branded packaging for tourists and gifting.' })
+  }
+  if (lower.includes('star') || lower.includes('tour')) {
+    gaps.push({ title:'Group Packages', opportunity:'Existing stargazing businesses only serve individuals. A group booking system for schools and corporate teams is untapped.' })
+  }
+
+  // Scores
+  const demandScore     = Math.min(95, 60 + (5-count)*6 + Math.round(Math.random()*10))
+  const competitionScore= count <= 2 ? 82 : count <= 4 ? 58 : 34
+  const innovationScore = 78
+  const locationScore   = location.includes("Qua'a") ? 90 : 72
+  const overallScore    = Math.round((demandScore+competitionScore+innovationScore+locationScore)/4)
+
+  const differentiators = [
+    'Offer online ordering via WhatsApp or Instagram',
+    'Add home delivery within 10 km',
+    'Create loyalty cards for repeat customers',
+    'Post weekly content showing your process',
+    'Offer gift packaging for tourists and gifting occasions',
+    'Provide Arabic and English service',
+  ]
+
+  const recommendation = overallScore >= 75
+    ? { verdict:'YES — Great Opportunity', color:'#34d399', reason:`With only ${count} competitors and strong local demand, this is a good time to enter. Your differentiation strategy should focus on digital presence and delivery.` }
+    : overallScore >= 55
+    ? { verdict:'MODIFY YOUR IDEA', color:'#fbbf24', reason:`Competition exists but so does opportunity. Focus on the gaps identified above — especially delivery and online booking — to carve out your own space.` }
+    : { verdict:'CONSIDER A DIFFERENT NICHE', color:'#fb923c', reason:`This market is saturated locally. Consider a related niche with less competition — the gap analysis above shows adjacent opportunities.` }
+
+  return {
+    businesses, count, avgRating,
+    competitionLevel, competitionColor,
+    gaps: gaps.slice(0,3),
+    scores: { demand:demandScore, competition:competitionScore, innovation:innovationScore, location:locationScore, overall:overallScore },
+    differentiators,
+    recommendation,
+    untappedOpportunities: [
+      `${count} similar businesses within ${radius} km — none offer delivery`,
+      `Average rating is ${avgRating}/5 — quality gaps exist to fill`,
+      'No business in Al Qua\'a currently has an English + Arabic online presence',
+    ]
+  }
+}

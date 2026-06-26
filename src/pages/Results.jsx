@@ -223,6 +223,18 @@ export default function Results() {
         </div>
       </div>
 
+      {/* ── Explore Market CTA ──────────────────── */}
+      <div style={{ padding:22, borderRadius:18, marginBottom:16, background:'linear-gradient(135deg,rgba(129,140,248,0.1),rgba(6,2,24,0.9))', border:'1px solid rgba(129,140,248,0.25)', display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap', gap:14 }}>
+        <div>
+          <p style={{ color:'#a78bfa', fontSize:12, fontWeight:700, textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:5 }}>🗺️ Market Discovery AI</p>
+          <p style={{ color:'#fef9ee', fontWeight:700, fontSize:15, marginBottom:3 }}>Who else is doing this near you?</p>
+          <p style={{ color:'rgba(253,230,138,0.4)', fontSize:12 }}>See competitors, gaps, and untapped opportunities in Al Qua'a.</p>
+        </div>
+        <button onClick={() => navigate('/market-discovery')} className="btn-primary" style={{ flexShrink:0, padding:'11px 22px', fontSize:13 }}>
+          Explore My Market <ArrowRight size={14} />
+        </button>
+      </div>
+
       {/* ── Decision buttons ─────────────────────── */}
       <p className="score-label" style={{ marginBottom:14 }}>What do you want to do next?</p>
       <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(130px,1fr))', gap:12, marginBottom:16 }}>

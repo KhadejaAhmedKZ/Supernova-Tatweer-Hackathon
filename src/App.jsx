@@ -12,6 +12,7 @@ import AgentDetail from './pages/AgentDetail'
 import FailurePrevention from './pages/FailurePrevention'
 import BoardMeeting from './pages/BoardMeeting'
 import Opportunities from './pages/Opportunities'
+import MarketDiscovery from './pages/MarketDiscovery'
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/failure-prevention" element={<FailurePrevention />} />
           <Route path="/board-meeting" element={<BoardMeeting />} />
           <Route path="/opportunities" element={<Opportunities />} />
+          <Route path="/market-discovery" element={<MarketDiscovery />} />
         </Route>
       </Routes>
     </AppProvider>

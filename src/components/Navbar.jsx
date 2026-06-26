@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { Rocket, LayoutDashboard, Zap, Users, Shield, Presentation, TrendingUp, Menu, X } from 'lucide-react'
+import { Rocket, LayoutDashboard, Zap, Users, Shield, Presentation, TrendingUp, Map, Menu, X } from 'lucide-react'
 
 const navItems = [
   { to: '/dashboard',          label: 'Dashboard',    icon: LayoutDashboard },
   { to: '/start',              label: 'Idea Engine',  icon: Zap             },
+  { to: '/market-discovery',   label: 'Market AI',    icon: Map             },
   { to: '/agents',             label: 'AI Team',      icon: Users           },
   { to: '/failure-prevention', label: 'Risk Check',   icon: Shield          },
   { to: '/board-meeting',      label: 'Board',        icon: Presentation    },
