@@ -22,6 +22,7 @@
 - [Local Context – Al Qua'a](#local-context--al-quaa-al-ain-uae)
 - [AI Agents](#ai-agents)
 - [Features & Pages](#features--pages)
+- [Market Discovery AI](#11-️-market-discovery-ai----market-discovery)
 
 **System Diagrams**
 - [System Diagrams](#-system-diagrams)
@@ -228,77 +229,149 @@ Identifies funding programmes, startup events, training certifications, mentorsh
 ## 📄 Features & Pages
 
 ### 1. 🏠 Landing Page — `/`
-- Hero section with headline, tagline, and CTA
-- Problem section — what stops first-time founders
-- Solution section — how Bedaya AI helps
-- Features overview — four core tools explained
-- Built for Al Qua'a section with local business examples
-- Our Promise — encouraging principles for founders
-- Call to action — "Start Your First Step"
+- Animated desert + night sky world background (live canvas: 280 stars, shooting stars, dunes, walking camels)
+- Hero section with floating 🌙 moon, 🐪 camel, ✨ sparkles
+- Problem · Solution · Features · Al Qua'a community section
+- Stargazing strip celebrating Al Qua'a's dark skies
+- Our Promise section · Final CTA
 
 ---
 
-### 2. 📊 Dashboard — `/dashboard`
-**Cards displayed:**
-- Business Readiness Score
-- Community Fit Score
-- Risk Level · Confidence Score
-- First Action Status (with next action description)
-- AI Team Status · Recommended Opportunity
-
-**Mock data:** Business idea: *Camel Milk Chocolate in Al Qua'a* · Next action: *Prepare 5 samples and ask 10 people for feedback*
+### 2. 👋 Welcome Screen — `/welcome`
+- Introduction to Bedaya AI
+- 3-step visual overview of the journey
+- Start Journey → Learn More buttons
 
 ---
 
-### 3. ⚡ Idea-to-First-Action Engine — `/first-action`
-The most important page. Takes user input and returns a full AI analysis.
+### 3. 📋 Multi-Step Onboarding — `/start`
+3-step guided form replacing a single long form.
 
-**Form fields:** idea, location, budget (AED), hours/week, blockers, first customers, sell mode
+**Step 1 — About You:**
+- Name · Age · Location
+- **Founder Role** (7 types: Student, Housewife, Retired, Farmer, Freelancer, Employee, Unemployed)
+- **Business Stage** (6 options: Just an idea → Testing → Selling → Has customers → Registered → Growing)
 
-**AI Output:** Founder Summary · Idea Summary · Community Fit · Readiness Score · Community Fit Score · Risk Score · Confidence Score · #1 First Action · Why it matters · Step-by-step instructions · What to do next
+**Step 2 — Business Idea:**
+- Idea description · Inspiration · Target customers
+- Type selector: Product / Service / Both
 
-**Decision buttons:**
-
-| Button | Response |
-|--------|----------|
-| ▶ Continue | Unlocks AI startup team |
-| ✏️ Improve | Refine idea before spending |
-| ⏸ Pause | Idea saved for later |
-| ⏹ Stop | "Stopping is not failure" |
-
----
-
-### 4. 👥 AI Startup Team — `/agents`
-Five expert AI agents as interactive cards. Each has an **Ask Agent** button that generates a mock AI response personalised to the user's idea.
-
-| Agent | Role |
-|-------|------|
-| 🧠 Business Strategist | Startup Mentor |
-| 💰 Finance Advisor | Financial Advisor |
-| 📣 Marketing Expert | Marketing Specialist |
-| ⚖️ Legal Counsel | Compliance Educator |
-| 🚀 Growth & Opportunities | Opportunity Advisor |
+**Step 3 — Resources:**
+- Budget (AED) · Hours per week
+- Experience level (Beginner / Some / Experienced)
+- Has customers already (No / Maybe / Yes)
+- Biggest concern
 
 ---
 
-### 5. 🛡️ Failure Prevention AI — `/failure-prevention`
-User types a decision → AI returns: Risk Level · Possible Mistake · Why It Is Risky · Safer Alternative · Recommended First Step
-
-**Examples covered:**
-- *"Spend AED 5000 on branding"* → High Risk
-- *"Register before testing"* → High Risk
-- *"Add delivery"* → Medium Risk
-- *"Sell food online"* → Medium Risk
-- *"Hire an employee"* → High Risk
+### 4. 🧠 AI Analysis Loading — `/analysis`
+Animated 6-step loading sequence before results appear:
+Understanding idea → Checking market → Building profile → Assessing readiness → Consulting specialists → Generating first action
 
 ---
 
-### 6. 🏛️ AI Board Meeting — `/board-meeting`
-Founder pitches a decision → all 5 agents give individual opinions (animated reveal) → final recommendation with score out of 10 and verdict: **Proceed Now / Wait / Improve First**
+### 5. ⚡ Business Analysis Results — `/results`
+Full AI analysis dashboard — the most important page.
+
+**Founder Profile Banner** — name, role, stage, location, budget, experience
+
+**AI Summary** — Business summary + Community Fit explanation
+
+**4 Startup Scores** — Readiness · Risk · Confidence · Community Fit (animated rings)
+
+**🤖 AI Confidence Meter** — percentage with checklist of what passed ✓ and what's missing ✗
+
+**Strengths & Weaknesses** — AI-generated based on actual user data
+
+**⚡ Today's Mission Card** — Mission · Estimated Time · Difficulty · Impact · Reward to unlock
+
+**🤔 Why AI Chose This** — 4 specific reasons based on budget, location, stage, and customers
+
+**📈 Success Probability** — Current % → Can reach % with specific improvement actions
+
+**Step-by-step instructions** — numbered list
+
+**Decision buttons** — Continue / Improve / Pause / Stop
+
+**🗺️ Explore My Market** — CTA linking to Market Discovery AI
 
 ---
 
-### 7. 💰 Opportunities — `/opportunities`
+### 6. 📊 Business Dashboard — `/dashboard`
+Founder's personal command centre — shows real data from their session.
+
+- **Welcome banner** with name, idea, and status badge
+- **4 Startup Scores** with animated rings
+- **Business Health Grid** — 6 categories with 🟢🟡🔴 status (Idea, Validation, Marketing, Finance, Legal, Growth)
+- **Current Mission** — first action with quick link to full results
+- **Recent AI Advice** — last board meeting and risk check history
+- **Recommended Opportunity** — matched to their business category
+- **Founder Journey** — visual 8-stage path (🌱 Dream → 💡 Idea → 📋 Plan → 🧪 Validate → 🛒 First Sale → 📄 License → 🚀 Launch → 📈 Grow) with progress bar
+- **Quick Actions** — one-click access to all 5 tools
+
+---
+
+### 7. 👥 AI Startup Team — `/agents`
+Agent selection screen with chat history count per agent.
+
+**5 specialist advisors:**
+
+| Agent | Role | Smart Keyword Routing |
+|-------|------|----------------------|
+| 🧠 Business Strategist | Startup Mentor | model, milestone, validate |
+| 💰 Finance Advisor | Financial Advisor | cost, price, break-even |
+| 📣 Marketing Expert | Marketing Specialist | name, customers, launch |
+| ⚖️ Legal Counsel | Compliance Educator | license, food, register |
+| 🚀 Growth & Opportunities | Opportunity Advisor | fund, scale, events |
+
+### 8. 💬 Agent Detail Pages — `/agents/:id`
+Individual agent conversation pages with:
+- Suggested questions (3 per agent)
+- Keyword-smart response routing
+- Full chat history saved per agent
+- Ask anything input
+
+---
+
+### 9. 🛡️ Failure Prevention AI — `/failure-prevention`
+- Decision input with example chips
+- Risk Level · Possible Mistake · Why It Is Risky · Safer Alternative · Recommended First Step
+- History panel showing last 10 risk checks
+
+---
+
+### 10. 🏛️ AI Board Meeting — `/board-meeting`
+- Pitch any decision → 5 agents debate one by one (animated reveal)
+- **Chairman AI** deliberates after all agents vote
+- Final verdict: Decision · Score / 100 · Risk Level · Pros · Cons
+- Board meeting history saved (last 10 pitches)
+
+---
+
+### 11. 🗺️ Market Discovery AI — `/market-discovery`
+**Brand new feature** — helps founders understand their competitive landscape before investing.
+
+**Search inputs:** Business idea · Category (9 types) · Location · Radius (5/10/25 km)
+
+**5-step animated analysis loading sequence**
+
+**Results dashboard:**
+
+| Section | Content |
+|---------|---------|
+| Market Overview | Business count, avg rating, competition level |
+| Opportunity Scores | Demand / Competition / Innovation / Location / Overall (animated bars) |
+| Nearby Businesses | Expandable cards: rating, distance, years, price range, strengths ✓, weaknesses ✗, what to learn |
+| Competitive Gap Analysis | 3 identified market gaps with specific opportunities |
+| Untapped Opportunities | Al Qua'a-specific insights ("12 camel farms, none offer premium packaging") |
+| How to Stand Out | 6 differentiator suggestions |
+| AI Recommendation | **YES / MODIFY / CONSIDER DIFFERENT NICHE** with full reasoning |
+
+**Al Qua'a mock businesses:** Camel Farm · Desert Stars Stargazing · Oasis Coffee Truck · Bedouin Handmade Gallery · Al Qua'a Organic Farm · Desert Photography Studio
+
+---
+
+### 12. 💰 Opportunities Hub — `/opportunities`
 Filterable by: Funding · Certification · Training · Mentorship · Event · Government
 
 Includes: Khalifa Fund · Rural Business Grant · Food Safety Certificate (ADAFSA) · Stargazing Tourism Workshop · SME Mentorship · Al Ain SME Expo · ADCCI Business Starter Programme · Tamm Government Services
@@ -607,19 +680,41 @@ npm run preview
 
 ## 🎬 Live Demo Flow
 
-| Step | Action |
-|------|--------|
-| 1 | Open the **Landing Page** and read the problem and solution |
-| 2 | Click **"Start Your First Step"** |
-| 3 | Enter: *"I make homemade desserts in Al Qua'a"* |
-| 4 | Submit the form and view the AI analysis |
-| 5 | Read your **First Action**, scores, and step-by-step instructions |
-| 6 | Click **Continue** → meet your AI Startup Team |
-| 7 | Go to **Failure Prevention** → enter: *"I want to spend AED 5000 on branding"* |
-| 8 | See the risk warning and safer alternative |
-| 9 | Go to **Board Meeting** → pitch: *"I want to add delivery to my business"* |
-| 10 | Watch all 5 agents give opinions and a final recommendation |
-| 11 | Go to **Opportunities** → browse funding, training, and government support |
+| Step | Route | Action |
+|------|-------|--------|
+| 1 | `/` | Open Landing Page — animated desert sky, walking camels, shooting stars |
+| 2 | `/welcome` | Click **Start Your First Step** → Welcome screen |
+| 3 | `/start` | Select role: **Housewife** · Stage: **Just an idea** |
+| 4 | `/start` | Enter idea: *"I make homemade camel milk chocolate in Al Qua'a"* |
+| 5 | `/start` | Budget: **AED 500** · Hours: **10/week** · No customers yet |
+| 6 | `/analysis` | Watch 6-step AI analysis loading sequence |
+| 7 | `/results` | View: Founder Profile · AI Confidence Meter · Today's Mission · Why AI Chose This · Success Probability |
+| 8 | `/market-discovery` | Click **Explore My Market** → see nearby businesses and gaps |
+| 9 | `/results` | Click **Continue** → go to Dashboard |
+| 10 | `/dashboard` | View: Business Health 🟢🟡🔴 · Founder Journey · Quick Actions |
+| 11 | `/agents` | Select **Finance Advisor** → ask: *"What should I price my chocolate at?"* |
+| 12 | `/failure-prevention` | Enter: *"I want to spend AED 5000 on branding"* → High Risk warning |
+| 13 | `/board-meeting` | Pitch: *"I want to expand to Abu Dhabi"* → Chairman AI gives final verdict |
+| 14 | `/opportunities` | Browse Khalifa Fund, Food Safety Certificate, Al Ain SME Expo |
+
+---
+
+## 🗺️ All Routes
+
+| Route | Page |
+|-------|------|
+| `/` | Landing Page |
+| `/welcome` | Welcome Screen |
+| `/start` | Multi-Step Onboarding (3 steps) |
+| `/analysis` | AI Analysis Loading |
+| `/results` | Business Analysis Results |
+| `/dashboard` | Business Dashboard |
+| `/agents` | AI Team Selection |
+| `/agents/:id` | Individual Agent Chat |
+| `/market-discovery` | Market Discovery AI ⭐ New |
+| `/failure-prevention` | Failure Prevention AI |
+| `/board-meeting` | AI Board Meeting |
+| `/opportunities` | Opportunities Hub |
 
 ---
 
