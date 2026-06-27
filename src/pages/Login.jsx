@@ -2,12 +2,14 @@ import { useState } from 'react'
 import { useNavigate, NavLink } from 'react-router-dom'
 import { LogIn, Mail, Lock, ArrowRight, Eye, EyeOff } from 'lucide-react'
 import { useAuth } from '../auth/AuthContext'
+import { useApp } from '../context/AppContext'
 import WorldBackground from '../components/WorldBackground'
 import Navbar from '../components/Navbar'
 
 export default function Login() {
   const navigate = useNavigate()
   const { login } = useAuth()
+  const { session } = useApp()
   const [email,    setEmail]    = useState('')
   const [password, setPassword] = useState('')
   const [show,     setShow]     = useState(false)
@@ -20,7 +22,7 @@ export default function Login() {
     setLoading(true)
     const res = await login(email, password)
     setLoading(false)
-    if (res.ok) navigate('/dashboard')
+    if (res.ok) navigate(session?.result ? '/dashboard' : '/welcome')
     else setError(res.error)
   }
 

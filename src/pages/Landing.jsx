@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom'
 import { Rocket, Zap, Users, Shield, Presentation, TrendingUp, ArrowRight, CheckCircle, MapPin, LayoutDashboard, ChevronRight } from 'lucide-react'
 import Navbar from '../components/Navbar'
 import WorldBackground from '../components/WorldBackground'
+import { useApp } from '../context/AppContext'
+import { useAuth } from '../auth/AuthContext'
 
 const stats = [
   { value: '500+', label: 'Founders Guided',  emoji: '🚀' },
@@ -40,6 +42,14 @@ const S = ({ children, style }) => <span style={style}>{children}</span>
 
 export default function Landing() {
   const navigate = useNavigate()
+  const { session } = useApp()
+  const { isLoggedIn } = useAuth()
+
+  // Smart CTA target — returning users go to dashboard, new users to welcome
+  const primaryCtaTo    = session.result ? '/dashboard' : '/welcome'
+  const primaryCtaLabel = session.result ? 'Continue Where I Left Off' : 'Start Your First Step'
+  const secondaryCtaTo  = isLoggedIn ? '/dashboard' : '/login'
+  const secondaryCtaLabel = isLoggedIn ? 'My Dashboard' : 'Sign In'
 
   const cardBase = {
     background: 'rgba(5,0,20,0.55)',
@@ -94,14 +104,14 @@ export default function Landing() {
 
           {/* CTAs */}
           <div className="animate-fade-up delay-400" style={{ display:'flex', flexWrap:'wrap', gap:16, justifyContent:'center', marginBottom:64 }}>
-            <button onClick={() => navigate('/welcome')} className="btn-primary" style={{ fontSize:16, padding:'16px 36px', borderRadius:16 }}>
+            <button onClick={() => navigate(primaryCtaTo)} className="btn-primary" style={{ fontSize:16, padding:'16px 36px', borderRadius:16 }}>
               <Rocket size={20} />
-              Start Your First Step
+              {primaryCtaLabel}
               <ArrowRight size={18} />
             </button>
-            <button onClick={() => navigate('/dashboard')} className="btn-secondary" style={{ fontSize:15, padding:'16px 28px', borderRadius:16 }}>
+            <button onClick={() => navigate(secondaryCtaTo)} className="btn-secondary" style={{ fontSize:15, padding:'16px 28px', borderRadius:16 }}>
               <LayoutDashboard size={17} />
-              Dashboard
+              {secondaryCtaLabel}
             </button>
           </div>
 
@@ -283,9 +293,9 @@ export default function Landing() {
               <p style={{ color:'rgba(253,230,138,0.4)', fontSize:15, marginBottom:32, lineHeight:1.75 }}>
                 Less than 5 minutes. No registration. No cost.<br />Just your first real move toward your dream.
               </p>
-              <button onClick={() => navigate('/welcome')} className="btn-primary" style={{ fontSize:16, padding:'18px 44px', borderRadius:16, margin:'0 auto' }}>
+              <button onClick={() => navigate(primaryCtaTo)} className="btn-primary" style={{ fontSize:16, padding:'18px 44px', borderRadius:16, margin:'0 auto' }}>
                 <Rocket size={20} />
-                Start Your First Step
+                {primaryCtaLabel}
                 <ArrowRight size={18} />
               </button>
             </div>

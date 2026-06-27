@@ -79,8 +79,14 @@ export default function Onboarding() {
   const navigate = useNavigate()
   const { saveAbout, saveIdea, saveResources, session } = useApp()
 
+  // Pre-fill name from logged-in user if available
+  const loggedInName = (() => {
+    try { return JSON.parse(localStorage.getItem('bedaya_current_user'))?.name || '' }
+    catch { return '' }
+  })()
+
   const [step, setStep] = useState(0)
-  const [about, setAbout]     = useState(session.about     || { name:'', age:'', location:"Al Qua'a, Al Ain", occupation:'', role:'', stage:'' })
+  const [about, setAbout]     = useState(session.about     || { name:loggedInName, age:'', location:"Al Qua'a, Al Ain", occupation:'', role:'', stage:'' })
   const [idea, setIdea]       = useState(session.idea      || { idea:'', inspiration:'', customers:'', type:'product' })
   const [resources, setResources] = useState(session.resources || { budget:'', time:'', experience:'beginner', hasCustomers:'no', concern:'' })
 

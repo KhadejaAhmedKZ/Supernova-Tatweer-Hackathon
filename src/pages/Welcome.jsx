@@ -73,7 +73,13 @@ export default function Welcome() {
           </button>
         </div>
 
-        <p className="animate-fade-up delay-500" style={{ marginTop:32, color:'#1e293b', fontSize:12 }}>
+        <p className="animate-fade-up delay-500" style={{ marginTop:24, color:'rgba(253,230,138,0.4)', fontSize:13 }}>
+          Already have an account?{' '}
+          <span onClick={() => navigate('/login')} style={{ color:'#fbbf24', fontWeight:700, cursor:'pointer' }}>
+            Sign in
+          </span>
+        </p>
+        <p className="animate-fade-up delay-500" style={{ marginTop:14, color:'#1e293b', fontSize:11 }}>
           🔒 Your data stays in your browser. We don't store anything on a server.
         </p>
       </div>
