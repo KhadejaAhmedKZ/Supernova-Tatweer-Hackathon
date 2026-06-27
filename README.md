@@ -139,7 +139,7 @@ We interviewed 3 active business owners using a bilingual Arabic/English survey.
 | "AI would have saved me money, marketing, and time" (Mahmoud) | Full AI advisory team across 5 business domains |
 | Local advice more useful than generic (Eduard, Tariq) | Every recommendation tuned to Al Qua'a context |
 
-🎥 **Interview recordings + survey forms:**
+🎥 **Interview recordings:**
 **https://drive.google.com/drive/folders/13jnzCuaWVrx3RRsy5Vq30lVqk81LCZMD**
 
 ---
