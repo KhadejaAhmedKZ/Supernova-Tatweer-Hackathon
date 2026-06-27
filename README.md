@@ -332,7 +332,7 @@ All AI logic is readable in `src/data/mockData.js`. All security logic is in `sr
 `Earns: Documentation, Readiness`
 
 🔗 **Live Demo:** https://khadejaahmedkz.github.io/Supernova-Tatweer-Hackathon/
-📁 **Evidence (interviews, surveys, screenshots):** https://drive.google.com/drive/folders/13jnzCuaWVrx3RRsy5Vq30lVqk81LCZMD
+📁 **Evidence (interviews/surveys):** https://drive.google.com/drive/folders/13jnzCuaWVrx3RRsy5Vq30lVqk81LCZMD
 
 ### Run locally
 
