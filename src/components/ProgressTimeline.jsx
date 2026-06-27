@@ -18,7 +18,7 @@ export default function ProgressTimeline({ completedStages = [] }) {
           <div style={{
             position:'absolute', left:19, top:20, width:2, borderRadius:99,
             background:'linear-gradient(180deg,#f59e0b,#34d399)',
-            height:`${((reached.size - 1) / (JOURNEY_STAGES.length - 1)) * 100}%`,
+            height:`${Math.max(0, (reached.size - 1) / (JOURNEY_STAGES.length - 1)) * 100}%`,
             transition:'height 0.6s ease',
           }} />
         )}

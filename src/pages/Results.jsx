@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   ArrowRight, RotateCcw, Users, CheckCircle,
-  Brain, MapPin, Zap, AlertTriangle, Star, Map,
+  Brain, MapPin, Zap, Star, Map,
 } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import {

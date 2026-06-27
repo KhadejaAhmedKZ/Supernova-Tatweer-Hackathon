@@ -274,7 +274,7 @@ export default function Landing() {
           <div style={{ position:'relative', borderRadius:28, padding:'60px 40px', background:'linear-gradient(135deg, rgba(180,100,10,0.18), rgba(120,60,0,0.14), rgba(60,0,120,0.12))', border:'1px solid rgba(255,180,50,0.2)', overflow:'hidden' }}>
             <div style={{ position:'absolute', top:'-30%', left:'50%', transform:'translateX(-50%)', width:400, height:200, background:'radial-gradient(ellipse, rgba(200,120,20,0.25), transparent 70%)', filter:'blur(30px)', pointerEvents:'none' }} />
             <div style={{ position:'absolute', top:16, right:24, fontSize:24, opacity:0.6 }} className="float">🌟</div>
-            <div style={{ position:'absolute', bottom:16, left:24, fontSize:20, opacity:0.5 }} className="float" style={{ '--fdelay':'1.5s', position:'absolute', bottom:16, left:24, fontSize:20, opacity:0.5 }}>✨</div>
+            <div className="float" style={{ '--fdelay':'1.5s', position:'absolute', bottom:16, left:24, fontSize:20, opacity:0.5 }}>✨</div>
             <div style={{ position:'relative', zIndex:1 }}>
               <div style={{ fontSize:56, marginBottom:18, filter:'drop-shadow(0 0 30px rgba(253,230,138,0.55))' }} className="float">🌟</div>
               <h2 style={{ fontSize:'clamp(24px,4vw,36px)', fontWeight:800, color:'#fef3c7', marginBottom:14, letterSpacing:'-0.02em' }}>

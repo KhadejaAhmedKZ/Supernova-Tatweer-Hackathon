@@ -51,7 +51,7 @@ export default function Agents() {
       )}
 
       {/* Idea refinement input */}
-      <div style={{ display:'flex', flexDirection:'column', sm:'row', gap:10, padding:'16px 18px', borderRadius:16, marginBottom:24, background:'rgba(6,2,24,0.85)', border:'1px solid rgba(255,210,80,0.12)' }}>
+      <div style={{ display:'flex', flexDirection:'column', gap:10, padding:'16px 18px', borderRadius:16, marginBottom:24, background:'rgba(6,2,24,0.85)', border:'1px solid rgba(255,210,80,0.12)' }}>
         <div style={{ display:'flex', alignItems:'center', gap:7, marginBottom:8 }}>
           <Sparkles size={13} style={{ color:'#f59e0b' }} />
           <span style={{ color:'rgba(253,230,138,0.45)', fontSize:11, fontWeight:600, textTransform:'uppercase', letterSpacing:'0.06em' }}>Refine your idea for better responses</span>
