@@ -81,13 +81,13 @@ export default function Navbar() {
         {/* CTA — changes based on state */}
         <div className="hidden-mobile">
           {session.result ? (
-            <button onClick={() => navigate('/dashboard')} className="btn-primary" style={{ fontSize:12, padding:'8px 16px' }}>
+            <NavLink to="/dashboard" className="btn-primary" style={{ fontSize:12, padding:'8px 16px', textDecoration:'none' }}>
               <LayoutDashboard size={13} /> My Dashboard
-            </button>
+            </NavLink>
           ) : (
-            <button onClick={() => navigate('/welcome')} className="btn-primary" style={{ fontSize:12, padding:'8px 16px' }}>
+            <NavLink to="/welcome" className="btn-primary" style={{ fontSize:12, padding:'8px 16px', textDecoration:'none' }}>
               <Zap size={13} /> Start My Journey
-            </button>
+            </NavLink>
           )}
         </div>
 
@@ -119,13 +119,13 @@ export default function Navbar() {
           ))}
           <div style={{ height:1, background:'rgba(255,180,50,0.06)', margin:'8px 0' }} />
           {session.result ? (
-            <button onClick={() => navigate('/dashboard')} className="btn-primary" style={{ justifyContent:'center' }}>
+            <NavLink to="/dashboard" onClick={() => setOpen(false)} className="btn-primary" style={{ justifyContent:'center', textDecoration:'none' }}>
               <LayoutDashboard size={15} /> My Dashboard
-            </button>
+            </NavLink>
           ) : (
-            <button onClick={() => navigate('/welcome')} className="btn-primary" style={{ justifyContent:'center' }}>
+            <NavLink to="/welcome" onClick={() => setOpen(false)} className="btn-primary" style={{ justifyContent:'center', textDecoration:'none' }}>
               <Zap size={15} /> Start My Journey
-            </button>
+            </NavLink>
           )}
         </div>
       )}

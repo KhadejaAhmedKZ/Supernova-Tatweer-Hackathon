@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Search, MapPin, Zap, ArrowRight, ChevronDown, ChevronUp, Star, TrendingUp, Target, AlertTriangle, CheckCircle, Lightbulb } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { getMarketData, marketCategories, alQuaaBusinesses } from '../data/mockData'
+import VoiceMic from '../components/VoiceMic'
 
 const radii = [5, 10, 25]
 
@@ -139,6 +140,7 @@ export default function MarketDiscovery() {
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:14, marginBottom:14 }}>
           <div>
             <label style={{ display:'block', color:'rgba(253,230,138,0.6)', fontSize:12, fontWeight:600, marginBottom:7 }}>💡 Business Idea</label>
+            <VoiceMic onTranscript={t => setForm(f=>({...f,idea:t}))} placeholder="Or speak your idea..." />
             <input className="input-field" placeholder="e.g. Camel milk chocolate..." value={form.idea} onChange={e=>setForm(f=>({...f,idea:e.target.value}))} />
           </div>
           <div>
@@ -150,6 +152,7 @@ export default function MarketDiscovery() {
           </div>
           <div>
             <label style={{ display:'block', color:'rgba(253,230,138,0.6)', fontSize:12, fontWeight:600, marginBottom:7 }}>📍 Location</label>
+            <VoiceMic onTranscript={t => setForm(f=>({...f,location:t}))} placeholder="Speak your location..." />
             <input className="input-field" placeholder="e.g. Al Qua'a, Al Ain" value={form.location} onChange={e=>setForm(f=>({...f,location:e.target.value}))} />
           </div>
           <div>

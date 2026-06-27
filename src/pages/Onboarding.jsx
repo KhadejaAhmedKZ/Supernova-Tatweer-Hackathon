@@ -121,6 +121,7 @@ export default function Onboarding() {
         <div className="glass" style={{ padding:28 }}>
           <div style={{ marginBottom:20 }}>
             <label style={label}>👤 Your name <span style={{ color:'#f59e0b' }}>*</span></label>
+            <VoiceMic onTranscript={t => ua('name', t)} placeholder="Or tap mic to say your name..." />
             <input className="input-field" placeholder="e.g. Fatima" value={about.name} onChange={e=>ua('name',e.target.value)} />
           </div>
 
@@ -159,12 +160,14 @@ export default function Onboarding() {
           </div>
           <div style={{ marginBottom:20 }}>
             <label style={label}>✨ What inspired you?</label>
+            <VoiceMic onTranscript={t => ui('inspiration', t)} placeholder="Speak your inspiration..." />
             <textarea className="input-field" rows={2} style={{ resize:'none' }}
               placeholder="e.g. I noticed people asking for local food products..."
               value={idea.inspiration} onChange={e=>ui('inspiration',e.target.value)} />
           </div>
           <div style={{ marginBottom:20 }}>
             <label style={label}>👥 Who are your first customers?</label>
+            <VoiceMic onTranscript={t => ui('customers', t)} placeholder="Describe your customers..." />
             <input className="input-field" placeholder="e.g. Families, tourists, local shops..."
               value={idea.customers} onChange={e=>ui('customers',e.target.value)} />
           </div>
@@ -227,6 +230,7 @@ export default function Onboarding() {
           </div>
           <div>
             <label style={label}>😟 Biggest concern</label>
+            <VoiceMic onTranscript={t => ur('concern', t)} placeholder="Speak your concern..." />
             <textarea className="input-field" rows={2} style={{ resize:'none' }}
               placeholder="e.g. I don't know if people will buy it..."
               value={resources.concern} onChange={e=>ur('concern',e.target.value)} />

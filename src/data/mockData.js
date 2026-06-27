@@ -736,13 +736,32 @@ export const getMarketData = (idea, category, location, radius) => {
   const lower = (idea || '').toLowerCase()
   let businesses = locationData[location] || locationData.default
 
-  // filter by category relevance
-  if (category && category !== 'All') {
-    const relevant = businesses.filter(b => b.category === category)
-    businesses = relevant.length > 0 ? relevant : businesses.slice(0,3)
+  // Keyword → category mapping so typing an idea auto-filters
+  const keywordCategoryMap = [
+    { words:['camel','milk','chocolate','dairy'],          cat:'Agriculture & Farming' },
+    { words:['star','sky','astronomy','telescope','night'], cat:'Tourism & Experiences' },
+    { words:['tour','experience','desert','camp','safari'], cat:'Tourism & Experiences' },
+    { words:['coffee','tea','drink','food','cake','sweet','dessert','cook','restaurant','meal'], cat:'Food & Beverages' },
+    { words:['craft','handmade','art','pottery','weave','traditional'], cat:'Retail & Handmade' },
+    { words:['photo','picture','video','film','camera'],   cat:'Photography & Media' },
+    { words:['delivery','grocery','shop','market'],        cat:'Delivery & Logistics' },
+    { words:['farm','date','fruit','vegetable','organic','agriculture'], cat:'Agriculture & Farming' },
+  ]
+
+  // If no category selected, auto-detect from idea keyword
+  let effectiveCategory = category
+  if ((!category || category === 'All') && lower.length > 2) {
+    const match = keywordCategoryMap.find(m => m.words.some(w => lower.includes(w)))
+    if (match) effectiveCategory = match.cat
   }
 
-  // filter by radius
+  // Filter by category
+  if (effectiveCategory && effectiveCategory !== 'All') {
+    const relevant = businesses.filter(b => b.category === effectiveCategory)
+    businesses = relevant.length > 0 ? relevant : businesses
+  }
+
+  // Filter by radius
   businesses = businesses.filter(b => parseFloat(b.distance) <= radius)
   if (businesses.length === 0) businesses = alQuaaBusinesses.slice(0,2)
 
@@ -783,10 +802,11 @@ export const getMarketData = (idea, category, location, radius) => {
     'Provide Arabic and English service',
   ]
 
+  const ideaLabel = idea?.trim() ? `"${idea.trim()}"` : 'your idea'
   const recommendation = overallScore >= 75
-    ? { verdict:'YES — Great Opportunity', color:'#34d399', reason:`With only ${count} competitors and strong local demand, this is a good time to enter. Your differentiation strategy should focus on digital presence and delivery.` }
+    ? { verdict:'YES — Great Opportunity', color:'#34d399', reason:`With only ${count} similar businesses within ${radius} km, ${ideaLabel} has room to grow. Focus on delivery and online presence to stand out immediately.` }
     : overallScore >= 55
-    ? { verdict:'MODIFY YOUR IDEA', color:'#fbbf24', reason:`Competition exists but so does opportunity. Focus on the gaps identified above — especially delivery and online booking — to carve out your own space.` }
+    ? { verdict:'MODIFY YOUR IDEA', color:'#fbbf24', reason:`There is competition for ${ideaLabel} but also gaps. Target the weaknesses of existing businesses — especially delivery, digital presence, and customer service.` }
     : { verdict:'CONSIDER A DIFFERENT NICHE', color:'#fb923c', reason:`This market is saturated locally. Consider a related niche with less competition — the gap analysis above shows adjacent opportunities.` }
 
   return {

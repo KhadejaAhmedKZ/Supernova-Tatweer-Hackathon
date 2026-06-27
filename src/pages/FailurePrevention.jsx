@@ -6,7 +6,7 @@ import RiskAlert from '../components/RiskAlert'
 import SectionHeader from '../components/SectionHeader'
 import VoiceMic from '../components/VoiceMic'
 
-const examples = [
+const EXAMPLES = [
   'I want to spend AED 5000 on branding.',
   'I want to register the business before testing.',
   'I want to add delivery to my business.',
@@ -14,120 +14,152 @@ const examples = [
   'I want to hire an employee.',
 ]
 
+const card = {
+  background: 'rgba(6,2,24,0.88)',
+  backdropFilter: 'blur(20px)',
+  border: '1px solid rgba(255,210,80,0.15)',
+  borderRadius: 18,
+}
+
 export default function FailurePrevention() {
   const { session, saveRiskCheck } = useApp()
-  const [decision, setDecision] = useState('')
-  const [result, setResult] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [text,        setText]       = useState('')
+  const [result,      setResult]     = useState(null)
+  const [loading,     setLoading]    = useState(false)
   const [showHistory, setShowHistory] = useState(false)
 
   const analyze = () => {
-    if (!decision.trim()) return
-    setLoading(true); setResult(null)
+    const trimmed = text.trim()
+    if (!trimmed) return
+    setLoading(true)
+    setResult(null)
     setTimeout(() => {
-      const analysis = getRiskAnalysis(decision)
+      const analysis = getRiskAnalysis(trimmed)
       setResult(analysis)
-      saveRiskCheck(decision, analysis)   // persist to session
+      saveRiskCheck(trimmed, analysis)
       setLoading(false)
     }, 1200)
   }
 
-  const reset = () => { setDecision(''); setResult(null) }
+  const reset = () => { setText(''); setResult(null) }
+
+  const pick = (ex) => { setText(ex); setResult(null) }
 
   return (
-    <div className="max-w-2xl mx-auto space-y-8 animate-fade-up">
-      <div className="flex items-start justify-between flex-wrap gap-4">
+    <div style={{ maxWidth: 640, margin: '0 auto' }} className="animate-fade-up">
+
+      {/* Header */}
+      <div style={{ display:'flex', alignItems:'flex-start', justifyContent:'space-between', flexWrap:'wrap', gap:12, marginBottom:28 }}>
         <SectionHeader
           tag="Failure Prevention AI"
           title="Check Before You Decide"
-          subtitle="Describe a business decision you're considering. Bedaya AI will tell you the risk level and a safer alternative."
+          subtitle="Describe any business decision — Bedaya AI will warn you about risks before you spend."
         />
         {session.riskHistory.length > 0 && (
-          <button onClick={() => setShowHistory(!showHistory)} className="btn-ghost text-xs text-slate-500">
+          <button onClick={() => setShowHistory(s => !s)} className="btn-ghost" style={{ fontSize:12, flexShrink:0 }}>
             <History size={13} /> Past checks ({session.riskHistory.length})
           </button>
         )}
       </div>
 
-      {/* Past risk checks */}
+      {/* History panel */}
       {showHistory && session.riskHistory.length > 0 && (
-        <div className="glass p-5 space-y-3 animate-fade-up">
-          <p className="score-label">Previous Risk Checks</p>
-          {session.riskHistory.map((item, i) => (
-            <button key={i} onClick={() => { setDecision(item.decision); setResult(item.analysis); setShowHistory(false) }}
-              className="w-full text-left p-3 rounded-xl flex items-center justify-between gap-3 transition-all"
-              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <span className="text-slate-300 text-sm truncate">{item.decision}</span>
-              <span className="text-xs font-semibold flex-shrink-0 px-2 py-0.5 rounded-full"
-                style={{
-                  background: item.analysis.riskLevel === 'High' ? 'rgba(239,68,68,0.12)' : item.analysis.riskLevel === 'Medium' ? 'rgba(245,158,11,0.12)' : 'rgba(16,185,129,0.12)',
-                  color: item.analysis.riskLevel === 'High' ? '#ef4444' : item.analysis.riskLevel === 'Medium' ? '#f59e0b' : '#10b981',
-                }}>
-                {item.analysis.riskLevel}
-              </span>
-            </button>
-          ))}
-        </div>
-      )}
-
-      {/* Input */}
-      <div className="glass p-6 space-y-5">
-        <div>
-          <label className="block text-sm font-semibold text-slate-300 mb-2">
-            🤔 What decision are you thinking about?
-          </label>
-          <VoiceMic onTranscript={t => setDecision(t)} placeholder="Or speak your decision in Arabic / English" />
-          <textarea className="input-field resize-none" rows={3}
-            placeholder="e.g. I want to spend AED 5000 on branding before testing my idea..."
-            value={decision} onChange={e => setDecision(e.target.value)}
-            onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); analyze() } }} />
-        </div>
-
-        <div>
-          <p className="text-xs text-slate-600 uppercase tracking-widest font-semibold mb-3">Try an example</p>
-          <div className="flex flex-wrap gap-2">
-            {examples.map(ex => (
-              <button key={ex} onClick={() => setDecision(ex)}
-                className="text-xs px-3 py-1.5 rounded-full transition-all duration-200"
-                style={{
-                  background: decision === ex ? 'rgba(99,102,241,0.15)' : 'rgba(255,255,255,0.04)',
-                  border: decision === ex ? '1px solid rgba(99,102,241,0.3)' : '1px solid rgba(255,255,255,0.07)',
-                  color: decision === ex ? '#a5b4fc' : '#64748b',
-                }}>
-                {ex}
+        <div style={{ ...card, padding:18, marginBottom:20 }} className="animate-fade-up">
+          <p className="score-label" style={{ marginBottom:12 }}>Previous Risk Checks</p>
+          <div style={{ display:'flex', flexDirection:'column', gap:8 }}>
+            {session.riskHistory.map((item, i) => (
+              <button key={i}
+                onClick={() => { setText(item.decision); setResult(item.analysis); setShowHistory(false) }}
+                style={{ display:'flex', alignItems:'center', justifyContent:'space-between', gap:10, padding:'10px 14px', borderRadius:12, background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,210,80,0.08)', cursor:'pointer', textAlign:'left', transition:'all 0.2s' }}
+                onMouseEnter={e => e.currentTarget.style.borderColor='rgba(245,158,11,0.25)'}
+                onMouseLeave={e => e.currentTarget.style.borderColor='rgba(255,210,80,0.08)'}>
+                <span style={{ color:'#e8e0d0', fontSize:13, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{item.decision}</span>
+                <span style={{ fontSize:11, fontWeight:700, flexShrink:0, padding:'3px 9px', borderRadius:99,
+                  background: item.analysis.riskLevel==='High'?'rgba(251,146,60,0.12)':item.analysis.riskLevel==='Medium'?'rgba(245,158,11,0.12)':'rgba(52,211,153,0.12)',
+                  color: item.analysis.riskLevel==='High'?'#fb923c':item.analysis.riskLevel==='Medium'?'#fbbf24':'#34d399',
+                }}>{item.analysis.riskLevel}</span>
               </button>
             ))}
           </div>
         </div>
+      )}
 
-        <div className="flex gap-3">
-          <button onClick={analyze} disabled={!decision.trim() || loading}
-            className="btn-primary flex-1 justify-center disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none">
-            {loading ? (
-              <><span className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" /> Analyzing...</>
-            ) : (
-              <><Shield size={15} /> Analyze Risk <Send size={13} /></>
-            )}
+      {/* Input card */}
+      <div style={{ ...card, padding:24, marginBottom:20 }}>
+
+        {/* Voice mic */}
+        <VoiceMic
+          onTranscript={t => setText(t)}
+          placeholder="Speak your decision in Arabic or English..."
+        />
+
+        {/* Label */}
+        <label style={{ display:'block', color:'rgba(253,230,138,0.7)', fontSize:13, fontWeight:600, marginBottom:8 }}>
+          🤔 What decision are you thinking about?
+        </label>
+
+        {/* Textarea */}
+        <textarea
+          style={{ width:'100%', borderRadius:14, padding:'12px 16px', fontSize:14, color:'#fef9ee', background:'rgba(255,255,255,0.05)', border:'1px solid rgba(255,200,80,0.25)', outline:'none', resize:'none', fontFamily:'inherit', transition:'border-color 0.2s', marginBottom:16 }}
+          rows={3}
+          placeholder="e.g. I want to spend AED 5000 on branding before testing my idea..."
+          value={text}
+          onChange={e => setText(e.target.value)}
+          onFocus={e => e.target.style.borderColor='rgba(245,158,11,0.6)'}
+          onBlur={e => e.target.style.borderColor='rgba(255,200,80,0.25)'}
+          onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); analyze() } }}
+        />
+
+        {/* Example chips */}
+        <p style={{ color:'rgba(253,230,138,0.3)', fontSize:11, fontWeight:600, textTransform:'uppercase', letterSpacing:'0.07em', marginBottom:10 }}>
+          Or try an example:
+        </p>
+        <div style={{ display:'flex', flexWrap:'wrap', gap:8, marginBottom:18 }}>
+          {EXAMPLES.map(ex => (
+            <button key={ex} onClick={() => pick(ex)} style={{
+              fontSize:11, padding:'5px 12px', borderRadius:99, cursor:'pointer', transition:'all 0.2s', border:'none',
+              background: text === ex ? 'rgba(245,158,11,0.18)' : 'rgba(255,255,255,0.04)',
+              border: text === ex ? '1px solid rgba(245,158,11,0.4)' : '1px solid rgba(255,210,80,0.1)',
+              color: text === ex ? '#fde68a' : 'rgba(253,230,138,0.35)',
+            }}>
+              {ex}
+            </button>
+          ))}
+        </div>
+
+        {/* Buttons */}
+        <div style={{ display:'flex', gap:10 }}>
+          <button
+            onClick={analyze}
+            disabled={!text.trim() || loading}
+            className="btn-primary"
+            style={{ flex:1, justifyContent:'center', opacity: text.trim() && !loading ? 1 : 0.4, cursor: text.trim() && !loading ? 'pointer' : 'not-allowed' }}>
+            {loading
+              ? <><span style={{ width:15, height:15, border:'2px solid rgba(0,0,0,0.2)', borderTopColor:'#1a0a00', borderRadius:'50%', animation:'spin 0.8s linear infinite', display:'inline-block' }} /> Analyzing...</>
+              : <><Shield size={15} /> Analyze Risk <Send size={13} /></>
+            }
           </button>
-          {result && (
-            <button onClick={reset} className="btn-secondary py-2 px-4"><RotateCcw size={15} /></button>
+          {(result || text) && (
+            <button onClick={reset} className="btn-secondary" style={{ padding:'12px 16px', flexShrink:0 }}>
+              <RotateCcw size={15} />
+            </button>
           )}
         </div>
       </div>
 
       {/* Result */}
       {result && (
-        <div className="space-y-2">
-          <div className="flex items-center gap-3">
-            <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
-            <p className="text-xs text-slate-600 uppercase tracking-widest font-semibold">AI Risk Analysis</p>
-            <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+        <div className="animate-fade-up">
+          <div style={{ display:'flex', alignItems:'center', gap:12, marginBottom:16 }}>
+            <div style={{ height:1, flex:1, background:'rgba(255,210,80,0.08)' }} />
+            <p style={{ color:'rgba(253,230,138,0.3)', fontSize:11, fontWeight:700, textTransform:'uppercase', letterSpacing:'0.08em' }}>AI Risk Analysis</p>
+            <div style={{ height:1, flex:1, background:'rgba(255,210,80,0.08)' }} />
           </div>
           <RiskAlert analysis={result} />
         </div>
       )}
 
-      <p className="text-center text-slate-700 text-xs italic">
+      <p style={{ textAlign:'center', color:'rgba(255,255,255,0.1)', fontSize:12, fontStyle:'italic', marginTop:24 }}>
         "Testing before spending is smart. One small action is better than a perfect plan."
       </p>
     </div>

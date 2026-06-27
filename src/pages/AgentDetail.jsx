@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { ArrowLeft, Send, RotateCcw, MessageSquare, CheckCircle, BookOpen } from 'lucide-react'
 import { agents, getAgentResponse } from '../data/mockData'
 import { useApp } from '../context/AppContext'
+import VoiceMic from '../components/VoiceMic'
 
 export default function AgentDetail() {
   const { agentId } = useParams()
@@ -152,10 +153,11 @@ export default function AgentDetail() {
 
       {/* Ask input */}
       <div className="glass" style={{ padding:20 }}>
-        <p style={{ color:'#64748b', fontSize:12, fontWeight:600, marginBottom:12 }}>
+        <p style={{ color:'rgba(253,230,138,0.5)', fontSize:12, fontWeight:600, marginBottom:10 }}>
           <MessageSquare size={12} style={{ display:'inline', marginRight:5 }} />
           Ask {agent.name} anything
         </p>
+        <VoiceMic onTranscript={t => { setQuestion(t); setTimeout(() => ask(t), 300) }} placeholder="Or speak your question in Arabic / English" />
         <div style={{ display:'flex', gap:10 }}>
           <input className="input-field" style={{ flex:1 }}
             placeholder={`e.g. ${suggestions[0] || 'Ask me anything...'}`}
