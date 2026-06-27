@@ -11,32 +11,42 @@
 
 ## 📌 Table of Contents
 
-**🌟 Features (Best First)**
-- [Voice-First AI 🎤](#-1--voice-first-ai-most-accessible)
-- [Market Discovery AI 🗺️](#-2-️-market-discovery-ai-most-unique)
-- [AI Board Meeting with Chairman 🏛️](#-3-️-ai-board-meeting-with-chairman-ai-most-creative)
-- [AI Video Explainer 🎥](#-4--ai-video-explainer-most-educational)
-- [AI Confidence Meter 🤖](#-5--ai-confidence-meter--why-ai-chose-this-most-transparent)
-- [Today's Mission Card ⚡](#-6--todays-mission-card-most-motivating)
-- [Success Probability 📈](#-7--success-probability-most-motivating)
-- [Business Health Dashboard 🏥](#-8--business-health-dashboard-most-visual)
-- [Founder Journey 🌱](#-9--founder-journey-most-visual)
-- [Founder Persona + Business Stage 👤](#-10--founder-persona--business-stage-most-personalised)
-- [All 18 Features →](#-all-features--best-first)
-
 **Theory & Background**
-- [About the Project](#about-the-project)
-- [The Problem](#the-problem)
-- [The Solution](#the-solution)
-- [Challenge](#challenge)
-- [Target User](#target-user)
-- [Methodology](#methodology)
-- [UX Principles](#ux-principles)
-- [Local Context – Al Qua'a](#local-context--al-quaa-al-ain-uae)
-- [AI Agents](#ai-agents)
+- [About the Project](#-about-the-project)
+- [The Problem](#-the-problem)
+- [The Solution](#-the-solution)
+- [Challenge](#-challenge)
+- [Target User](#-target-user)
+- [Methodology](#-methodology)
+- [UX Principles](#-ux-principles)
+- [Local Context – Al Qua'a](#-local-context--al-quaa-al-ain-uae)
+- [AI Agents](#-ai-agents)
+
+**🌟 All Features — Best First**
+- [1. Voice-First AI 🎤](#-1--voice-first-ai-most-accessible)
+- [2. Market Discovery AI 🗺️](#-2-️-market-discovery-ai-most-unique)
+- [3. AI Board Meeting + Chairman 🏛️](#-3-️-ai-board-meeting-with-chairman-ai-most-creative)
+- [4. AI Video Explainer 🎥](#-4--ai-video-explainer-most-educational)
+- [5. AI Confidence Meter 🤖](#-5--ai-confidence-meter--why-ai-chose-this-most-transparent)
+- [6. Today's Mission Card ⚡](#-6--todays-mission-card-most-motivating)
+- [7. Success Probability 📈](#-7--success-probability-most-motivating)
+- [8. Business Health Dashboard 🏥](#-8--business-health-dashboard-most-visual)
+- [9. Founder Journey 🌱](#-9--founder-journey-most-visual)
+- [10. Founder Persona + Business Stage 👤](#-10--founder-persona--business-stage-most-personalised)
+- [11. Multi-Step Onboarding](#-11--multi-step-onboarding-3-steps)
+- [12. AI Analysis Loading](#-12--ai-analysis-loading-6-step-animated)
+- [13. Full Business Analysis Results](#-13--full-business-analysis-dashboard-core-page)
+- [14. 5 AI Agents with Chat](#-14--5-ai-agents-with-individual-chat-pages)
+- [15. Failure Prevention AI](#-15--failure-prevention-ai)
+- [16. Opportunities Hub](#-16--opportunities-hub)
+- [17. Animated Desert + Night Sky](#-17-animated-desert--night-sky-world)
+- [18. Session Persistence + Navigation](#-18-session-persistence--smart-navigation)
 
 **System Diagrams**
-- [System Diagrams](#-system-diagrams)
+- [Use Case Diagram](#1-use-case-diagram)
+- [3-Tier Architecture](#2-3-tier-architecture-diagram)
+- [Context Diagram](#3-context-diagram)
+- [Deployment, Costs & Roadmap](#4-deployment-costs-resources-maintenance--roadmap)
 
 **Planning & Business**
 - [Deployment Plan](#deployment-plan)
@@ -45,16 +55,17 @@
 - [Maintenance Plan](#maintenance-plan)
 - [Development Roadmap](#development-roadmap)
 
-**Code & Implementation**
-- [Security Design](#security-design)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Live Demo Flow](#live-demo-flow)
-- [Team](#team)
-- [License](#license)
+**Security**
+- [Security Design](#-security-design)
 
----
+**Code & Implementation**
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Live Demo Flow](#-live-demo-flow)
+- [All Routes](#️-all-routes)
+- [Team](#-team)
+- [License](#-license)
 
 ---
 
