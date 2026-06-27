@@ -9,6 +9,7 @@
 
 🔗 **Live Demo:** https://khadejaahmedkz.github.io/Supernova-Tatweer-Hackathon/
 📁 **Interview Evidence & Recordings:** https://drive.google.com/drive/folders/13jnzCuaWVrx3RRsy5Vq30lVqk81LCZMD
+📹 Watch someone testing the Bedaya AI web application: https://drive.google.com/file/d/1wpRF4WNR6oPOGVcAZMaQHby3prlhuALw/view?usp=sharing
 
 ---
 
