@@ -812,6 +812,29 @@ Community: Al Qua'a, Al Ain, UAE.
 
 ---
 
+**References**
+
+Abu Dhabi Department of Economic Development (SME Ecosystem):
+  https://www.added.gov.ae/en/invest/sme-ecosystem
+
+UAE Ministry of Economy – Entrepreneurship:
+  https://www.moec.gov.ae/en/entrepreneurship
+
+OECD – Entrepreneurship, SMEs and Local Development in Abu Dhabi:
+  https://www.oecd.org/en/publications/entrepreneuship-smes-and-local-development-in-abu-dhabi_39c8d837-en.html
+
+Abu Dhabi Media Office – Entrepreneurial Families Initiative in Al Ain Region:
+  https://www.mediaoffice.abudhabi/en/economy/abu-dhabi-department-of-economic-development-launches-entrepreneurial-families-initiative-in-al-ain-region/
+
+Hub71 – MZN Hub71 Al Ain Programme:
+  https://www.hub71.com/latest-news/press-release/khalifa-fund-and-hub71-announce-first-mzn-hub71-cohort-to-support-emirati-tech-founders-in-al-ain
+  SME Ecosystem: A Supportive Business Hub | Abu Dhabi DED | Department of Economic Development
+  Dive into Abu Dhabi's SME Ecosystem. Uncover small and medium enterprises' investment prospects, support, and growth initiatives. Invest wisely in Abu      Dhabi.
+
+ 
+
+---
+
 ## 📝 License
 
 Built as a hackathon prototype for Tatweer Hackathon 2026, Al Qua'a, Al Ain, UAE.
