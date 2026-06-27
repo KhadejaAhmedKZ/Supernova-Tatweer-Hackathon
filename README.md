@@ -1,4 +1,4 @@
-# 🌟 Bedaya AI – Your AI Co-Founder
+# 🌟 Bedaya AI — Your AI Co-Founder for Rural Entrepreneurs
 
 > **Helping first-time entrepreneurs in Al Qua'a, Al Ain, UAE take the right first step.**
 
@@ -7,641 +7,180 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38BDF8?style=flat&logo=tailwindcss)](https://tailwindcss.com/)
 [![React Router](https://img.shields.io/badge/React_Router-6-CA4245?style=flat&logo=reactrouter)](https://reactrouter.com/)
 
+🔗 **Live Demo:** https://khadejaahmedkz.github.io/Supernova-Tatweer-Hackathon/
+📁 **Interview Evidence & Recordings:** https://drive.google.com/drive/folders/13jnzCuaWVrx3RRsy5Vq30lVqk81LCZMD
+
 ---
 
 ## 📌 Table of Contents
 
-**Theory & Background**
-- [About the Project](#-about-the-project)
-- [The Problem](#-the-problem)
-- [The Solution](#-the-solution)
-- [Challenge](#-challenge)
-- [Target User](#-target-user)
-- [Methodology](#-methodology)
-- [UX Principles](#-ux-principles)
-- [Local Context – Al Qua'a](#-local-context--al-quaa-al-ain-uae)
-- [AI Agents](#-ai-agents)
-
-**🌟 All Features — Best First**
-- [1. Voice-First AI 🎤](#-1--voice-first-ai-most-accessible)
-- [2. Market Discovery AI 🗺️](#-2-️-market-discovery-ai-most-unique)
-- [3. AI Board Meeting + Chairman 🏛️](#-3-️-ai-board-meeting-with-chairman-ai-most-creative)
-- [4. AI Video Explainer 🎥](#-4--ai-video-explainer-most-educational)
-- [5. AI Confidence Meter 🤖](#-5--ai-confidence-meter--why-ai-chose-this-most-transparent)
-- [6. Today's Mission Card ⚡](#-6--todays-mission-card-most-motivating)
-- [7. Success Probability 📈](#-7--success-probability-most-motivating)
-- [8. Business Health Dashboard 🏥](#-8--business-health-dashboard-most-visual)
-- [9. Founder Journey 🌱](#-9--founder-journey-most-visual)
-- [10. Founder Persona + Business Stage 👤](#-10--founder-persona--business-stage-most-personalised)
-- [11. Multi-Step Onboarding](#-11--multi-step-onboarding-3-steps)
-- [12. AI Analysis Loading](#-12--ai-analysis-loading-6-step-animated)
-- [13. Full Business Analysis Results](#-13--full-business-analysis-dashboard-core-page)
-- [14. 5 AI Agents with Chat](#-14--5-ai-agents-with-individual-chat-pages)
-- [15. Failure Prevention AI](#-15--failure-prevention-ai)
-- [16. Opportunities Hub](#-16--opportunities-hub)
-- [17. Animated Desert + Night Sky](#-17-animated-desert--night-sky-world)
-- [18. Session Persistence + Navigation](#-18-session-persistence--smart-navigation)
-
-**System Diagrams**
-- [Use Case Diagram](#1-use-case-diagram)
-- [3-Tier Architecture](#2-3-tier-architecture-diagram)
-- [Context Diagram](#3-context-diagram)
-- [Deployment, Costs & Roadmap](#4-deployment-costs-resources-maintenance--roadmap)
-
-**Planning & Business**
-- [Deployment Plan](#deployment-plan)
-- [Cost Estimation](#cost-estimation)
-- [Resources Required](#resources-required)
-- [Maintenance Plan](#maintenance-plan)
-- [Development Roadmap](#development-roadmap)
-
-**Security**
-- [Security Design](#-security-design)
-
-**Code & Implementation**
+- [1. The Challenge and the Problem](#1-the-challenge-and-the-problem)
+- [2. Who It Is For, and Their Situation](#2-who-it-is-for-and-their-situation)
+- [3. The Solution](#3-the-solution)
+- [4. Impact and Testable Claims](#4-impact-and-testable-claims)
+- [5. Feasibility and Deployment](#5-feasibility-and-deployment)
+- [6. Scalability](#6-scalability)
+- [7. Evidence and Validation](#7-evidence-and-validation)
+- [8. How to Run or Verify It, and Tools Used](#8-how-to-run-or-verify-it-and-tools-used)
+- [Security — Idea Vault, Al-Amanah, AI Disclaimer](#-security-design)
+- [All Features](#-all-features--best-first)
+- [System Diagrams](#-system-diagrams)
+- [Planning & Business](#-planning--business)
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Live Demo Flow](#-live-demo-flow)
-- [All Routes](#️-all-routes)
 - [Team](#-team)
-- [License](#-license)
 
 ---
 
-## 🚀 About the Project
+## 1. The Challenge and the Problem
 
-**Bedaya AI** is an AI-powered co-founder platform built for first-time entrepreneurs. It takes users from *"I have an idea"* to *"I know my first action"* — without overwhelming them with a full business plan.
-
-The app is specifically designed for the **Al Qua'a community in Al Ain, UAE**, with local business examples, pricing in AED, and opportunities relevant to rural founders in the region.
-
-> This is a frontend-only hackathon prototype using mock AI responses. No backend, no login, no database.
-
----
-
-## ❗ The Problem
-
-Many people in communities like Al Qua'a have real skills and business ideas — camel milk products, desert tourism experiences, homemade food, rural delivery services — but they never start because:
-
-- They do not know what the **first step** is
-- They are afraid of **wasting money** on the wrong thing
-- They have **no mentor or expert** to ask for guidance
-- Business resources feel built for cities, **not rural communities**
-
-The idea stays in their head. The business never happens.
-
----
-
-## ✅ The Solution
-
-Bedaya AI gives every founder:
-
-- **One clear, low-risk first action** based on their idea, budget, and location
-- **AI advisors** covering strategy, finance, marketing, legal, and growth
-- **Failure prevention** — risk analysis before making any decision
-- **A virtual board meeting** where all AI agents debate a decision together
-- **Curated opportunities** — grants, funding, training, and government support in the UAE
-- **🎤 Voice-First AI** — speak in Arabic or English, Bedaya AI listens and responds
-- **🎥 AI Video Explainer** — 30-second bilingual explanations for every key concept
-- **🗺️ Market Discovery AI** — competitive analysis and untapped opportunities in Al Qua'a
-
----
-
-## 🏆 Challenge
+`Earns: Relevance`
 
 **Challenge 1 — Taking the First Entrepreneurial Step**
 
-Bedaya AI directly addresses this by removing the paralysis of "where do I even begin?" and replacing it with a single, safe, achievable action tailored to the founder's reality.
+The specific problem: people in Al Qua'a have real ideas and real skills — camel farm products, desert tourism, homemade food, rural delivery — but they never start a business. The barrier is not ambition. It is not knowing what the first move is, what is required, or where to begin.
+
+Through interviews with active business owners in Al Ain and discussions with a resident familiar with the area, a consistent pattern emerged: people wait because they do not know whether to register first or test first, how much money to spend, what permits apply to them, or who to ask. There is no local mentor. Business resources are built for cities. The idea stays in their head and the business never happens.
+
+This is not a motivation problem. It is an information and confidence problem — and it is solvable.
+
+**The scale of the opportunity:**
+
+- SMEs account for **98% of businesses in Abu Dhabi**, employ **46% of the workforce**, and contribute **42.8% of non-oil GDP**
+- New economic licences in Al Ain increased by **29% in 2025**, reflecting rising entrepreneurial interest
+- The MZN Hub71 Al Ain initiative received **370+ applications**, with **75%+ being first-time entrepreneurs**
+- Al Ain is home to **nearly half of Abu Dhabi's agricultural activity**, creating unique rural business opportunities
+- The UAE aims to become the **world's entrepreneurial nation by 2031** through the National Entrepreneurship Agenda
+
+The infrastructure and ambition exist. What is missing is the first step — and that is exactly what Bedaya AI provides.
 
 ---
 
-## 👤 Target User
+## 2. Who It Is For, and Their Situation
 
-A first-time founder in **Al Qua'a, Al Ain, UAE** who:
+`Earns: Impact`
 
-- Has a skill, idea, or local resource they want to turn into a business
-- Has never started a business before
-- May have limited budget, limited technical experience, and no business network
-- Needs guidance in plain language, not business jargon
+**The exact group:** First-time founders in Al Qua'a, Al Ain — a rural community in Abu Dhabi's Eastern Region. A large share of families run camel farms. The area sits near the Tropic of Cancer and is known for stargazing, agricultural heritage, and strong community ties.
 
----
+**Their situation in real terms:**
 
-## 🔬 Methodology
+- No business mentor or expert in the community to consult
+- Business registration information is spread across multiple government websites in formal Arabic and English — inaccessible to someone who has never started a business
+- The most common early mistake — spending on branding, registration, or equipment before testing demand — can wipe out an entire household starting budget of AED 300–700
+- Rural UAE founders are underserved by existing platforms: most startup tools assume city access, digital fluency, and English literacy
 
-Bedaya AI was developed using a user-centred, iterative design approach that combined community insights, research, and rapid prototyping. Rather than starting with technology, our team first focused on understanding the problem and identifying where AI could provide meaningful value to aspiring entrepreneurs.
+**What this costs them today:** An untested idea that fails after AED 500 in premature spending can set a family back months. More commonly, the idea is simply never tried. The cost is invisible — it is the business that never started.
 
----
-
-### Phase 1 — Problem Discovery
-
-The first stage of the project focused on identifying a real problem within the Al Qua'a community. Through discussions with a resident familiar with the area, we learned that many aspiring entrepreneurs have promising ideas but struggle to understand how to transform those ideas into practical businesses.
-
-This insight shifted our focus away from writing business plans or providing funding advice. Instead, we concentrated on the earliest stage of entrepreneurship: helping users confidently identify and take their first actionable step.
+**Confirmed by our community interviews:** All three business owners we interviewed said their biggest challenge was not ambition — it was lacking knowledge, experience, or support to take the first step. This is the exact gap Bedaya AI closes.
 
 ---
 
-### Phase 2 — Research and Validation
+## 3. The Solution
 
-After identifying the problem, we researched the UAE's entrepreneurship ecosystem to understand what resources already exist for entrepreneurs.
+`Earns: Relevance, Readiness`
 
-Our research showed that the UAE offers extensive support through government initiatives, startup accelerators, funding programmes, and business development services. Rather than building another platform that duplicates these services, we identified an opportunity to simplify access to them through intelligent guidance.
+**Bedaya AI** is an AI co-founder platform that takes a first-time founder from *"I have an idea"* to *"I know my exact first action"* — without business jargon, without a business plan, and without spending money first.
 
-This validation helped define the core objective of Bedaya AI: connecting aspiring entrepreneurs with the right information, opportunities, and next steps at the right time.
+A founder describes their idea in plain language or by speaking in Arabic or English. Bedaya AI analyses it against local context — Al Qua'a pricing, rural UAE demand signals, community fit — and returns one specific, low-risk first action they can take today. Behind that is a full AI advisory team covering strategy, finance, marketing, legal, and growth — each answering in plain language with UAE-specific guidance.
 
----
+**The core flow — under 5 minutes end to end:**
 
-### Phase 3 — Solution Design
+| Step | What happens |
+|------|-------------|
+| 1 | Founder describes their idea and situation (3-step onboarding) |
+| 2 | AI analyses the idea — Readiness, Community Fit, Risk, Confidence scores |
+| 3 | One specific, safe first action is generated — not a business plan |
+| 4 | Founder consults 5 AI agents, runs failure prevention, or calls a board meeting |
+| 5 | Curated UAE opportunities surfaced based on the idea |
 
-With the problem clearly defined, we mapped the complete journey of a first-time entrepreneur.
+**How Bedaya addresses every need identified in our community interviews:**
 
-Instead of overwhelming users with lengthy forms or business planning documents, we designed a workflow that guides them through a series of focused, manageable steps:
+| Survey Finding | Bedaya Feature |
+|---------------|---------------|
+| "I didn't know where to start." | Idea-to-First-Action Engine generates one practical first task |
+| Lack of business experience | AI guides users through each step with simple explanations |
+| Need to understand customers | Idea Validation recommends who to speak to and how to collect feedback |
+| Fear of financial loss | Failure Prevention AI encourages testing before large investments |
+| Need for local relevance | Regional Intelligence adapts recommendations for Al Qua'a — camel farming, agriculture, rural services, stargazing tourism |
+| Need for continued support | AI Team (Strategy, Finance, Marketing, Legal, Growth) unlocks after idea validation |
 
-1. Introducing a business idea
-2. Understanding the user's goals and available resources
-3. Analysing the idea using AI
-4. Identifying strengths, weaknesses, and potential risks
-5. Receiving advice from specialised AI experts
-6. Discovering relevant government programmes and opportunities
-7. Generating a clear, personalised next step
-
-This structured workflow reduces decision fatigue while keeping users engaged throughout the process.
-
----
-
-### Phase 4 — Prototype Development
-
-The platform was developed as a high-fidelity frontend prototype using modern web technologies.
-
-The interface was designed with simplicity and accessibility in mind, ensuring that users with little or no entrepreneurial experience could navigate the platform comfortably.
-
-The prototype demonstrates the complete user journey, including AI-powered business analysis, expert recommendations, opportunity discovery, and collaborative decision-making.
-
-Although AI responses are currently simulated for demonstration purposes, the application architecture has been designed to support integration with production AI models and backend services in future development.
+A non-technical judge can open the live demo, enter a business idea, and see the full output in under two minutes.
 
 ---
 
-### Phase 5 — Continuous Refinement
+## 4. Impact and Testable Claims
 
-Throughout development, each feature was evaluated against one guiding question:
+`Earns: Impact, Evidence`
 
-> *Does this help an aspiring entrepreneur feel more confident about taking the first step?*
+**Claim 1 — Time to first action**
+Bedaya AI reduces the time for a first-time founder to reach a clear, actionable first step to under 5 minutes.
+*How to verify: Run the demo. Complete the 3-step onboarding with any idea. The output is a single specific action with step-by-step instructions. Time the process yourself.*
 
-Features that added unnecessary complexity or distracted from this objective were simplified or removed. This iterative process ensured that every component of Bedaya AI directly supported the platform's primary mission: transforming uncertainty into confident action.
+**Claim 2 — Government resource consolidation**
+The platform surfaces UAE-specific legal and funding guidance that would otherwise require navigating at least 4 separate government websites: ADDED, ADAFSA, Khalifa Fund, and Tamm.
+*How to verify: Open `/opportunities`. Compare the 8 consolidated programmes directly against their source sites.*
 
----
+**Claim 3 — Failure prevention accuracy**
+The Failure Prevention AI correctly identifies and categorises the most common early-stage founder mistakes documented in UAE SME research.
+*How to verify: Enter "I want to spend AED 5,000 on branding before I have any customers." The system returns High Risk, names the specific mistake, and offers a safer alternative. The full logic is readable in `src/data/mockData.js`.*
 
-## 💬 UX Principles
+**Claim 4 — Multi-perspective decision support**
+The Board Meeting exposes a founder's decision to five independent AI perspectives before they act — each from a distinct professional lens.
+*How to verify: Pitch any decision at `/board-meeting`. Each of the 5 agents votes independently. The final verdict is a majority outcome with full reasoning.*
 
-Bedaya AI is designed to feel supportive, not overwhelming.
+**Claim 5 — Validated by real business owners in Al Ain**
+We interviewed 3 active business owners using a bilingual Arabic/English survey. Every core problem Bedaya AI solves was independently confirmed before the owners saw the product.
 
-> *"You do not need to know everything today."*
+| What they told us | What Bedaya does about it |
+|------------------|--------------------------|
+| "I didn't know where to start" (all 3) | One clear first action, generated in under 5 minutes |
+| Fear of wasting money (Eduard, Mahmoud) | Failure Prevention AI before any spending decision |
+| No local guidance available (Tariq) | Al Qua'a-specific opportunities and context throughout |
+| "AI would have saved me money, marketing, and time" (Mahmoud) | Full AI advisory team across 5 business domains |
+| Local advice more useful than generic (Eduard, Tariq) | Every recommendation tuned to Al Qua'a context |
 
-> *"Your first step should be small and safe."*
-
-> *"Testing before spending is smart."*
-
-> *"One small action is better than a perfect plan."*
-
-> *"Stopping is not failure — it is learning."*
-
-The app never asks a founder to write a business plan. It never shows intimidating financial projections. It gives one step at a time.
-
----
-
-## 🌍 Local Context – Al Qua'a, Al Ain, UAE
-
-Bedaya AI is built specifically for founders in **Al Qua'a**, a rural community in the Eastern Region of Abu Dhabi. The app uses:
-
-- **AED** as the currency throughout
-- **Local business examples** such as camel milk chocolate, stargazing tours, desert coffee trucks, rural grocery delivery, farm equipment rental, homemade desserts, night photography services, and local handmade products
-- **Community-aware pricing** based on rural purchasing power
-- **UAE-specific opportunities** including Khalifa Fund, ADAFSA certifications, and Abu Dhabi government services
-- **Cultural sensitivity** — the tone is supportive, encouraging, and never condescending
-
-| Local Business Ideas |
-|----------------------|
-| 🐪 Camel Milk Chocolate |
-| 🌙 Stargazing Tourism |
-| ☕ Desert Coffee Truck |
-| 🚛 Rural Grocery Delivery |
-| 🌿 Farm Equipment Rental |
-| 📸 Night Photography Tours |
-| 🍯 Local Handmade Products |
-| 🍮 Homemade Desserts |
+🎥 **Interview recordings + survey forms:**
+**https://drive.google.com/drive/folders/13jnzCuaWVrx3RRsy5Vq30lVqk81LCZMD**
 
 ---
 
-## 🤖 AI Agents
+## 5. Feasibility and Deployment
 
-### 🧠 Business Strategist
-Validates ideas, builds simple 90-day roadmaps, and helps founders decide whether to Continue, Improve, Pause, or Stop.
+`Earns: Feasibility`
 
-### 💰 Finance Advisor
-Estimates startup costs in AED, suggests pricing, calculates break-even, and warns against premature financial decisions.
+**Current state:** Fully functional frontend prototype, deployed on GitHub Pages. All AI responses are mock data — honest and intentional for hackathon scope. Account system, idea sealing, and data minimization receipts are real, working code that judges can verify.
 
-### 📣 Marketing Expert
-Suggests business names, creates first launch messages, identifies first customers, and builds community trust strategies.
+**Deployment architecture:**
 
-### ⚖️ Legal Counsel
-Explains UAE licences and permits in plain language, covers ADAFSA food safety requirements, and provides basic compliance education.
-> *Educational guidance only. Does not replace official legal advice.*
-
-### 🚀 Growth & Opportunities
-Identifies funding programmes, startup events, training certifications, mentorship networks, and government support for rural UAE founders.
-
----
-
-## 🌟 All Features — Best First
-
-> Bedaya AI is a full-stack AI co-founder platform built for first-time entrepreneurs in Al Qua'a, Al Ain, UAE. Below is every feature ranked from most impressive to supporting infrastructure.
-
----
-
-### 🥇 1. 🎤 Voice-First AI *(Most Accessible)*
-
-**The barrier removed:** Many users in Al Qua'a are more comfortable speaking Arabic than typing. Older adults and people with limited digital literacy find text forms difficult.
-
-- Toggle between 🇦🇪 **Arabic** and 🇬🇧 **English** with one tap
-- Tap the mic → speak naturally → live transcript appears in real time
-- On completion, text is automatically inserted into the form field
-- Visual feedback: pulse animation, bouncing dots, live transcript box
-- Arabic transcript displays right-to-left
-- Smart error messages: `not-allowed` vs `no-speech` vs generic
-
-**Example:** *"عندي فكرة أبيع حليب الإبل"* → Bedaya AI starts analysis immediately.
-
-**Where it appears:** Onboarding (idea field) · Failure Prevention · Board Meeting
-
-**Tech:** Browser-native Web Speech API — zero backend, zero API key.
-
----
-
-### 🥇 2. 🗺️ Market Discovery AI *(Most Unique)*
-
-**The barrier removed:** People don't know if anyone else is already doing their idea, or what market gaps exist in their area.
-
-- Search by idea, category (9 types), location, radius (5/10/25 km)
-- 5-step animated analysis loading sequence
-- **Market Overview** — business count, avg rating, competition level badge
-- **Opportunity Scores** — Demand / Competition / Innovation / Location / Overall with animated bars
-- **Nearby Businesses** — expandable cards with real Al Qua'a examples: strengths ✓, weaknesses ✗, what to learn
-- **Competitive Gap Analysis** — 3 identified market gaps with specific opportunity descriptions
-- **Untapped Opportunities** — Al Qua'a-specific insights (*"12 camel farms, none offer premium packaging"*)
-- **How to Stand Out** — 6 differentiator suggestions
-- **AI Recommendation** — YES / MODIFY / CONSIDER DIFFERENT NICHE with full reasoning
-
-**Al Qua'a mock businesses:** 🐪 Al Dhafra Camel Farm · 🌙 Desert Stars Stargazing · ☕ Oasis Coffee Truck · 🏺 Bedouin Handmade Gallery · 🌿 Al Qua'a Organic Farm · 📸 Desert Photography Studio
-
-**Route:** `/market-discovery` · Accessible via "Explore My Market" button on Results
-
----
-
-### 🥇 3. 🏛️ AI Board Meeting with Chairman AI *(Most Creative)*
-
-**The barrier removed:** First-time founders make big decisions alone with no expert input.
-
-- Founder pitches any business decision or feature
-- **All 5 AI agents debate one by one** — animated sequential reveal
-- Each agent answers a specific question (strategic fit, cost, customer value, legal risk, growth)
-- **Chairman AI deliberates** after all agents vote — animated typing indicator
-- **Final verdict:** Decision · Score /100 · Risk Level · Pros · Cons · Full reasoning
-- Board meeting history saved (last 10 pitches, clickable to reload)
-- Past pitches panel with vote outcomes
-
-**Example pitch:** *"I want to add delivery to my camel milk business"*
-
-**Route:** `/board-meeting`
-
----
-
-### 🥇 4. 🎥 AI Video Explainer *(Most Educational)*
-
-**The barrier removed:** Many first-time entrepreneurs don't understand business terms like *market validation*, *risk score*, or *business licence*.
-
-- Every important section has a **"Watch Explanation 🎥"** button
-- Modal opens via `ReactDOM.createPortal` (escapes CSS stacking context — always full screen)
-- 4 slides per topic, auto-plays every 3.5 seconds
-- **Toggle Arabic 🇦🇪 / English 🇬🇧** — all text switches instantly, Arabic renders RTL
-- Play/Pause control · Clickable dot navigation · Prev/Next buttons · Escape key closes
-- Mount animation: scale + translateY + opacity
-- Body scroll locked while open
-
-**Topics covered:**
-
-| Topic | Where |
-|-------|--------|
-| What is your Business Readiness Score? | Results — Scores |
-| What is your Risk Score? | Results — Scores |
-| What is Community Fit? | Results — Scores |
-| Why is this your First Action? | Results — Today's Mission |
-| How can I apply for funding? | Opportunities page |
-| How do I register a business in the UAE? | Agent Detail (Legal) |
-
----
-
-### 🥇 5. 🤖 AI Confidence Meter + Why AI Chose This *(Most Transparent)*
-
-**The barrier removed:** Users don't trust AI they don't understand. Explainable AI builds confidence.
-
-**AI Confidence Meter:**
-- Percentage score with animated progress bar (colour-coded: green / amber / red)
-- Checklist showing exactly what passed ✓ and what's missing ✗
-- Checks: information completeness, local demand, budget realism, stage identification, customer definition, competitor data, customer validation
-
-**Why AI Chose This:**
-- 4 specific reasons generated from actual user data (budget, location, stage, customers)
-- Confidence percentage shown at the bottom
-- *"Your budget is AED 500 — we chose a low-cost first action"*
-
-**Route:** `/results`
-
----
-
-### 🥈 6. ⚡ Today's Mission Card *(Most Motivating)*
-
-Replaces the generic "first action" with a tangible, gamified mission:
-
-| Field | Example |
-|-------|---------|
-| Mission | Prepare 5 samples and ask 10 people if they would buy it |
-| Estimated Time | 45 minutes |
-| Difficulty | Easy |
-| Impact | High |
-| Reward | 🌟 Unlock Validation Stage |
-
-**Route:** `/results`
-
----
-
-### 🥈 7. 📈 Success Probability *(Most Motivating)*
-
-- Shows **Current %** and **Can reach %** side by side
-- Lists specific improvement actions with individual % boosts
-- *"Validate with 10 customers first → +8%"*
-- *"Lower startup costs below AED 1,000 → +5%"*
-
-**Route:** `/results`
-
----
-
-### 🥈 8. 🏥 Business Health Dashboard *(Most Visual)*
-
-6-category health grid with live 🟢🟡🔴 status indicators based on real session data:
-
-| Category | Status Logic |
-|----------|-------------|
-| 💡 Idea | Green if result exists |
-| 🔍 Validation | Green if has customers, Yellow if maybe |
-| 📣 Marketing | Yellow if team unlocked |
-| 💰 Finance | Green if budget ≥ AED 200 |
-| ⚖️ Legal | Grey (not yet started) |
-| 📈 Growth | Yellow if decision = continue |
-
-**Route:** `/dashboard`
-
----
-
-### 🥈 9. 🌱 Founder Journey *(Most Visual)*
-
-8-stage visual path with animated progress line:
-
-```
-🌱 Dream → 💡 Idea → 📋 Plan → 🧪 Validate → 🛒 First Sale → 📄 License → 🚀 Launch → 📈 Grow
-```
-
-- Stages unlock automatically as user progresses through the app
-- Active stage glows amber · Completed stages show ✓ in a gold ring
-- Progress fill line animates from top to bottom
-- Percentage bar at the bottom
-
-**Route:** `/dashboard`
-
----
-
-### 🥈 10. 👤 Founder Persona + Business Stage *(Most Personalised)*
-
-**Founder Role** (Step 1 of onboarding — 7 options):
-🎓 Student · 🏠 Housewife · 👴 Retired · 🌿 Farmer · 💻 Freelancer · 👔 Employee · 🔍 Unemployed
-
-**Business Stage** (Step 1 of onboarding — 6 options):
-💡 Just an idea · 🧪 Testing · 🛒 Already selling · 🤝 Has customers · 📋 Registered · 📈 Growing
-
-Every AI response adapts based on these inputs.
-
----
-
-### 🥉 11. 🧠 Multi-Step Onboarding *(3 Steps)*
-
-| Step | Fields |
-|------|--------|
-| About You | Name · Age · Location · Founder Role · Business Stage |
-| Your Idea | Idea description · Inspiration · Target customers · Product/Service/Both |
-| Your Resources | Budget (AED) · Hours/week · Experience level · Has customers · Concern |
-
-Progress indicator with animated connector line between steps.
-
----
-
-### 🥉 12. 🧠 AI Analysis Loading *(6-Step Animated)*
-
-6 sequential steps tick off one by one before results appear:
-
-> Understanding idea → Checking market → Building profile → Assessing readiness → Consulting specialists → Generating first action
-
-- Memory-leak-safe: all timeouts collected and cleared on unmount
-- `cancelRef` prevents state updates after component unmounts
-- Gold progress bar fills as steps complete
-
-**Route:** `/analysis`
-
----
-
-### 🥉 13. 📊 Full Business Analysis Dashboard *(Core Page)*
-
-- Founder Profile banner (name, role, stage, location, budget)
-- Business Summary + Community Fit explanation
-- 4 animated score rings (Readiness / Risk / Confidence / Community Fit)
-- AI Confidence Meter with checklist
-- Strengths & Weaknesses grid
-- Today's Mission card with gamification
-- Why AI Chose This with reasoning
-- Success Probability with improvement tips
-- Step-by-step numbered instructions
-- After-action text
-- Market Discovery CTA
-- Continue / Improve / Pause / Stop decision buttons (each with appropriate follow-up UI)
-
-**Route:** `/results`
-
----
-
-### 🥉 14. 💬 5 AI Agents with Individual Chat Pages
-
-**Agent selection screen** (`/agents`) — shows chat history count per agent, locked notice if team not unlocked.
-
-**Individual agent pages** (`/agents/:id`) — per agent:
-- 3 suggested questions (keyword-specific per agent)
-- **Smart keyword routing** — ask about "price" → pricing response, "name" → branding response
-- Full conversation history saved per agent (last 5)
-- Ask anything free-text input with Enter key support
-
-| Agent | Smart Keywords |
-|-------|---------------|
-| 🧠 Business Strategist | model, milestone, validate |
-| 💰 Finance Advisor | cost, price, break-even |
-| 📣 Marketing Expert | name, customers, launch |
-| ⚖️ Legal Counsel | license, food, register |
-| 🚀 Growth & Opportunities | fund, scale, events |
-
----
-
-### 🥉 15. 🛡️ Failure Prevention AI
-
-- Free-text input + 5 example chips
-- Returns: Risk Level · Possible Mistake · Why Risky · Safer Alternative · First Step
-- History panel (last 10 risk checks, clickable to reload)
-- Voice mic input support
-
-**Route:** `/failure-prevention`
-
----
-
-### 🥉 16. 💰 Opportunities Hub
-
-- 8 curated UAE opportunities filterable by category
-- Filter tabs show count badge when active
-- Each card: why it helps + recommended action
-
-**Categories:** Funding · Certification · Training · Mentorship · Event · Government
-
-**Includes:** Khalifa Fund · Rural Business Grant · ADAFSA Food Safety Certificate · Stargazing Tourism Workshop · SME Mentorship · Al Ain SME Expo · ADCCI Programme · Tamm Government Services
-
-**Route:** `/opportunities`
-
----
-
-### 🎨 17. Animated Desert + Night Sky World
-
-Live canvas drawn at 60fps behind every page:
-
-| Element | Detail |
-|---------|--------|
-| ⭐ Stars | 280 twinkling stars — white, gold, icy blue accents. Bigger stars get a cross sparkle |
-| 🌠 Shooting stars | 5 continuous shooting stars with violet gradient trails |
-| 🌙 Moon | Glowing crescent with bob animation and halo |
-| 🌅 Horizon | Pulsing orange-pink-violet aurora at the desert-sky boundary |
-| 🏜️ Dunes | 3 layered sand dune silhouettes with gentle wave animations |
-| 🐪 Camels | 2 camel silhouettes that walk across the screen and flip direction |
-| ✨ Sand | 80 sand grain particles drifting upward and fading |
-
----
-
-### 🔧 18. Session Persistence + Smart Navigation
-
-- **localStorage** — all session data persists across browser refreshes (key: `bedaya_ai_v3`)
-- **Journey stage auto-tracking** — stages unlock as user completes each step
-- **Navbar progress bar** — thin gold→green bar under the full nav shows journey progress
-- **CTA changes** — "Start My Journey" becomes "My Dashboard" once user has a result
-- **Guards** — pages redirect to `/start` if no data exists
-- **Improve flow** — only clears result, keeps form pre-filled
-- **History** — board meetings and risk checks saved (10 each), all clickable to reload
-
-
-## 📐 System Diagrams
-
----
-
-### 1. Use Case Diagram
-
-![Bedaya AI Use Case Diagram](imgs/usecase.png)
-
-This use case diagram shows the interactions between the founder, the system, and external actors. The founder performs actions such as submitting inputs, viewing recommendations, making decisions, and requesting additional services from the system. The system also exchanges information with the community and external opportunity sources to obtain feedback and available opportunities. Each use case represents a function available to an actor, while the connecting lines indicate their interactions with the system. The diagram provides a high-level view of the system's functional behavior and user interactions.
-
----
-
-### 2. 3-Tier Architecture Diagram
-
-![Bedaya AI 3-Tier Architecture Diagram](imgs/architecture.png)
-
-This diagram illustrates the flow of requests and responses across the presentation, application, and backend layers. All user interactions enter through the presentation layer, which forwards requests to the application layer for processing. The application layer communicates with the backend layer to retrieve or store data, access AI services, and apply business rules before generating a response. The processed results are returned through the presentation layer to the user. The arrows represent the movement of data between layers while maintaining a clear separation of responsibilities.
-
----
-
-### 3. Context Diagram
-
-![Bedaya AI Context Diagram](imgs/context.png)
-
-This context diagram illustrates the interactions between the system and its external entities. The founder sends business ideas, responses, feature requests, and progress updates to the system, while the system returns recommendations, first actions, risk alerts, opportunity suggestions, and next-step decisions. The system exchanges feedback requests with the community, receiving validation and customer opinions in return. It also communicates with external opportunity sources to retrieve funding, mentorship, training, and support opportunities. The arrows represent the bidirectional flow of information between the system and each external entity, while all internal processing remains within the system boundary.
-
----
-
-### 4. Deployment, Costs, Resources, Maintenance & Roadmap
-
-![Bedaya AI Deployment Costs and Roadmap](imgs/deployment.png)
-
-### Deployment Plan
-
-Bedaya AI will be deployed as a cloud-based web application, allowing users to access the platform from any modern web browser. The MVP will be hosted on **Vercel** for fast, secure, and scalable deployment, while **GitHub** will be used for version control. Future backend services and databases will be deployed on **Render** and **Firebase**. AI-powered features will be integrated using the **OpenAI API**.
-
-**Deployment Architecture:**
 ```
 User → Vercel (Frontend) → OpenAI API (AI Services) → Render (Backend/Future) → Firebase (Database/Future) → GitHub (Version Control)
 ```
 
-The platform will use HTTPS, secure authentication (future), and regular backups to ensure a safe and reliable experience for all users.
+The MVP will be hosted on Vercel for fast, secure, and scalable deployment. Future backend services will be deployed on Render and Firebase. AI-powered features will be integrated using the OpenAI API.
 
----
+**Monthly running cost (production):**
 
-### Cost Estimation
-
-#### A. Development Cost (Commercial MVP – 3 Months)
-
-| Role | Monthly Salary (AED) | Duration | Total Cost (AED) |
-|------|----------------------|----------|-----------------|
-| Project Manager | 18,000 | 3 Months | 54,000 |
-| Full-Stack Developer | 22,000 | 3 Months | 66,000 |
-| AI Engineer | 18,000 | 2 Months | 36,000 |
-| UI/UX Designer | 12,000 | 2 Months | 24,000 |
-| QA & Testing Engineer | 10,000 | 1 Month | 10,000 |
-| **TOTAL DEVELOPMENT COST** | | | **190,000 AED** |
-
-> The estimated development cost (190,000 AED) represents the commercial value of building Bedaya AI using a professional software development team in the UAE. The hackathon prototype was developed by the student team, significantly reducing the actual implementation cost while demonstrating the platform's technical feasibility and business potential.
-
-#### B. Monthly Operational Cost
-
-| Resource | Platform | Cost (AED/Month) |
-|----------|----------|-----------------|
+| Resource | Platform | AED/Month |
+|----------|----------|-----------|
 | Frontend Hosting | Vercel Pro | 75 |
 | Backend Hosting | Render | 75 |
 | Database | Firebase | 40 |
-| AI API Usage | OpenAI API | 400 – 700 |
-| Domain Name | .com Domain | 7 |
+| AI API Usage | OpenAI API | 400–700 |
+| Domain Name | .com | 7 |
 | Monitoring & Backup | Cloud Services | 50 |
-| **ESTIMATED MONTHLY COST** | | **647 – 947 AED** |
+| **Total** | | **647–947 AED** |
 
----
+At AED 650–950/month, this platform is financially viable as a free community service funded by a single small grant. The Khalifa Fund — which the platform already surfaces to users — actively funds platforms of this type.
 
-### Resources Required
+**Who runs it:** A single developer on a maintenance contract can maintain and update the platform. Monthly content updates require no technical expertise — the data file is structured to be edited without code changes.
 
-#### A. Human Resources
+**Real obstacles, stated honestly:**
 
-| Role | Responsibility |
-|------|---------------|
-| Project Manager | Oversees project planning, timelines, and coordination |
-| Full-Stack Developer | Develops the frontend, integrates APIs, and manages deployment |
-| AI Engineer | Designs AI prompts, develops the Multi-Agent AI system, and optimises AI responses |
-| UI/UX Designer | Designs user interfaces, wireframes, and ensures an intuitive experience |
-| QA & Testing Engineer | Performs functional testing, bug fixing, and quality assurance |
+- Arabic language support in AI responses requires a bilingual model or translation layer — not yet implemented beyond voice input
+- Community adoption in a rural area requires an onboarding campaign, ideally with a local partner such as the Al Ain Chamber of Commerce
+- AI response accuracy for UAE-specific legal guidance must be reviewed by a licensed professional before real deployment
 
-#### B. Technical Resources
-
-- React + Vite · Tailwind CSS · JavaScript
-- GitHub · Vercel · OpenAI API
-- Firebase (Future) · Figma · Visual Studio Code
-
----
-
-### Maintenance Plan
+**Maintenance plan:**
 
 | Activity | Frequency |
 |----------|-----------|
@@ -652,175 +191,152 @@ The platform will use HTTPS, secure authentication (future), and regular backups
 | Feature Enhancements Based on User Feedback | Quarterly |
 | System Performance & Scalability Review | Every 6 Months |
 
-Bedaya AI will follow a proactive maintenance strategy to ensure reliability, security, and continuous improvement. Weekly updates and monitoring will keep the platform secure and stable, while monthly content and AI improvements will ensure accurate and valuable guidance for users.
-
-**Estimated Maintenance Cost: 1,000 – 2,000 AED per month**
+**Estimated maintenance cost: AED 1,000–2,000/month**
 
 ---
 
-### Development Roadmap
+## 6. Scalability
+
+`Earns: Scalability`
+
+**Within Al Qua'a:** No physical infrastructure required. Any founder with a smartphone and mobile data can use it. Adding users costs nothing beyond incremental API usage.
+
+**Across the UAE:** The local data layer (`src/data/mockData.js`) is the only region-specific component. A version for Al Ain, Ras Al Khaimah, or Fujairah can be deployed in days by updating the data file and opportunity listings. No architectural change required.
+
+**Across the GCC:** The same structure works for any Arabic-speaking rural community. The core problem — first-time founders with no mentor and no clear first step — exists across rural Saudi Arabia, Oman, Jordan, and beyond.
+
+**What scales automatically:** Vercel frontend, OpenAI API per-token billing, no database bottleneck at current architecture level.
+
+**What requires investment to scale:** Bilingual AI response generation, community-specific prompt engineering, regional opportunity maintenance.
+
+**Development roadmap:**
 
 | Phase | Timeline | Key Deliverables |
 |-------|----------|-----------------|
 | Phase 1 — Research & Planning | Weeks 1–2 | Requirements, UI/UX designs, Architecture, Project plan |
 | Phase 2 — MVP Development | Weeks 3–10 | Functional MVP, Interactive frontend, Complete user journey |
-| Phase 3 — Testing & Deployment | Weeks 11–12 | Stable deployed prototype, GitHub repository, Final report, Presentation |
-| Phase 4 — Future Enhancements | Next 3–6 Months | Real AI backend, Arabic language support, Mobile application, User accounts |
-| Phase 5 — Long-Term Vision | 6+ Months | UAE & GCC expansion, Government partnerships, Premium features, Scale to thousands of founders |
+| Phase 3 — Testing & Deployment | Weeks 11–12 | Stable deployed prototype, GitHub repository, Final report |
+| Phase 4 — Future Enhancements | Next 3–6 Months | Real AI backend, Arabic language support, Mobile app, User accounts |
+| Phase 5 — Long-Term Vision | 6+ Months | UAE & GCC expansion, Government partnerships, Scale to thousands of founders |
 
-**Goal:** Become the leading AI platform for first-time entrepreneurs in the UAE and GCC.
-
-
+**Long-term path:** Partnership with UAE government initiatives (Khalifa Fund, ADCCI, Tamm) to position Bedaya AI as an official first-touchpoint for rural founders across the country.
 
 ---
 
-## 🔒 Security Design
+## 7. Evidence and Validation
 
-> This is a frontend-only hackathon prototype. The security architecture below represents the full production design we planned for Bedaya AI — showing how the platform would protect real entrepreneur data if deployed with a backend.
+`Earns: Evidence`
 
----
+### Community Interviews — 3 Business Owners in Al Ain
 
-### Why security matters for Bedaya AI
+We conducted bilingual (Arabic/English) validation interviews with 3 active business owners in Al Ain before building Bedaya AI. Their answers directly shaped every core feature.
 
-Entrepreneurs share sensitive information with Bedaya AI — business ideas, financial budgets, personal goals, and community knowledge. A platform built on trust must protect that trust at every layer.
+**Participants:**
+- Eduard — Ray Café
+- Tariq — Prego Café
+- Mahmoud — Top 10 Sweets
 
----
-
-### Planned security architecture
-
-| Zone | Component | Responsibility |
-|------|-----------|----------------|
-| 1 — Entry | HTTPS / TLS | Encrypts all traffic between user and server |
-| 2 — Identity | Firebase Authentication | Verifies JWT token, rejects invalid sessions |
-| 3 — Gateway | API Gateway | Checks user role, enforces rate limiting |
-| 4 — Middleware | Security Layer | Filters prompt injection, masks PII, validates input |
-| 5 — AI Network | AI Orchestrator | Routes to agents with minimum required data only |
-| 6 — Storage | Encrypted Database | Stores business ideas and financial data encrypted |
+📁 **Full interview recordings + survey responses:**
+**https://drive.google.com/drive/folders/13jnzCuaWVrx3RRsy5Vq30lVqk81LCZMD**
 
 ---
 
-### Security feature plan
+**Key Finding 1 — Entrepreneurs need guidance more than motivation**
 
-| Feature | Purpose | Production Priority |
-|---------|---------|---------------------|
-| Firebase Authentication | JWT login, email verification, Google Sign-In | Critical |
-| HTTPS / TLS | Encrypt all data in transit | Critical |
-| Role-Based Access Control | Entrepreneurs access only their own projects | Critical |
-| Private workspaces | Firestore rules prevent cross-user data access | Critical |
-| Input validation | Block XSS and SQL injection on all inputs | Critical |
-| Prompt injection detection | Filter malicious AI instructions before they reach the model | Critical |
-| PII masking | Detect and mask phone numbers, emails, IDs before sending to AI | High |
-| Rate limiting | Max 20 AI requests per minute per user | High |
-| Audit logging | Record all key events: login, idea created, board meeting called | High |
-| File upload validation | Accept only jpg, png, pdf under 5MB — reject executables | High |
-| AI hallucination disclaimer | Warn users to verify legal and financial AI advice | High |
-| Security Dashboard | Show entrepreneurs their live security score and status | Medium |
-| Two-factor authentication | SMS second factor via Firebase | Planned |
-| Field-level encryption | Encrypt sensitive Firestore fields at rest | Planned |
-| Malware scanning | Deep file scanning before AI processing | Planned |
+All three business owners said starting was difficult because they lacked knowledge, experience, or support — not ambition.
 
----
+- Lack of business experience
+- No services or guidance available for starting
+- Difficulty understanding changing customer needs and market trends
 
-### AI-specific security design
+**Key Finding 2 — Understanding customers is critical**
 
-Since Bedaya AI is AI-powered, standard web security is not enough. We designed protections specific to AI systems:
+Two participants said knowing who your customers are is one of the biggest challenges:
 
-| AI Threat | Planned Protection |
-|-----------|-------------------|
-| Prompt injection | Pattern detection runs on every input before reaching the model |
-| Sensitive data leakage | PII masking on all user inputs |
-| Hallucinated legal advice | Disclaimer shown below every AI response |
-| AI abuse and cost explosion | Rate limiting per user per minute |
-| Cross-agent data leakage | Each agent receives only the minimum data it needs |
+- Knowing who to target before opening
+- Understanding customer preferences
+- Adapting when market trends change
 
----
+**Key Finding 3 — Local guidance is more valuable than generic advice**
 
-### Agent isolation model
+All three preferred advice tailored to Al Qua'a over generic startup guidance:
 
-The five AI agents never communicate directly with each other. All routing goes through a central AI Orchestrator using a hub-and-spoke model. Each agent only sees the data relevant to its role:
+- Recommendations specific to Al Qua'a
+- Selling strategies differ depending on the local community
+- A solution designed specifically for Al Qua'a residents would be more useful
 
-| Agent | Can Access | Cannot Access |
-|-------|-----------|---------------|
-| Strategy | Business idea, user goals | Financial records, legal docs |
-| Finance | Budget, costs, revenue | Marketing prompts, legal records |
-| Legal | Regulations, licence rules | Financial history, private chats |
-| Marketing | Brand info, customer persona | Banking details, legal records |
-| Growth | Business category, location | Passwords, financial secrets |
+**Key Finding 4 — AI can reduce costly mistakes**
 
-This is the **principle of least privilege** applied to AI agents.
+Participants believed an AI assistant could help them:
+
+- Save money
+- Save time
+- Avoid beginner mistakes
+- Make better business decisions early
 
 ---
 
-### What we built in this prototype
+**Individual responses:**
 
-Since this is a frontend-only prototype, the current version uses mock AI responses and no real authentication. The security design above is our full production roadmap. For the hackathon demo, we focused on validating the core user experience — helping first-time entrepreneurs in Al Qua'a take their first step.
-
-In a real deployment, all features marked **Critical** above would be implemented before any user data is collected.
-
----
-
-## 🛠 Tech Stack
-
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| React | 18 | UI framework |
-| Vite | 4 | Build tool and dev server |
-| Tailwind CSS | 3 | Utility-first styling |
-| React Router DOM | 6 | Client-side routing |
-| lucide-react | 0.263 | Icon library |
-| JavaScript | ES2022 | Language |
-
-**No backend. No login. No database. No real APIs.**
-All AI responses are mock data defined in `src/data/mockData.js`.
+| Participant | Biggest challenge | Would have used Bedaya? |
+|-------------|------------------|------------------------|
+| Eduard — Ray Café | Didn't know where to start; lack of experience | Yes, if specifically made for Al Qua'a residents |
+| Tariq — Prego Café | No services available to start (خدمات مو متوفرة لبدء الشغل) | Yes — "start specifically in Al Qua'a then expand" |
+| Mahmoud — Top 10 Sweets | Understanding customers and adapting when trends change | "Would have saved me money, marketing, and time" |
 
 ---
 
-## 📁 Project Structure
+**Requirements identified from interviews:**
 
-```
-supernova/
-├── index.html
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-├── postcss.config.js
-└── src/
-    ├── main.jsx               # React entry point
-    ├── App.jsx                # Route definitions
-    ├── index.css              # Tailwind + global styles
-    │
-    ├── data/
-    │   └── mockData.js        # All AI responses, scores, opportunities, examples
-    │
-    ├── components/
-    │   ├── Navbar.jsx         # Responsive navigation with mobile menu
-    │   ├── Layout.jsx         # Shared page wrapper with Navbar
-    │   ├── SectionHeader.jsx  # Reusable section title component
-    │   ├── ScoreCard.jsx      # Animated circular score rings
-    │   ├── AgentCard.jsx      # AI agent card with Ask button
-    │   ├── OpportunityCard.jsx  # Opportunity display card
-    │   ├── RiskAlert.jsx      # Colour-coded risk breakdown
-    │   ├── DecisionButton.jsx # Continue / Improve / Pause / Stop
-    │   └── BoardOpinionCard.jsx # Per-agent opinion card for board meeting
-    │
-    └── pages/
-        ├── Landing.jsx        # Home page with all sections
-        ├── Dashboard.jsx      # Founder progress dashboard
-        ├── FirstAction.jsx    # Idea Engine form + AI result
-        ├── Agents.jsx         # AI Startup Team page
-        ├── FailurePrevention.jsx  # Risk analysis tool
-        ├── BoardMeeting.jsx   # Animated board debate
-        └── Opportunities.jsx  # Filterable opportunity cards
-```
+| Community Need | Requirement |
+|---------------|-------------|
+| Entrepreneurs don't know where to begin | One clear first action instead of a full business plan |
+| Lack of business experience | Step-by-step guidance in simple language |
+| Difficulty identifying customers | Help entrepreneurs identify and validate their first target customers |
+| Fear of wasting money | Low-cost validation before major investments |
+| Limited local guidance | Recommendations tailored to Al Qua'a and rural communities |
+| Need for trustworthy advice | Explain why each recommendation is made, not just what to do |
 
 ---
 
-## ⚡ Getting Started
+### Market & Statistical Evidence
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) v18 or higher (includes npm)
+- SMEs account for **98% of businesses in Abu Dhabi**, employ **46% of the workforce**, and contribute **42.8% of non-oil GDP**
+- New economic licences in Al Ain increased by **29% in 2025**
+- MZN Hub71 Al Ain received **370+ applications**, **75%+ first-time entrepreneurs**
+- Al Ain accounts for **nearly half of Abu Dhabi's agricultural activity**
+- UAE National Entrepreneurship Agenda targets **top 3 in Global Entrepreneurship Index by 2031**
 
-### Installation
+These statistics confirm the scale of the opportunity. Our interviews confirm the gap that Bedaya AI fills: ambition exists, infrastructure is growing, but the first step remains the hardest part.
+
+---
+
+### Failure Prevention Logic — Documented Patterns
+
+| Risk Pattern | Basis |
+|-------------|-------|
+| Spending on branding before demand validation | Lean startup methodology; UAE SME failure data |
+| Registering before testing | ADDED registration costs AED 1,000–3,000 — genuine financial risk before validation |
+| Hiring before revenue | Fixed cost trap documented across SME research globally |
+
+---
+
+### Repository Transparency
+
+All AI logic is readable in `src/data/mockData.js`. All security logic is in `src/security/ideaVault.js` and `src/security/alAmanah.js`. Authentication logic is in `src/auth/AuthContext.jsx`. No hidden dependencies, no obfuscated logic. A judge can verify every claim without contacting the team.
+
+---
+
+## 8. How to Run or Verify It, and Tools Used
+
+`Earns: Documentation, Readiness`
+
+🔗 **Live Demo:** https://khadejaahmedkz.github.io/Supernova-Tatweer-Hackathon/
+📁 **Evidence (interviews, surveys, screenshots):** https://drive.google.com/drive/folders/13jnzCuaWVrx3RRsy5Vq30lVqk81LCZMD
+
+### Run locally
+
+**Prerequisites:** Node.js v18 or higher
 
 ```bash
 # 1. Clone the repository
@@ -838,58 +354,453 @@ npm run dev
 
 Open **http://localhost:5173** in your browser.
 
-### Build for Production
-
 ```bash
+# Build for production
 npm run build
 npm run preview
 ```
 
----
+### Full demo walkthrough
 
-## 🎬 Live Demo Flow
+| Step | Route | Action | What you see |
+|------|-------|--------|-------------|
+| 1 | `/` | Open the app | Animated desert sky, walking camels, shooting stars |
+| 2 | `/signup` | Click Sign In → Create one | Account form (SHA-256 hashed) |
+| 3 | `/welcome` | Click Start My Journey | Welcome screen with 3 step preview |
+| 4 | `/start` | Role: Housewife · Stage: Just an idea | Step 1 of 3 |
+| 5 | `/start` | Idea: *"I make homemade camel milk chocolate in Al Qua'a"* | Voice mic available |
+| 6 | `/start` | Budget: AED 500 · Hours: 10/week · No customers yet | Step 3 of 3 |
+| 7 | `/analysis` | Submit | 6-step AI analysis animation |
+| 8 | `/results` | Review output | Scores · Mission · Why AI Chose This · Success Probability · 🔐 Founder's Seal |
+| 9 | `/market-discovery` | Click Explore My Market | Market Discovery with local Al Qua'a businesses |
+| 10 | `/results` | Click Continue | Dashboard unlocks |
+| 11 | `/dashboard` | Review | Business Health grid · Founder Journey stages |
+| 12 | `/agents/finance` | Ask: *"What should I price my chocolate at?"* | 🤝 Al-Amanah Receipt · AED pricing · 🟡 AI Disclaimer |
+| 13 | `/failure-prevention` | Enter: *"I want to spend AED 5,000 on branding"* | High Risk classification |
+| 14 | `/board-meeting` | Pitch: *"I want to expand to Abu Dhabi"* | 5 agents debate · Chairman verdict |
+| 15 | `/opportunities` | Browse | Khalifa Fund · ADAFSA · Al Ain SME Expo |
 
-| Step | Route | Action |
-|------|-------|--------|
-| 1 | `/` | Open Landing Page — animated desert sky, walking camels, shooting stars |
-| 2 | `/welcome` | Click **Start Your First Step** → Welcome screen |
-| 3 | `/start` | Select role: **Housewife** · Stage: **Just an idea** |
-| 4 | `/start` | Enter idea: *"I make homemade camel milk chocolate in Al Qua'a"* |
-| 5 | `/start` | Budget: **AED 500** · Hours: **10/week** · No customers yet |
-| 6 | `/analysis` | Watch 6-step AI analysis loading sequence |
-| 7 | `/results` | View: Founder Profile · AI Confidence Meter · Today's Mission · Why AI Chose This · Success Probability |
-| 8 | `/market-discovery` | Click **Explore My Market** → see nearby businesses and gaps |
-| 9 | `/results` | Click **Continue** → go to Dashboard |
-| 10 | `/dashboard` | View: Business Health 🟢🟡🔴 · Founder Journey · Quick Actions |
-| 11 | `/agents` | Select **Finance Advisor** → ask: *"What should I price my chocolate at?"* |
-| 12 | `/failure-prevention` | Enter: *"I want to spend AED 5000 on branding"* → High Risk warning |
-| 13 | `/board-meeting` | Pitch: *"I want to expand to Abu Dhabi"* → Chairman AI gives final verdict |
-| 14 | `/opportunities` | Browse Khalifa Fund, Food Safety Certificate, Al Ain SME Expo |
+### Verify the security features
 
----
+**🔐 Idea Vault — Founder's Seal:**
+1. Complete onboarding with any idea
+2. Open `/results` — scroll to the gold Founder's Seal card near the bottom
+3. SHA-256 hash + UAE timestamp visible — generated by the browser's Web Crypto API
+4. Screenshot acts as cryptographic proof of idea ownership at that moment
 
-## 🗺️ All Routes
+**🤝 Al-Amanah — الأمانة (Data Minimization Receipt):**
+1. Open any Agent page e.g. `/agents/finance`
+2. The Al-Amanah Receipt shows exactly which fields are shared (✓ green chips) and which are withheld (✗ struck-through grey chips)
+3. The reason for the data minimization is shown in plain language
+4. Definition is editable in `src/security/alAmanah.js`
+
+**⚠️ AI Disclaimer — Hallucination Prevention:**
+1. Ask any agent a question
+2. Below the response: confidence badge (🟢 high or 🟡 verify before acting)
+3. Reminder to verify legal and financial decisions with official UAE sources
+
+**🔐 Authentication (SHA-256):**
+1. Open DevTools → Application → Local Storage
+2. Find `bedaya_users` — password is a SHA-256 hash, never plaintext
+3. `bedaya_current_user` stores name + email only
+
+### All routes
 
 | Route | Page |
 |-------|------|
 | `/` | Landing Page |
 | `/welcome` | Welcome Screen |
+| `/login` | Sign In |
+| `/signup` | Create Account |
 | `/start` | Multi-Step Onboarding (3 steps) |
 | `/analysis` | AI Analysis Loading |
-| `/results` | Business Analysis Results |
+| `/results` | Business Analysis Results + Founder's Seal |
 | `/dashboard` | Business Dashboard |
 | `/agents` | AI Team Selection |
-| `/agents/:id` | Individual Agent Chat |
-| `/market-discovery` | Market Discovery AI ⭐ New |
+| `/agents/:id` | Individual Agent Chat + Al-Amanah + AI Disclaimer |
+| `/market-discovery` | Market Discovery AI |
 | `/failure-prevention` | Failure Prevention AI |
 | `/board-meeting` | AI Board Meeting |
 | `/opportunities` | Opportunities Hub |
+
+### Tools used
+
+| Tool | Version | Purpose |
+|------|---------|---------|
+| React | 18 | UI framework |
+| Vite | 4 | Build tool and dev server |
+| Tailwind CSS | 3 | Utility-first styling |
+| React Router DOM | 6 | Client-side routing |
+| lucide-react | 0.263 | Icon library |
+| Web Speech API | Browser-native | Voice input in Arabic and English |
+| Web Crypto API | Browser-native | SHA-256 hashing for Founder's Seal + auth |
+| JavaScript | ES2022 | Language |
+
+**No backend. No database. No paid APIs.**
+All AI responses are mock data in `src/data/mockData.js`. Security logic is in `src/security/`. Auth logic is in `src/auth/`.
+
+---
+
+## 🔒 Security Design
+
+Bedaya AI asks founders to share their business ideas, budgets, and personal goals. That is sensitive information. We built three security features named after concepts from the culture this platform serves.
+
+---
+
+### 🔐 Founder's Seal — Idea Vault
+
+> *"The fear that someone will steal my idea" was the #1 unspoken concern in our interviews. We addressed it with real cryptography.*
+
+When the founder reaches the Results page, Bedaya AI:
+
+1. Hashes their idea text + ISO timestamp using **SHA-256** via the browser's Web Crypto API
+2. Displays the hash in a screenshot-able receipt
+3. The hash + timestamp prove the idea existed at that exact moment
+
+A founder can screenshot the seal and use it as evidence of prior conception if a dispute ever arises. No third-party service, no blockchain, no fees — just real cryptography that exists in every modern browser.
+
+**Implementation:** `src/security/ideaVault.js`
+
+---
+
+### 🤝 Al-Amanah — الأمانة (The Sacred Trust)
+
+> *In Emirati culture, amanah means something entrusted to you must be protected and returned honestly. A founder's business idea is an amanah. We show them exactly how we honour it.*
+
+Al-Amanah enforces data minimization across all five AI agents and makes it visible to the founder in real time. Each agent has a defined permission set — the exact fields it may receive and the fields that are withheld:
+
+| Agent | Permitted | Withheld |
+|-------|-----------|---------|
+| Strategy | idea, idea type, location, experience | name, age, budget, occupation |
+| Finance | budget, idea type, location | name, age, occupation, customers |
+| Marketing | idea, location, customers, idea type | name, age, budget, occupation |
+| Legal | idea type, location | name, age, budget, occupation, customers |
+| Growth | idea, location, budget, experience | name, age, occupation |
+
+The **Al-Amanah Receipt** is displayed at the top of every agent detail page — not buried in a privacy policy, visible in the UI:
+
+- ✓ Green chips for permitted fields
+- ✗ Struck-through grey chips for withheld fields
+- Plain-language reason for the data minimization
+
+**Implementation:** `src/security/alAmanah.js` + `src/components/AmanahReceipt.jsx`
+
+---
+
+### ⚠️ AI Disclaimer — Hallucination Prevention
+
+Every AI response includes a confidence badge and a reminder to verify legal and financial advice with official UAE sources. The confidence level is per-agent and reflects the actual reliability of AI on that topic:
+
+| Agent | Confidence | Why |
+|-------|-----------|-----|
+| Strategy | 🟢 High | General principles broadly reliable |
+| Marketing | 🟢 High | Suggestions to test, not commit to |
+| Finance | 🟡 Verify | Estimates only — verify local costs |
+| Legal | 🟡 Verify | Educational only — verify with UAE authorities |
+| Growth | 🟡 Verify | Programmes change — verify with Khalifa Fund |
+
+**Implementation:** `src/components/AIDisclaimer.jsx`
+
+---
+
+### 🔐 Authentication
+
+- Passwords hashed with **SHA-256** via Web Crypto API before storage
+- Accounts stored only in browser localStorage — no server, no third-party
+- Show/hide password toggle, validation, error states
+- After login, smart redirect: Dashboard if user has saved progress, Welcome if starting fresh
+
+**Implementation:** `src/auth/AuthContext.jsx`
+
+---
+
+### Planned for production (As-Sarab Mirage + Differential Privacy)
+
+For the production build, we have designed a fourth security layer called **As-Sarab** (السراب — *the desert mirage*) — a behavioural honeypot that silently redirects attackers to a decoy environment instead of blocking them. The architecture, threat signal list, and mirage data structure are fully documented and ready to implement when the backend lands. For the hackathon MVP we focused on shipping what we could prove works.
+
+---
+
+## 🌟 All Features — Best First
+
+---
+
+### 🥇 1. 🎤 Voice-First AI *(Most Accessible)*
+
+**The barrier removed:** Many users in Al Qua'a are more comfortable speaking Arabic than typing. Older adults and people with limited digital literacy find text forms difficult.
+
+- Toggle between 🇦🇪 **Arabic** and 🇬🇧 **English** with one tap
+- Tap the mic → speak naturally → live transcript appears in real time
+- On completion, text is automatically inserted into the form field
+- Visual feedback: pulse animation, bouncing dots, live transcript box
+- Arabic transcript displays right-to-left
+
+**Example:** *"عندي فكرة أبيع حليب الإبل"* → Bedaya AI starts analysis immediately.
+
+**Where it appears:** Onboarding (idea field, customers, concern, name) · Failure Prevention · Board Meeting · Market Discovery · Agent Detail
+
+**Tech:** Browser-native Web Speech API — zero backend, zero API key.
+
+---
+
+### 🥇 2. 🗺️ Market Discovery AI *(Most Unique)*
+
+**The barrier removed:** People don't know if anyone else is already doing their idea, or what market gaps exist in their area.
+
+- Search by idea, category (9 types), location, radius (5/10/25 km)
+- 5-step animated analysis loading sequence
+- **Market Overview** — business count, avg rating, competition level badge
+- **Opportunity Scores** — Demand / Competition / Innovation / Location / Overall
+- **Nearby Businesses** — expandable cards with real Al Qua'a examples
+- **Competitive Gap Analysis** — 3 identified market gaps
+- **Untapped Opportunities** — Al Qua'a-specific insights
+- **How to Stand Out** — 6 differentiator suggestions
+- **AI Recommendation** — YES / MODIFY / CONSIDER DIFFERENT NICHE
+
+**Al Qua'a mock businesses:** 🐪 Al Dhafra Camel Farm · 🌙 Desert Stars Stargazing · ☕ Oasis Coffee Truck · 🏺 Bedouin Handmade Gallery · 🌿 Al Qua'a Organic Farm · 📸 Desert Photography Studio
+
+**Route:** `/market-discovery`
+
+---
+
+### 🥇 3. 🏛️ AI Board Meeting with Chairman AI *(Most Creative)*
+
+**The barrier removed:** First-time founders make big decisions alone with no expert input.
+
+- Founder pitches any business decision or feature
+- **All 5 AI agents debate one by one** — animated sequential reveal
+- Each agent answers a specific question (strategic fit, cost, customer value, legal risk, growth)
+- **Chairman AI deliberates** after all agents vote — animated typing indicator
+- **Final verdict:** Decision · Score /100 · Risk Level · Pros · Cons · Full reasoning
+- Board meeting history saved (last 10 pitches, clickable to reload)
+
+**Route:** `/board-meeting`
+
+---
+
+### 🥇 4. 🎥 AI Video Explainer *(Most Educational)*
+
+- Every important section has a **"Watch Explanation 🎥"** button
+- Modal opens via `ReactDOM.createPortal` — always full screen
+- 4 slides per topic, auto-plays every 3.5 seconds
+- **Toggle Arabic 🇦🇪 / English 🇬🇧** — all text switches instantly, Arabic renders RTL
+- Play/Pause · Dot navigation · Prev/Next · Escape key closes
+
+**Topics covered:** Business Readiness Score · Risk Score · Community Fit · First Action · Funding · Business Registration
+
+---
+
+### 🥇 5. 🤖 AI Confidence Meter + Why AI Chose This *(Most Transparent)*
+
+**AI Confidence Meter:**
+- Percentage score with animated progress bar (colour-coded: green / amber / red)
+- Checklist showing exactly what passed ✓ and what's missing ✗
+
+**Why AI Chose This:**
+- 4 specific reasons generated from actual user data
+- *"Your budget is AED 500 — we chose a low-cost first action"*
+
+**Route:** `/results`
+
+---
+
+### 🥈 6. ⚡ Today's Mission Card *(Most Motivating)*
+
+| Field | Example |
+|-------|---------|
+| Mission | Prepare 5 samples and ask 10 people if they would buy it |
+| Estimated Time | 45 minutes |
+| Difficulty | Easy |
+| Impact | High |
+| Reward | 🌟 Unlock Validation Stage |
+
+---
+
+### 🥈 7. 📈 Success Probability *(Most Motivating)*
+
+- Shows **Current %** and **Can reach %** side by side
+- Lists specific improvement actions with individual % boosts
+- *"Validate with 10 customers first → +8%"*
+
+---
+
+### 🥈 8. 🏥 Business Health Dashboard *(Most Visual)*
+
+| Category | Status Logic |
+|----------|-------------|
+| 💡 Idea | Green if result exists |
+| 🔍 Validation | Green if has customers, Yellow if maybe |
+| 📣 Marketing | Yellow if team unlocked |
+| 💰 Finance | Green if budget ≥ AED 200 |
+| ⚖️ Legal | Grey (not yet started) |
+| 📈 Growth | Yellow if decision = continue |
+
+---
+
+### 🥈 9. 🌱 Founder Journey *(Most Visual)*
+
+```
+🌱 Dream → 💡 Idea → 📋 Plan → 🧪 Validate → 🛒 First Sale → 📄 License → 🚀 Launch → 📈 Grow
+```
+
+Stages unlock automatically as the user progresses. Active stage glows amber. Completed stages show ✓ in a gold ring.
+
+---
+
+### 🥈 10. 👤 Founder Persona + Business Stage *(Most Personalised)*
+
+**Founder Role:** 🎓 Student · 🏠 Housewife · 👴 Retired · 🌿 Farmer · 💻 Freelancer · 👔 Employee · 🔍 Unemployed
+
+**Business Stage:** 💡 Just an idea · 🧪 Testing · 🛒 Already selling · 🤝 Has customers · 📋 Registered · 📈 Growing
+
+Every AI response adapts based on these inputs.
+
+---
+
+### 🥉 11–18. Supporting Features
+
+| # | Feature | Route | What it does |
+|---|---------|-------|-------------|
+| 11 | Multi-Step Onboarding | `/start` | 3 steps: About You · Idea · Resources |
+| 12 | AI Analysis Loading | `/analysis` | 6-step animated sequence, memory-leak-safe |
+| 13 | Full Business Analysis | `/results` | Scores · Strengths/Weaknesses · Founder's Seal · Decisions |
+| 14 | 5 AI Agents with Chat | `/agents/:id` | Smart keyword routing, history per agent, Al-Amanah receipt, AI disclaimer |
+| 15 | Failure Prevention AI | `/failure-prevention` | Risk classification with safer alternative |
+| 16 | Opportunities Hub | `/opportunities` | 8 UAE programmes, filterable by category |
+| 17 | Animated Desert World | All pages | 280 stars, shooting stars, moon, walking camels, dunes |
+| 18 | Login / Signup + Session Persistence | All pages | SHA-256 hashed accounts, localStorage, stage tracking, smart guards |
+
+---
+
+## 📐 System Diagrams
+
+### 1. Use Case Diagram
+![Use Case Diagram](imgs/usecase.png)
+
+The founder performs actions such as submitting inputs, viewing recommendations, making decisions, and requesting services. The system exchanges information with the community and external opportunity sources.
+
+### 2. 3-Tier Architecture Diagram
+![Architecture Diagram](imgs/architecture.png)
+
+All user interactions enter through the presentation layer, forwarded to the application layer for processing, which communicates with the backend layer for data and AI services.
+
+### 3. Context Diagram
+![Context Diagram](imgs/context.png)
+
+The founder sends business ideas, responses, and progress updates. The system returns recommendations, first actions, risk alerts, and opportunity suggestions. The community provides validation feedback.
+
+### 4. Deployment, Costs & Roadmap
+![Deployment Diagram](imgs/deployment.png)
+
+---
+
+## 📋 Planning & Business
+
+### Development Cost (Commercial MVP — 3 Months)
+
+| Role | Monthly (AED) | Duration | Total (AED) |
+|------|--------------|----------|-------------|
+| Project Manager | 18,000 | 3 months | 54,000 |
+| Full-Stack Developer | 22,000 | 3 months | 66,000 |
+| AI Engineer | 18,000 | 2 months | 36,000 |
+| UI/UX Designer | 12,000 | 2 months | 24,000 |
+| QA & Testing Engineer | 10,000 | 1 month | 10,000 |
+| **Total** | | | **190,000 AED** |
+
+> The hackathon prototype was developed by the student team, significantly reducing actual implementation cost while demonstrating the platform's technical feasibility.
+
+### Resources Required
+
+| Role | Responsibility |
+|------|---------------|
+| Project Manager | Planning, timelines, coordination |
+| Full-Stack Developer | Frontend, API integration, deployment |
+| AI Engineer | Prompt design, multi-agent system, AI optimisation |
+| UI/UX Designer | Interfaces, wireframes, user experience |
+| QA & Testing Engineer | Functional testing, bug fixing, quality assurance |
+
+**Technical:** React + Vite · Tailwind CSS · JavaScript · GitHub · Vercel · OpenAI API · Firebase (future) · Figma · VS Code
+
+---
+
+## 🛠 Tech Stack
+
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| React | 18 | UI framework |
+| Vite | 4 | Build tool and dev server |
+| Tailwind CSS | 3 | Utility-first styling |
+| React Router DOM | 6 | Client-side routing |
+| lucide-react | 0.263 | Icon library |
+| Web Speech API | Browser-native | Voice input |
+| Web Crypto API | Browser-native | SHA-256 hashing |
+| JavaScript | ES2022 | Language |
+
+**No backend. No database. No paid APIs.**
+
+---
+
+## 📁 Project Structure
+
+```
+bedaya-ai/
+├── index.html
+├── package.json
+├── vite.config.js
+├── tailwind.config.js
+├── postcss.config.js
+└── src/
+    ├── main.jsx
+    ├── App.jsx
+    ├── index.css
+    ├── auth/
+    │   └── AuthContext.jsx          # SHA-256 hashed accounts
+    ├── security/
+    │   ├── ideaVault.js             # Founder's Seal (SHA-256 + timestamp)
+    │   └── alAmanah.js              # Per-agent data permissions
+    ├── context/
+    │   └── AppContext.jsx           # Session state + localStorage
+    ├── data/
+    │   └── mockData.js              # All AI responses + opportunities
+    ├── components/
+    │   ├── Navbar.jsx
+    │   ├── Layout.jsx
+    │   ├── AmanahReceipt.jsx        # 🤝 Data minimization UI
+    │   ├── AIDisclaimer.jsx         # ⚠️ Hallucination warning
+    │   ├── SectionHeader.jsx
+    │   ├── ScoreCard.jsx
+    │   ├── AgentCard.jsx
+    │   ├── OpportunityCard.jsx
+    │   ├── RiskAlert.jsx
+    │   ├── DecisionButton.jsx
+    │   ├── BoardOpinionCard.jsx
+    │   ├── VoiceMic.jsx             # 🎤 Arabic/English voice input
+    │   ├── VideoExplainer.jsx       # 🎥 Bilingual explainer modal
+    │   ├── ProgressTimeline.jsx     # 🌱 Founder Journey
+    │   ├── StarField.jsx
+    │   └── WorldBackground.jsx      # Animated desert + night sky
+    └── pages/
+        ├── Landing.jsx
+        ├── Welcome.jsx
+        ├── Login.jsx
+        ├── Signup.jsx
+        ├── Onboarding.jsx
+        ├── AnalysisLoading.jsx
+        ├── Results.jsx              # Includes 🔐 Founder's Seal
+        ├── Dashboard.jsx
+        ├── Agents.jsx
+        ├── AgentDetail.jsx          # Includes Al-Amanah + AI Disclaimer
+        ├── FailurePrevention.jsx
+        ├── BoardMeeting.jsx
+        ├── Opportunities.jsx
+        └── MarketDiscovery.jsx
+```
 
 ---
 
 ## 👩‍💻 Team
 
-Built for the **Tatweer Hackathon** — Challenge 1: Taking the First Entrepreneurial Step.
+Built for **Tatweer Hackathon 2026** — Challenge 1: Taking the First Entrepreneurial Step.
+Community: Al Qua'a, Al Ain, UAE.
 
 | Name | GitHub | Role |
 |------|--------|------|
@@ -897,15 +808,13 @@ Built for the **Tatweer Hackathon** — Challenge 1: Taking the First Entreprene
 | Bitanya Hasabework Woldemariam | [@bitanyawoldemariam](https://github.com/bitanyawoldemariam) | Collaborator |
 | Latefa Mohamed Almazrouei | [@Latefa-Almazroei](https://github.com/Latefa-Almazroei) | Collaborator |
 | Rama Sa'ud Abdallah | [@RamaAbdallah7](https://github.com/RamaAbdallah7) | Collaborator |
-| Amtul Baseer | [@AmtulBaseer](https://github.com/AmtulBaseer) | Collaborator |
-
-**Community:** Al Qua'a, Al Ain, UAE
+| Amtul Baseer | [@AmtulBaseer](https://github.com/AmtulBaseer) | Cybersecurity — Idea Vault & Al-Amanah |
 
 ---
 
 ## 📝 License
 
-This project was built as a hackathon prototype for demonstration purposes.
+Built as a hackathon prototype for Tatweer Hackathon 2026, Al Qua'a, Al Ain, UAE.
 
 ---
 
