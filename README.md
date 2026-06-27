@@ -11,6 +11,19 @@
 
 ## 📌 Table of Contents
 
+**🌟 Features (Best First)**
+- [Voice-First AI 🎤](#-1--voice-first-ai-most-accessible)
+- [Market Discovery AI 🗺️](#-2-️-market-discovery-ai-most-unique)
+- [AI Board Meeting with Chairman 🏛️](#-3-️-ai-board-meeting-with-chairman-ai-most-creative)
+- [AI Video Explainer 🎥](#-4--ai-video-explainer-most-educational)
+- [AI Confidence Meter 🤖](#-5--ai-confidence-meter--why-ai-chose-this-most-transparent)
+- [Today's Mission Card ⚡](#-6--todays-mission-card-most-motivating)
+- [Success Probability 📈](#-7--success-probability-most-motivating)
+- [Business Health Dashboard 🏥](#-8--business-health-dashboard-most-visual)
+- [Founder Journey 🌱](#-9--founder-journey-most-visual)
+- [Founder Persona + Business Stage 👤](#-10--founder-persona--business-stage-most-personalised)
+- [All 18 Features →](#-all-features--best-first)
+
 **Theory & Background**
 - [About the Project](#about-the-project)
 - [The Problem](#the-problem)
@@ -21,13 +34,6 @@
 - [UX Principles](#ux-principles)
 - [Local Context – Al Qua'a](#local-context--al-quaa-al-ain-uae)
 - [AI Agents](#ai-agents)
-- [Features & Pages](#features--pages)
-- [Market Discovery AI](#11-️-market-discovery-ai----market-discovery)
-
-**⭐ 3 Memorable Features**
-- [Voice-First AI](#-voice-first-ai)
-- [AI Video Explainer](#-ai-video-explainer)
-- [Market Discovery AI](#️-market-discovery-ai----market-discovery)
 
 **System Diagrams**
 - [System Diagrams](#-system-diagrams)
@@ -234,245 +240,301 @@ Identifies funding programmes, startup events, training certifications, mentorsh
 
 ---
 
-## 📄 Features & Pages
+## 🌟 All Features — Best First
 
-### 1. 🏠 Landing Page — `/`
-- Animated desert + night sky world background (live canvas: 280 stars, shooting stars, dunes, walking camels)
-- Hero section with floating 🌙 moon, 🐪 camel, ✨ sparkles
-- Problem · Solution · Features · Al Qua'a community section
-- Stargazing strip celebrating Al Qua'a's dark skies
-- Our Promise section · Final CTA
+> Bedaya AI is a full-stack AI co-founder platform built for first-time entrepreneurs in Al Qua'a, Al Ain, UAE. Below is every feature ranked from most impressive to supporting infrastructure.
 
 ---
 
-### 2. 👋 Welcome Screen — `/welcome`
-- Introduction to Bedaya AI
-- 3-step visual overview of the journey
-- Start Journey → Learn More buttons
+### 🥇 1. 🎤 Voice-First AI *(Most Accessible)*
+
+**The barrier removed:** Many users in Al Qua'a are more comfortable speaking Arabic than typing. Older adults and people with limited digital literacy find text forms difficult.
+
+- Toggle between 🇦🇪 **Arabic** and 🇬🇧 **English** with one tap
+- Tap the mic → speak naturally → live transcript appears in real time
+- On completion, text is automatically inserted into the form field
+- Visual feedback: pulse animation, bouncing dots, live transcript box
+- Arabic transcript displays right-to-left
+- Smart error messages: `not-allowed` vs `no-speech` vs generic
+
+**Example:** *"عندي فكرة أبيع حليب الإبل"* → Bedaya AI starts analysis immediately.
+
+**Where it appears:** Onboarding (idea field) · Failure Prevention · Board Meeting
+
+**Tech:** Browser-native Web Speech API — zero backend, zero API key.
 
 ---
 
-### 3. 📋 Multi-Step Onboarding — `/start`
-3-step guided form replacing a single long form.
+### 🥇 2. 🗺️ Market Discovery AI *(Most Unique)*
 
-**Step 1 — About You:**
-- Name · Age · Location
-- **Founder Role** (7 types: Student, Housewife, Retired, Farmer, Freelancer, Employee, Unemployed)
-- **Business Stage** (6 options: Just an idea → Testing → Selling → Has customers → Registered → Growing)
+**The barrier removed:** People don't know if anyone else is already doing their idea, or what market gaps exist in their area.
 
-**Step 2 — Business Idea:**
-- Idea description · Inspiration · Target customers
-- Type selector: Product / Service / Both
+- Search by idea, category (9 types), location, radius (5/10/25 km)
+- 5-step animated analysis loading sequence
+- **Market Overview** — business count, avg rating, competition level badge
+- **Opportunity Scores** — Demand / Competition / Innovation / Location / Overall with animated bars
+- **Nearby Businesses** — expandable cards with real Al Qua'a examples: strengths ✓, weaknesses ✗, what to learn
+- **Competitive Gap Analysis** — 3 identified market gaps with specific opportunity descriptions
+- **Untapped Opportunities** — Al Qua'a-specific insights (*"12 camel farms, none offer premium packaging"*)
+- **How to Stand Out** — 6 differentiator suggestions
+- **AI Recommendation** — YES / MODIFY / CONSIDER DIFFERENT NICHE with full reasoning
 
-**Step 3 — Resources:**
-- Budget (AED) · Hours per week
-- Experience level (Beginner / Some / Experienced)
-- Has customers already (No / Maybe / Yes)
-- Biggest concern
+**Al Qua'a mock businesses:** 🐪 Al Dhafra Camel Farm · 🌙 Desert Stars Stargazing · ☕ Oasis Coffee Truck · 🏺 Bedouin Handmade Gallery · 🌿 Al Qua'a Organic Farm · 📸 Desert Photography Studio
 
----
-
-### 4. 🧠 AI Analysis Loading — `/analysis`
-Animated 6-step loading sequence before results appear:
-Understanding idea → Checking market → Building profile → Assessing readiness → Consulting specialists → Generating first action
+**Route:** `/market-discovery` · Accessible via "Explore My Market" button on Results
 
 ---
 
-### 5. ⚡ Business Analysis Results — `/results`
-Full AI analysis dashboard — the most important page.
+### 🥇 3. 🏛️ AI Board Meeting with Chairman AI *(Most Creative)*
 
-**Founder Profile Banner** — name, role, stage, location, budget, experience
+**The barrier removed:** First-time founders make big decisions alone with no expert input.
 
-**AI Summary** — Business summary + Community Fit explanation
+- Founder pitches any business decision or feature
+- **All 5 AI agents debate one by one** — animated sequential reveal
+- Each agent answers a specific question (strategic fit, cost, customer value, legal risk, growth)
+- **Chairman AI deliberates** after all agents vote — animated typing indicator
+- **Final verdict:** Decision · Score /100 · Risk Level · Pros · Cons · Full reasoning
+- Board meeting history saved (last 10 pitches, clickable to reload)
+- Past pitches panel with vote outcomes
 
-**4 Startup Scores** — Readiness · Risk · Confidence · Community Fit (animated rings)
+**Example pitch:** *"I want to add delivery to my camel milk business"*
 
-**🤖 AI Confidence Meter** — percentage with checklist of what passed ✓ and what's missing ✗
-
-**Strengths & Weaknesses** — AI-generated based on actual user data
-
-**⚡ Today's Mission Card** — Mission · Estimated Time · Difficulty · Impact · Reward to unlock
-
-**🤔 Why AI Chose This** — 4 specific reasons based on budget, location, stage, and customers
-
-**📈 Success Probability** — Current % → Can reach % with specific improvement actions
-
-**Step-by-step instructions** — numbered list
-
-**Decision buttons** — Continue / Improve / Pause / Stop
-
-**🗺️ Explore My Market** — CTA linking to Market Discovery AI
+**Route:** `/board-meeting`
 
 ---
 
-### 6. 📊 Business Dashboard — `/dashboard`
-Founder's personal command centre — shows real data from their session.
+### 🥇 4. 🎥 AI Video Explainer *(Most Educational)*
 
-- **Welcome banner** with name, idea, and status badge
-- **4 Startup Scores** with animated rings
-- **Business Health Grid** — 6 categories with 🟢🟡🔴 status (Idea, Validation, Marketing, Finance, Legal, Growth)
-- **Current Mission** — first action with quick link to full results
-- **Recent AI Advice** — last board meeting and risk check history
-- **Recommended Opportunity** — matched to their business category
-- **Founder Journey** — visual 8-stage path (🌱 Dream → 💡 Idea → 📋 Plan → 🧪 Validate → 🛒 First Sale → 📄 License → 🚀 Launch → 📈 Grow) with progress bar
-- **Quick Actions** — one-click access to all 5 tools
+**The barrier removed:** Many first-time entrepreneurs don't understand business terms like *market validation*, *risk score*, or *business licence*.
 
----
-
-### 7. 👥 AI Startup Team — `/agents`
-Agent selection screen with chat history count per agent.
-
-**5 specialist advisors:**
-
-| Agent | Role | Smart Keyword Routing |
-|-------|------|----------------------|
-| 🧠 Business Strategist | Startup Mentor | model, milestone, validate |
-| 💰 Finance Advisor | Financial Advisor | cost, price, break-even |
-| 📣 Marketing Expert | Marketing Specialist | name, customers, launch |
-| ⚖️ Legal Counsel | Compliance Educator | license, food, register |
-| 🚀 Growth & Opportunities | Opportunity Advisor | fund, scale, events |
-
-### 8. 💬 Agent Detail Pages — `/agents/:id`
-Individual agent conversation pages with:
-- Suggested questions (3 per agent)
-- Keyword-smart response routing
-- Full chat history saved per agent
-- Ask anything input
-
----
-
-### 9. 🛡️ Failure Prevention AI — `/failure-prevention`
-- Decision input with example chips
-- Risk Level · Possible Mistake · Why It Is Risky · Safer Alternative · Recommended First Step
-- History panel showing last 10 risk checks
-
----
-
-### 10. 🏛️ AI Board Meeting — `/board-meeting`
-- Pitch any decision → 5 agents debate one by one (animated reveal)
-- **Chairman AI** deliberates after all agents vote
-- Final verdict: Decision · Score / 100 · Risk Level · Pros · Cons
-- Board meeting history saved (last 10 pitches)
-
----
-
-### 11. 🗺️ Market Discovery AI — `/market-discovery`
-**Brand new feature** — helps founders understand their competitive landscape before investing.
-
-**Search inputs:** Business idea · Category (9 types) · Location · Radius (5/10/25 km)
-
-**5-step animated analysis loading sequence**
-
-**Results dashboard:**
-
-| Section | Content |
-|---------|---------|
-| Market Overview | Business count, avg rating, competition level |
-| Opportunity Scores | Demand / Competition / Innovation / Location / Overall (animated bars) |
-| Nearby Businesses | Expandable cards: rating, distance, years, price range, strengths ✓, weaknesses ✗, what to learn |
-| Competitive Gap Analysis | 3 identified market gaps with specific opportunities |
-| Untapped Opportunities | Al Qua'a-specific insights ("12 camel farms, none offer premium packaging") |
-| How to Stand Out | 6 differentiator suggestions |
-| AI Recommendation | **YES / MODIFY / CONSIDER DIFFERENT NICHE** with full reasoning |
-
-**Al Qua'a mock businesses:** Camel Farm · Desert Stars Stargazing · Oasis Coffee Truck · Bedouin Handmade Gallery · Al Qua'a Organic Farm · Desert Photography Studio
-
----
-
-### 12. 💰 Opportunities Hub — `/opportunities`
-Filterable by: Funding · Certification · Training · Mentorship · Event · Government
-
-Includes: Khalifa Fund · Rural Business Grant · Food Safety Certificate (ADAFSA) · Stargazing Tourism Workshop · SME Mentorship · Al Ain SME Expo · ADCCI Business Starter Programme · Tamm Government Services
-
-**"How can I apply for funding?"** Watch Explanation button → bilingual video explainer
-
----
-
-## ⭐ 3 Memorable Features
-
-These three features were built specifically to remove the real barriers that first-time founders in Al Qua'a face. They transform Bedaya AI from a generic tool into something built for this community.
-
-| Feature | Barrier Removed | Where Used |
-|---------|----------------|------------|
-| 🎤 Voice-First AI | Language and typing barriers | Onboarding · Risk Check · Board Meeting |
-| 🎥 AI Video Explainer | Lack of business knowledge | Results · Opportunities |
-| 🗺️ Market Discovery AI | Lack of local market awareness | After first action results |
-
----
-
-### 🎤 Voice-First AI
-
-**Problem:** Many users in Al Qua'a are more comfortable speaking Arabic than typing. Older adults and those with limited digital literacy find text forms difficult.
-
-**How it works:**
-1. Tap the 🎤 microphone button
-2. Choose language: 🇦🇪 Arabic or 🇬🇧 English
-3. Speak naturally — Bedaya AI shows a live transcript
-4. Text is automatically inserted into the form field
-
-**Example:**
-> 🎤 *"عندي فكرة أبيع حليب الإبل"* → Bedaya AI starts your business analysis immediately.
-
-**Technical implementation:** Uses the browser's built-in Web Speech API (`window.SpeechRecognition`) — no backend or API key required.
-
-**Available on:** Onboarding idea field · Failure Prevention input · Board Meeting pitch
-
----
-
-### 🎥 AI Video Explainer
-
-**Problem:** Many first-time entrepreneurs don't understand business terms like *market validation*, *risk score*, or *business licence*. This creates confusion and loss of confidence.
-
-**How it works:**
 - Every important section has a **"Watch Explanation 🎥"** button
-- Clicking opens a 4-slide animated explainer (30–60 second equivalent)
-- Each slide has both **Arabic and English** text with a language toggle
-- Auto-plays with pause/play control and dot navigation
+- Modal opens via `ReactDOM.createPortal` (escapes CSS stacking context — always full screen)
+- 4 slides per topic, auto-plays every 3.5 seconds
+- **Toggle Arabic 🇦🇪 / English 🇬🇧** — all text switches instantly, Arabic renders RTL
+- Play/Pause control · Clickable dot navigation · Prev/Next buttons · Escape key closes
+- Mount animation: scale + translateY + opacity
+- Body scroll locked while open
 
 **Topics covered:**
 
-| Button Location | Topic |
-|----------------|-------|
-| Results — Readiness Score | What is your Business Readiness Score? |
-| Results — Risk Score | What is your Risk Score? |
-| Results — Community Fit | What is Community Fit? |
-| Results — Today's Mission | Why is this your First Action? |
-| Opportunities page | How can I apply for funding? |
-| (via agent) | How do I register a business in the UAE? |
+| Topic | Where |
+|-------|--------|
+| What is your Business Readiness Score? | Results — Scores |
+| What is your Risk Score? | Results — Scores |
+| What is Community Fit? | Results — Scores |
+| Why is this your First Action? | Results — Today's Mission |
+| How can I apply for funding? | Opportunities page |
+| How do I register a business in the UAE? | Agent Detail (Legal) |
 
 ---
 
-### 🗺️ Market Discovery AI — `/market-discovery`
+### 🥇 5. 🤖 AI Confidence Meter + Why AI Chose This *(Most Transparent)*
 
-**Problem:** People often don't know if anyone else is already doing their idea nearby, or what opportunities exist in their specific community.
+**The barrier removed:** Users don't trust AI they don't understand. Explainable AI builds confidence.
 
-**How it works:**
-1. User clicks **"Explore My Market"** on the Results page
-2. Enters: idea · category · location · search radius (5/10/25 km)
-3. 5-step animated analysis runs
-4. Full competitive dashboard appears
+**AI Confidence Meter:**
+- Percentage score with animated progress bar (colour-coded: green / amber / red)
+- Checklist showing exactly what passed ✓ and what's missing ✗
+- Checks: information completeness, local demand, budget realism, stage identification, customer definition, competitor data, customer validation
 
-**Results dashboard:**
+**Why AI Chose This:**
+- 4 specific reasons generated from actual user data (budget, location, stage, customers)
+- Confidence percentage shown at the bottom
+- *"Your budget is AED 500 — we chose a low-cost first action"*
 
-| Section | What It Shows |
-|---------|--------------|
-| 📊 Market Overview | Business count, avg rating, competition level |
-| 📈 Opportunity Scores | Demand / Competition / Innovation / Location / Overall |
-| 📍 Nearby Businesses | Expandable cards: strengths ✓, weaknesses ✗, what to learn |
-| ⚡ Competitive Gaps | 3 specific market gaps with opportunity descriptions |
-| 🌟 Untapped Opportunities | Al Qua'a-specific insights |
-| 💜 How to Stand Out | 6 differentiator suggestions |
-| 🤖 AI Recommendation | YES / MODIFY / CONSIDER DIFFERENT NICHE with reasoning |
-
-**Al Qua'a mock businesses included:**
-- 🐪 Al Dhafra Camel Farm
-- 🌙 Desert Stars Stargazing
-- ☕ Oasis Coffee Truck
-- 🏺 Bedouin Handmade Gallery
-- 🌿 Al Qua'a Organic Farm
-- 📸 Desert Photography Studio
+**Route:** `/results`
 
 ---
+
+### 🥈 6. ⚡ Today's Mission Card *(Most Motivating)*
+
+Replaces the generic "first action" with a tangible, gamified mission:
+
+| Field | Example |
+|-------|---------|
+| Mission | Prepare 5 samples and ask 10 people if they would buy it |
+| Estimated Time | 45 minutes |
+| Difficulty | Easy |
+| Impact | High |
+| Reward | 🌟 Unlock Validation Stage |
+
+**Route:** `/results`
+
+---
+
+### 🥈 7. 📈 Success Probability *(Most Motivating)*
+
+- Shows **Current %** and **Can reach %** side by side
+- Lists specific improvement actions with individual % boosts
+- *"Validate with 10 customers first → +8%"*
+- *"Lower startup costs below AED 1,000 → +5%"*
+
+**Route:** `/results`
+
+---
+
+### 🥈 8. 🏥 Business Health Dashboard *(Most Visual)*
+
+6-category health grid with live 🟢🟡🔴 status indicators based on real session data:
+
+| Category | Status Logic |
+|----------|-------------|
+| 💡 Idea | Green if result exists |
+| 🔍 Validation | Green if has customers, Yellow if maybe |
+| 📣 Marketing | Yellow if team unlocked |
+| 💰 Finance | Green if budget ≥ AED 200 |
+| ⚖️ Legal | Grey (not yet started) |
+| 📈 Growth | Yellow if decision = continue |
+
+**Route:** `/dashboard`
+
+---
+
+### 🥈 9. 🌱 Founder Journey *(Most Visual)*
+
+8-stage visual path with animated progress line:
+
+```
+🌱 Dream → 💡 Idea → 📋 Plan → 🧪 Validate → 🛒 First Sale → 📄 License → 🚀 Launch → 📈 Grow
+```
+
+- Stages unlock automatically as user progresses through the app
+- Active stage glows amber · Completed stages show ✓ in a gold ring
+- Progress fill line animates from top to bottom
+- Percentage bar at the bottom
+
+**Route:** `/dashboard`
+
+---
+
+### 🥈 10. 👤 Founder Persona + Business Stage *(Most Personalised)*
+
+**Founder Role** (Step 1 of onboarding — 7 options):
+🎓 Student · 🏠 Housewife · 👴 Retired · 🌿 Farmer · 💻 Freelancer · 👔 Employee · 🔍 Unemployed
+
+**Business Stage** (Step 1 of onboarding — 6 options):
+💡 Just an idea · 🧪 Testing · 🛒 Already selling · 🤝 Has customers · 📋 Registered · 📈 Growing
+
+Every AI response adapts based on these inputs.
+
+---
+
+### 🥉 11. 🧠 Multi-Step Onboarding *(3 Steps)*
+
+| Step | Fields |
+|------|--------|
+| About You | Name · Age · Location · Founder Role · Business Stage |
+| Your Idea | Idea description · Inspiration · Target customers · Product/Service/Both |
+| Your Resources | Budget (AED) · Hours/week · Experience level · Has customers · Concern |
+
+Progress indicator with animated connector line between steps.
+
+---
+
+### 🥉 12. 🧠 AI Analysis Loading *(6-Step Animated)*
+
+6 sequential steps tick off one by one before results appear:
+
+> Understanding idea → Checking market → Building profile → Assessing readiness → Consulting specialists → Generating first action
+
+- Memory-leak-safe: all timeouts collected and cleared on unmount
+- `cancelRef` prevents state updates after component unmounts
+- Gold progress bar fills as steps complete
+
+**Route:** `/analysis`
+
+---
+
+### 🥉 13. 📊 Full Business Analysis Dashboard *(Core Page)*
+
+- Founder Profile banner (name, role, stage, location, budget)
+- Business Summary + Community Fit explanation
+- 4 animated score rings (Readiness / Risk / Confidence / Community Fit)
+- AI Confidence Meter with checklist
+- Strengths & Weaknesses grid
+- Today's Mission card with gamification
+- Why AI Chose This with reasoning
+- Success Probability with improvement tips
+- Step-by-step numbered instructions
+- After-action text
+- Market Discovery CTA
+- Continue / Improve / Pause / Stop decision buttons (each with appropriate follow-up UI)
+
+**Route:** `/results`
+
+---
+
+### 🥉 14. 💬 5 AI Agents with Individual Chat Pages
+
+**Agent selection screen** (`/agents`) — shows chat history count per agent, locked notice if team not unlocked.
+
+**Individual agent pages** (`/agents/:id`) — per agent:
+- 3 suggested questions (keyword-specific per agent)
+- **Smart keyword routing** — ask about "price" → pricing response, "name" → branding response
+- Full conversation history saved per agent (last 5)
+- Ask anything free-text input with Enter key support
+
+| Agent | Smart Keywords |
+|-------|---------------|
+| 🧠 Business Strategist | model, milestone, validate |
+| 💰 Finance Advisor | cost, price, break-even |
+| 📣 Marketing Expert | name, customers, launch |
+| ⚖️ Legal Counsel | license, food, register |
+| 🚀 Growth & Opportunities | fund, scale, events |
+
+---
+
+### 🥉 15. 🛡️ Failure Prevention AI
+
+- Free-text input + 5 example chips
+- Returns: Risk Level · Possible Mistake · Why Risky · Safer Alternative · First Step
+- History panel (last 10 risk checks, clickable to reload)
+- Voice mic input support
+
+**Route:** `/failure-prevention`
+
+---
+
+### 🥉 16. 💰 Opportunities Hub
+
+- 8 curated UAE opportunities filterable by category
+- Filter tabs show count badge when active
+- Each card: why it helps + recommended action
+
+**Categories:** Funding · Certification · Training · Mentorship · Event · Government
+
+**Includes:** Khalifa Fund · Rural Business Grant · ADAFSA Food Safety Certificate · Stargazing Tourism Workshop · SME Mentorship · Al Ain SME Expo · ADCCI Programme · Tamm Government Services
+
+**Route:** `/opportunities`
+
+---
+
+### 🎨 17. Animated Desert + Night Sky World
+
+Live canvas drawn at 60fps behind every page:
+
+| Element | Detail |
+|---------|--------|
+| ⭐ Stars | 280 twinkling stars — white, gold, icy blue accents. Bigger stars get a cross sparkle |
+| 🌠 Shooting stars | 5 continuous shooting stars with violet gradient trails |
+| 🌙 Moon | Glowing crescent with bob animation and halo |
+| 🌅 Horizon | Pulsing orange-pink-violet aurora at the desert-sky boundary |
+| 🏜️ Dunes | 3 layered sand dune silhouettes with gentle wave animations |
+| 🐪 Camels | 2 camel silhouettes that walk across the screen and flip direction |
+| ✨ Sand | 80 sand grain particles drifting upward and fading |
+
+---
+
+### 🔧 18. Session Persistence + Smart Navigation
+
+- **localStorage** — all session data persists across browser refreshes (key: `bedaya_ai_v3`)
+- **Journey stage auto-tracking** — stages unlock as user completes each step
+- **Navbar progress bar** — thin gold→green bar under the full nav shows journey progress
+- **CTA changes** — "Start My Journey" becomes "My Dashboard" once user has a result
+- **Guards** — pages redirect to `/start` if no data exists
+- **Improve flow** — only clears result, keeps form pre-filled
+- **History** — board meetings and risk checks saved (10 each), all clickable to reload
+
 
 ## 📐 System Diagrams
 
