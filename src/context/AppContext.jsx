@@ -1,124 +1,213 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 
 const AppContext = createContext(null)
-const KEY = 'bedaya_ai_v2'
+const STORAGE_KEY = 'bedaya_ai_v3'
 
-export const STAGES = [
-  { id: 'idea',         label: 'Idea Submitted',         emoji: '💡' },
-  { id: 'analysis',     label: 'Analysis Completed',      emoji: '🧠' },
-  { id: 'first-action', label: 'First Action Generated',  emoji: '⚡' },
-  { id: 'validation',   label: 'Market Validation',       emoji: '🔍' },
-  { id: 'registration', label: 'Business Registration',   emoji: '📋' },
-  { id: 'launch',       label: 'Business Launch',         emoji: '🚀' },
-  { id: 'growth',       label: 'Growth',                  emoji: '📈' },
+// Journey stages — matches ProgressTimeline
+export const JOURNEY_STAGES = [
+  { id: 'dream',      label: 'Dream',       emoji: '🌱' },
+  { id: 'idea',       label: 'Idea',        emoji: '💡' },
+  { id: 'plan',       label: 'Plan',        emoji: '📋' },
+  { id: 'validate',   label: 'Validate',    emoji: '🧪' },
+  { id: 'first-sale', label: 'First Sale',  emoji: '🛒' },
+  { id: 'license',    label: 'License',     emoji: '📄' },
+  { id: 'launch',     label: 'Launch',      emoji: '🚀' },
+  { id: 'grow',       label: 'Grow',        emoji: '📈' },
 ]
 
 const defaults = {
-  // Step 1 — About you
-  about: null,          // { name, age, location, occupation }
-  // Step 2 — Business idea
-  idea: null,           // { idea, inspiration, customers, type }
-  // Step 3 — Resources
-  resources: null,      // { budget, time, experience, hasCustomers, concern }
-  // Results
-  result: null,
-  decision: null,       // continue | improve | pause | stop
-  teamUnlocked: false,
-  // Progress
-  completedStages: [],
-  // History
-  boardHistory: [],
-  riskHistory: [],
-  agentHistory: {},     // { agentId: [{ question, response }] }
+  about:            null,   // { name, age, location, role, stage }
+  idea:             null,   // { idea, inspiration, customers, type }
+  resources:        null,   // { budget, time, experience, hasCustomers, concern }
+  result:           null,
+  decision:         null,   // continue | improve | pause | stop
+  teamUnlocked:     false,
+  completedStages:  [],     // array of JOURNEY_STAGES ids
+  boardHistory:     [],
+  riskHistory:      [],
+  agentHistory:     {},
+  notifications:    [],
 }
 
 export function AppProvider({ children }) {
   const [session, setSession] = useState(() => {
-    try { return { ...defaults, ...JSON.parse(localStorage.getItem(KEY) || '{}') } }
-    catch { return defaults }
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}')
+      return { ...defaults, ...saved }
+    } catch {
+      return defaults
+    }
   })
 
+  // Persist every change to localStorage
   useEffect(() => {
-    try { localStorage.setItem(KEY, JSON.stringify(session)) } catch {}
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(session)) } catch {}
   }, [session])
 
   const patch = (updates) => setSession(s => ({ ...s, ...updates }))
 
-  const saveAbout     = (about)     => { patch({ about }); markStage() }
-  const saveIdea      = (idea)      => patch({ idea })
-  const saveResources = (resources) => patch({ resources })
-
-  const saveResult = (result) => {
-    patch({ result, completedStages: addStage(session.completedStages, 'idea', 'analysis', 'first-action') })
+  // ── Onboarding saves ───────────────────────────────────────────────────
+  const saveAbout = (about) => {
+    patch({
+      about,
+      completedStages: unique([...session.completedStages, 'dream']),
+    })
   }
 
+  const saveIdea = (idea) => {
+    patch({
+      idea,
+      completedStages: unique([...session.completedStages, 'dream', 'idea']),
+    })
+  }
+
+  const saveResources = (resources) => {
+    patch({
+      resources,
+      completedStages: unique([...session.completedStages, 'dream', 'idea', 'plan']),
+    })
+  }
+
+  // ── Analysis result ────────────────────────────────────────────────────
+  const saveResult = (result) => {
+    patch({
+      result,
+      decision: null,
+      completedStages: unique([...session.completedStages, 'dream', 'idea', 'plan', 'validate']),
+    })
+  }
+
+  // ── Decision (Continue / Improve / Pause / Stop) ───────────────────────
   const saveDecision = (decision) => {
+    const newStages = decision === 'continue'
+      ? unique([...session.completedStages, 'first-sale'])
+      : session.completedStages
+
     patch({
       decision,
       teamUnlocked: session.teamUnlocked || decision === 'continue',
+      completedStages: newStages,
     })
   }
 
-  const markStage = (stageId) => {
-    if (!stageId) return
-    patch({ completedStages: addStage(session.completedStages, stageId) })
+  // ── Improve: clear result only, keep form data ────────────────────────
+  const improveIdea = () => {
+    patch({ result: null, decision: null })
   }
 
+  // ── Manual stage unlock (for future use) ─────────────────────────────
+  const unlockStage = (stageId) => {
+    patch({ completedStages: unique([...session.completedStages, stageId]) })
+  }
+
+  // ── Board meetings ─────────────────────────────────────────────────────
   const saveBoardPitch = (pitch, opinions, final) => {
     patch({
-      boardHistory: [{ pitch, opinions, final, date: new Date().toISOString() }, ...session.boardHistory].slice(0, 10),
+      boardHistory: [
+        { pitch, opinions, final, date: new Date().toISOString() },
+        ...session.boardHistory,
+      ].slice(0, 10),
     })
   }
 
+  // ── Risk checks ────────────────────────────────────────────────────────
   const saveRiskCheck = (decision, analysis) => {
     patch({
-      riskHistory: [{ decision, analysis, date: new Date().toISOString() }, ...session.riskHistory].slice(0, 10),
+      riskHistory: [
+        { decision, analysis, date: new Date().toISOString() },
+        ...session.riskHistory,
+      ].slice(0, 10),
     })
   }
 
+  // ── Agent conversations ────────────────────────────────────────────────
   const saveAgentChat = (agentId, question, response) => {
     const prev = session.agentHistory[agentId] || []
     patch({
       agentHistory: {
         ...session.agentHistory,
-        [agentId]: [{ question, response, date: new Date().toISOString() }, ...prev].slice(0, 5),
+        [agentId]: [
+          { question, response, date: new Date().toISOString() },
+          ...prev,
+        ].slice(0, 5),
       },
     })
   }
 
-  const resetSession = () => {
-    setSession(defaults)
-    localStorage.removeItem(KEY)
+  // ── Add a notification ─────────────────────────────────────────────────
+  const addNotification = (text, type = 'info') => {
+    const id = Date.now()
+    patch({
+      notifications: [
+        { id, text, type, date: new Date().toISOString(), read: false },
+        ...session.notifications,
+      ].slice(0, 20),
+    })
   }
 
-  const hasStarted = !!(session.about || session.idea || session.result)
-  const fullForm = {
-    idea: session.idea?.idea || '',
-    location: session.about?.location || '',
-    budget: session.resources?.budget || '',
-    time: session.resources?.time || '',
-    customers: session.idea?.customers || '',
-    concern: session.resources?.concern || '',
+  const markNotificationRead = (id) => {
+    patch({
+      notifications: session.notifications.map(n => n.id === id ? { ...n, read: true } : n),
+    })
   }
+
+  // ── Full reset ─────────────────────────────────────────────────────────
+  const resetSession = () => {
+    setSession(defaults)
+    try { localStorage.removeItem(STORAGE_KEY) } catch {}
+  }
+
+  // ── Computed helpers ───────────────────────────────────────────────────
+  const hasStarted = !!(session.about || session.idea || session.result)
+  const hasResult  = !!session.result
+  const isUnlocked = session.teamUnlocked
+
+  // Flat form object for getFirstActionResult()
+  const fullForm = {
+    idea:      session.idea?.idea      || '',
+    location:  session.about?.location || "Al Qua'a, Al Ain",
+    budget:    session.resources?.budget || '',
+    time:      session.resources?.time   || '',
+    customers: session.idea?.customers   || '',
+    concern:   session.resources?.concern || '',
+  }
+
+  const unreadCount = session.notifications.filter(n => !n.read).length
 
   return (
     <AppContext.Provider value={{
-      session, patch,
-      saveAbout, saveIdea, saveResources, saveResult, saveDecision,
-      markStage, saveBoardPitch, saveRiskCheck, saveAgentChat,
-      resetSession, hasStarted, fullForm,
+      session,
+      patch,
+      saveAbout,
+      saveIdea,
+      saveResources,
+      saveResult,
+      saveDecision,
+      improveIdea,
+      unlockStage,
+      saveBoardPitch,
+      saveRiskCheck,
+      saveAgentChat,
+      addNotification,
+      markNotificationRead,
+      resetSession,
+      hasStarted,
+      hasResult,
+      isUnlocked,
+      fullForm,
+      unreadCount,
     }}>
       {children}
     </AppContext.Provider>
   )
 }
 
-function addStage(current = [], ...ids) {
-  return [...new Set([...current, ...ids])]
+function unique(arr) {
+  return [...new Set(arr)]
 }
 
 export const useApp = () => {
   const ctx = useContext(AppContext)
-  if (!ctx) throw new Error('useApp must be inside AppProvider')
+  if (!ctx) throw new Error('useApp must be used inside AppProvider')
   return ctx
 }
