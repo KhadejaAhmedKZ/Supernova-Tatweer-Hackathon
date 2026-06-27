@@ -4,6 +4,8 @@ import { ArrowLeft, Send, RotateCcw, MessageSquare, CheckCircle, BookOpen } from
 import { agents, getAgentResponse } from '../data/mockData'
 import { useApp } from '../context/AppContext'
 import VoiceMic from '../components/VoiceMic'
+import AmanahReceipt from '../components/AmanahReceipt'
+import AIDisclaimer from '../components/AIDisclaimer'
 
 export default function AgentDetail() {
   const { agentId } = useParams()
@@ -122,6 +124,7 @@ export default function AgentDetail() {
             <p style={{ color:agent.color, fontSize:12, fontWeight:700, textTransform:'uppercase', letterSpacing:'0.08em' }}>{agent.name} responds</p>
           </div>
           <p style={{ color:'#e2e8f0', fontSize:14, lineHeight:1.8, whiteSpace:'pre-wrap' }}>{response}</p>
+          <AIDisclaimer agentId={agentId} />
           <div style={{ marginTop:16, display:'flex', gap:10 }}>
             <button onClick={() => ask(question || history[0]?.question)} className="btn-secondary" style={{ fontSize:13, padding:'9px 18px' }}>
               <RotateCcw size={13} /> Ask Again
@@ -150,6 +153,9 @@ export default function AgentDetail() {
           </div>
         </div>
       )}
+
+      {/* Al-Amanah: data minimization receipt */}
+      <AmanahReceipt agentId={agentId} />
 
       {/* Ask input */}
       <div className="glass" style={{ padding:20 }}>

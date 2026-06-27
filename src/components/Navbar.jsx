@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
-import { Rocket, LayoutDashboard, Zap, Users, Shield, Presentation, TrendingUp, Map, Menu, X } from 'lucide-react'
+import { Rocket, LayoutDashboard, Zap, Users, Shield, Presentation, TrendingUp, Map, Menu, X, LogIn, LogOut, UserPlus } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { JOURNEY_STAGES } from '../context/AppContext'
+import { useAuth } from '../auth/AuthContext'
 
 const navItems = [
   { to:'/dashboard',          label:'Dashboard',    icon:LayoutDashboard },
@@ -20,6 +21,7 @@ export default function Navbar() {
   const navigate  = useNavigate()
   const location  = useLocation()
   const { session, hasStarted } = useApp()
+  const { currentUser, isLoggedIn, logout } = useAuth()
 
   const journeyProgress = session.completedStages?.length || 0
   const journeyTotal    = JOURNEY_STAGES.length
@@ -78,8 +80,24 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* CTA — changes based on state */}
-        <div className="hidden-mobile">
+        {/* Auth + CTA */}
+        <div className="hidden-mobile" style={{ display:'flex', alignItems:'center', gap:8 }}>
+          {isLoggedIn ? (
+            <>
+              <span style={{ color:'#fde68a', fontSize:12, fontWeight:600, padding:'4px 10px', borderRadius:8, background:'rgba(245,158,11,0.1)', border:'1px solid rgba(245,158,11,0.2)' }}>
+                👤 {currentUser.name}
+              </span>
+              <button onClick={() => { logout(); navigate('/') }}
+                style={{ display:'inline-flex', alignItems:'center', gap:5, padding:'7px 13px', borderRadius:10, border:'1px solid rgba(255,255,255,0.1)', background:'rgba(255,255,255,0.04)', color:'rgba(253,230,138,0.7)', fontSize:12, fontWeight:600, cursor:'pointer' }}>
+                <LogOut size={12} /> Logout
+              </button>
+            </>
+          ) : (
+            <NavLink to="/login"
+              style={{ display:'inline-flex', alignItems:'center', gap:5, padding:'7px 13px', borderRadius:10, border:'1px solid rgba(255,255,255,0.1)', background:'rgba(255,255,255,0.04)', color:'rgba(253,230,138,0.7)', fontSize:12, fontWeight:600, textDecoration:'none' }}>
+              <LogIn size={12} /> Login
+            </NavLink>
+          )}
           {session.result ? (
             <NavLink to="/dashboard" className="btn-primary" style={{ fontSize:12, padding:'8px 16px', textDecoration:'none' }}>
               <LayoutDashboard size={13} /> My Dashboard

@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { sealIdea } from '../security/ideaVault'
 import {
   ArrowRight, RotateCcw, Users, CheckCircle,
   Brain, MapPin, Zap, Star, Map,
@@ -20,6 +21,14 @@ export default function Results() {
 
   const [picked, setPicked] = useState(decision || null)
   const [decisionMsg, setDecisionMsg] = useState(decision ? variants[decision]?.message : null)
+  const [seal, setSeal] = useState(null)
+
+  // ── Idea Vault: cryptographically seal the founder's idea ──
+  useEffect(() => {
+    if (result && idea?.idea && !seal) {
+      sealIdea(idea.idea).then(setSeal).catch(() => {})
+    }
+  }, [result, idea?.idea])
 
   // Guard: no result yet
   if (!result) {
@@ -302,6 +311,29 @@ export default function Results() {
           <Map size={14} /> Explore My Market <ArrowRight size={13} />
         </button>
       </div>
+
+      {/* ── Founder's Seal — Idea Vault ───────────────── */}
+      {seal && (
+        <div style={{ padding:22, borderRadius:18, marginBottom:16, background:'linear-gradient(135deg,rgba(245,158,11,0.1),rgba(6,2,24,0.92))', border:'1px solid rgba(245,158,11,0.3)', textAlign:'center' }} className="animate-fade-up">
+          <p style={{ color:'#fbbf24', fontSize:12, fontWeight:800, textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:6 }}>
+            🔐 Founder's Seal — Idea Vault
+          </p>
+          <p style={{ color:'rgba(253,230,138,0.5)', fontSize:12, marginBottom:14 }}>
+            Your idea has been cryptographically timestamped. This proves it existed at this moment.
+          </p>
+          <div style={{ background:'rgba(0,0,0,0.45)', borderRadius:12, padding:'14px 16px', fontFamily:'monospace', fontSize:11, color:'rgba(253,230,138,0.75)', lineHeight:1.85, border:'1px solid rgba(245,158,11,0.15)' }}>
+            <p style={{ margin:0 }}>━━━━━━━━━━━━━━━━━━━━━━━━</p>
+            <p style={{ margin:0, color:'#fbbf24', fontWeight:700 }}>BEDAYA AI — FOUNDER'S SEAL</p>
+            <p style={{ margin:0 }}>Registered: {new Date(seal.timestamp).toLocaleString('en-AE', { timeZone:'Asia/Dubai' })}</p>
+            <p style={{ margin:0 }}>Idea: {seal.ideaPreview}</p>
+            <p style={{ margin:0 }}>Hash: {seal.hash}</p>
+            <p style={{ margin:0 }}>━━━━━━━━━━━━━━━━━━━━━━━━</p>
+          </div>
+          <p style={{ color:'rgba(255,255,255,0.3)', fontSize:11, marginTop:10 }}>
+            💡 Screenshot this to keep a record of your idea.
+          </p>
+        </div>
+      )}
 
       {/* ── Decision Buttons ─────────────────────────── */}
       <p className="score-label" style={{ marginBottom:14 }}>What do you want to do next?</p>
